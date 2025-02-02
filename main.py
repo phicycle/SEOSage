@@ -23,30 +23,52 @@ def setup_logging():
 
 def load_env_variables():
     """Load environment variables"""
-    load_dotenv()
+    # Get the current directory
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    env_path = os.path.join(current_dir, '.env')
     
-    required_vars = ['MOZ_ACCESS_ID', 'MOZ_SECRET_KEY', 'OPENAI_API_KEY']
+    # Check if .env file exists
+    if os.path.exists(env_path):
+        logging.debug(f".env file found at {env_path}")
+        load_dotenv(env_path)
+    else:
+        logging.warning(f".env file not found at {env_path}")
+    
+    # Add debug logging
+    token = os.getenv('MOZ_API_TOKEN')
+    logging.debug(f"MOZ_API_TOKEN loaded: {bool(token)}")
+    if token:
+        logging.debug(f"Token length: {len(token)}")
+    else:
+        logging.warning("MOZ_API_TOKEN is None or empty")
+    
+    required_vars = ['MOZ_API_TOKEN', 'OPENAI_API_KEY']
     missing_vars = [var for var in required_vars if not os.getenv(var)]
     
     if missing_vars:
         raise ValueError(f"Missing required environment variables: {', '.join(missing_vars)}")
         
-    return os.getenv('MOZ_ACCESS_ID'), os.getenv('MOZ_SECRET_KEY')
+    return token
 
-async def run_seo_agent(url: str, mode: str = "analyze", articles: int = 2) -> None:
-    """
-    Run the SEO agent with specified parameters.
-    """
+async def run_seo_agent(url: str, mode: str, num_articles: int = 2) -> None:
+    """Run the SEO agent with specified parameters."""
     logger = setup_logging()
     logger.info(f"Starting SEO Agent for {url}")
     
     try:
-        # Load credentials
-        access_id, secret_key = load_env_variables()
+        # Load token first
+        token = load_env_variables()
+        logger.debug(f"Token loaded in run_seo_agent: {bool(token)}")
         
-        # Initialize agent
+        # Create config dictionary for SEOAgent
+        config = {
+            'moz_token': token  # Use the token directly instead of calling os.getenv again
+        }
+        logger.debug(f"Config created with token: {bool(config.get('moz_token'))}")
+        
+        # Initialize agent with config
         logger.info("Initializing SEO Agent...")
-        agent = SEOAgent(access_id, secret_key)
+        agent = SEOAgent(config)
         
         if mode == "analyze":
             logger.info("Starting website analysis...")
@@ -55,7 +77,7 @@ async def run_seo_agent(url: str, mode: str = "analyze", articles: int = 2) -> N
             print(json.dumps(results, indent=2))
         elif mode == "generate":
             logger.info("Starting content generation...")
-            results = await agent.generate_content_batch(url, articles)
+            results = await agent.generate_content_batch(url, num_articles)
             print("\n📝 Generated Content:")
             print(json.dumps(results, indent=2))
             

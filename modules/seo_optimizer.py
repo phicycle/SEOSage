@@ -11,41 +11,43 @@ class SEOOptimizer:
         logger: Logger instance for tracking issues
     """
     
-    def __init__(self) -> None:
-        """Initialize SEO optimizer with rules and logger."""
-        self.rules = self.load_seo_rules()
+    def __init__(self, config: Dict[str, Any] = None) -> None:
+        """Initialize SEO optimizer with optional configuration."""
+        self.config = config or {}  # Make config optional with default empty dict
         self.logger = logging.getLogger(__name__)
+        self.rules = self.config.get('seo_rules', {})
         
-    def load_seo_rules(self) -> Dict[str, Dict[str, Any]]:
-        """Load SEO optimization rules and thresholds."""
-        return {
-            'title': {
-                'length': (50, 60),
-                'keyword_inclusion': True
+        # Update intent rules based on new keyword data structure
+        self.intent_rules = {
+            'informational': {
+                'min_word_count': 1500,
+                'required_sections': ['What is', 'How to', 'FAQ'],
+                'internal_links': 3,
+                'keyword_density': (0.01, 0.02)  # 1-2%
             },
-            'headers': {
-                'structure': '# > ## > ###',
-                'keyword_inclusion': True,
-                'min_length': 20,
-                'max_length': 70
+            'commercial': {
+                'min_word_count': 2000,
+                'required_sections': ['Comparison', 'Pros and Cons', 'Verdict'],
+                'internal_links': 4,
+                'keyword_density': (0.005, 0.015)  # 0.5-1.5%
             },
-            'content': {
-                'keyword_density': (1.0, 3.0),
-                'min_word_count': 300,
-                'readability_score': 60,
+            'transactional': {
+                'min_word_count': 1000,
+                'required_sections': ['Features', 'Pricing', 'Where to Buy'],
                 'internal_links': 2,
-                'external_links': 1
+                'keyword_density': (0.01, 0.025)  # 1-2.5%
             },
-            'images': {
-                'alt_text': True,
-                'optimized': True,
-                'min_count': 1
+            'navigational': {  # Added for new intent type
+                'min_word_count': 800,
+                'required_sections': ['Overview', 'Contact', 'Location'],
+                'internal_links': 2,
+                'keyword_density': (0.01, 0.02)  # 1-2%
             }
         }
         
     def apply_rules(self, content: str, keyword_data: Dict[str, Any]) -> List[str]:
         """
-        Apply SEO rules to content based on keyword data and intent.
+        Apply SEO rules to content based on keyword data and metrics.
         
         Args:
             content: Content to analyze
@@ -56,7 +58,7 @@ class SEOOptimizer:
         """
         try:
             keyword = keyword_data['keyword']
-            intent = keyword_data.get('intent', 'informational')
+            rank = keyword_data.get('rank', 0)
             issues = []
             
             # Apply base SEO rules
@@ -65,8 +67,9 @@ class SEOOptimizer:
             issues.extend(self._check_content_rules(content, keyword))
             issues.extend(self._check_image_rules(content))
             
-            # Apply intent-specific rules
-            issues.extend(self._check_intent_rules(content, keyword_data))
+            # Add ranking-specific recommendations
+            if 4 <= rank <= 10:
+                issues.extend(self._check_competitive_rules(content, keyword_data))
             
             return issues
         except Exception as e:
@@ -174,37 +177,67 @@ class SEOOptimizer:
         issues = []
         intent = keyword_data.get('intent', 'informational')
         
-        intent_rules = {
-            'informational': {
-                'min_word_count': 1500,
-                'required_sections': ['What is', 'How to', 'FAQ'],
-                'internal_links': 3
-            },
-            'commercial': {
-                'min_word_count': 2000,
-                'required_sections': ['Comparison', 'Pros and Cons', 'Verdict'],
-                'internal_links': 4
-            },
-            'transactional': {
-                'min_word_count': 1000,
-                'required_sections': ['Features', 'Pricing', 'Where to Buy'],
-                'internal_links': 2
-            }
-        }
-        
-        if intent in intent_rules:
-            rules = intent_rules[intent]
+        if intent in self.intent_rules:
+            rules = self.intent_rules[intent]
             word_count = len(content.split())
             
+            # Check word count
             if word_count < rules['min_word_count']:
                 issues.append(
                     f"Content length ({word_count} words) below recommended "
                     f"minimum ({rules['min_word_count']}) for {intent} content"
                 )
             
+            # Check required sections
             headers = re.findall(r'^##\s+(.+)$', content, re.MULTILINE)
             for required in rules['required_sections']:
                 if not any(required.lower() in h.lower() for h in headers):
-                    issues.append(f"Missing required section for {intent} content: {required}")
-                    
-        return issues 
+                    issues.append(f"Missing recommended section for {intent} content: {required}")
+            
+            # Check keyword density
+            keyword = keyword_data['keyword'].lower()
+            keyword_count = len(re.findall(rf'\b{re.escape(keyword)}\b', content.lower()))
+            density = keyword_count / word_count if word_count > 0 else 0
+            min_density, max_density = rules['keyword_density']
+            
+            if density < min_density:
+                issues.append(
+                    f"Keyword density ({density:.2%}) below recommended "
+                    f"minimum ({min_density:.2%}) for {intent} content"
+                )
+            elif density > max_density:
+                issues.append(
+                    f"Keyword density ({density:.2%}) above recommended "
+                    f"maximum ({max_density:.2%}) for {intent} content"
+                )
+        
+        return issues
+        
+    def _check_competitive_rules(self, content: str, keyword_data: Dict[str, Any]) -> List[str]:
+        """Check rules for highly competitive keywords."""
+        issues = []
+        word_count = len(content.split())
+        
+        # For competitive keywords (rank 4-10), content should be comprehensive
+        if word_count < 2000:
+            issues.append(
+                f"Content length ({word_count} words) may be insufficient "
+                "for competitive keyword ranking"
+            )
+        
+        # Check for LSI keywords and related terms
+        keyword = keyword_data['keyword'].lower()
+        if not self._has_related_terms(content, keyword):
+            issues.append("Content may lack sufficient related terms and LSI keywords")
+        
+        return issues
+        
+    def _has_related_terms(self, content: str, keyword: str) -> bool:
+        """Check for presence of related terms."""
+        # This is a simplified check - in practice, you'd want to use
+        # a more sophisticated LSI keyword analysis
+        content_lower = content.lower()
+        related_terms = self._get_related_terms(keyword)
+        
+        found_terms = sum(1 for term in related_terms if term in content_lower)
+        return found_terms >= len(related_terms) // 2 

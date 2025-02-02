@@ -87,7 +87,7 @@ class ContentGenerator:
 
     def optimize_content(self, content: str, keyword_data: Dict[str, Any]) -> str:
         """
-        Optimize content based on keyword data and intent.
+        Optimize content based on keyword data and metrics.
         
         Args:
             content: Generated content
@@ -97,17 +97,49 @@ class ContentGenerator:
             str: Optimized content
         """
         keyword = keyword_data['keyword']
-        intent = keyword_data['intent']
+        rank = keyword_data.get('rank', 0)
         
         # Ensure proper heading structure
         if not content.startswith('# '):
             content = f"# {keyword}\n\n{content}"
         
-        # Add intent-specific sections
-        content = self._add_intent_sections(content, intent)
+        # Add ranking-specific optimizations
+        if 4 <= rank <= 10:
+            content = self._optimize_competitive_content(content, keyword_data)
+        elif 11 <= rank <= 30:
+            content = self._optimize_opportunity_content(content, keyword_data)
         
-        # Optimize keyword density
-        content = self._optimize_keyword_density(content, keyword)
+        # Optimize keyword density and related terms
+        content = self._optimize_keyword_usage(content, keyword_data)
+        
+        return content
+
+    def _optimize_competitive_content(self, content: str, keyword_data: Dict[str, Any]) -> str:
+        """Optimize content for competitive keywords (rank 4-10)."""
+        # Add comprehensive sections
+        sections = [
+            "## Key Takeaways",
+            "## Detailed Analysis",
+            "## Expert Insights",
+            "## Frequently Asked Questions",
+            "## Conclusion"
+        ]
+        
+        for section in sections:
+            if section not in content:
+                content += f"\n\n{section}\n\nAdd detailed content for this section."
+        
+        return content
+
+    def _optimize_keyword_usage(self, content: str, keyword_data: Dict[str, Any]) -> str:
+        """Optimize keyword usage and related terms."""
+        keyword = keyword_data['keyword']
+        
+        # Add LSI keywords and related terms
+        related_terms = self._get_related_terms(keyword)
+        content += "\n\n## Related Topics\n\n"
+        for term in related_terms:
+            content += f"- {term}\n"
         
         return content
 

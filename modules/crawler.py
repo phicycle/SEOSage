@@ -9,12 +9,15 @@ import logging
 from typing import Dict, List, Optional, Any, Set, Generator
 import logging.handlers
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 import xml.etree.ElementTree as ET
 import aiohttp
 import asyncio
 from aiohttp import ClientTimeout
 import urllib.request
+import json
+import hashlib
+from pathlib import Path
 
 class WebsiteCrawler:
     """
@@ -29,6 +32,8 @@ class WebsiteCrawler:
         sitemap_urls: Set of URLs found in sitemaps
         session: aiohttp ClientSession instance
         semaphore: asyncio Semaphore for limiting concurrent requests
+        cache_dir: Directory for caching crawled data
+        cache_duration: Duration for cache validity
     """
     
     def __init__(self, domain: str) -> None:
@@ -60,6 +65,11 @@ class WebsiteCrawler:
         self.semaphore = asyncio.Semaphore(5)  # Limit concurrent requests
         self.timeout = ClientTimeout(total=30)
         self.max_pages = 100
+        
+        # Add cache-related attributes
+        self.cache_dir = Path('cache/crawler')
+        self.cache_duration = timedelta(days=7)  # Cache expires after 7 days
+        self.cache_dir.mkdir(parents=True, exist_ok=True)
         
     def _normalize_domain(self, domain: str) -> str:
         """Normalize domain format."""
@@ -290,8 +300,61 @@ class WebsiteCrawler:
                 if isinstance(e, aiohttp.ClientOSError):
                     await self._init_session()
 
+    def _get_cache_key(self, url: str) -> str:
+        """Generate a cache key for a URL."""
+        return hashlib.md5(url.encode()).hexdigest()
+        
+    def _get_cache_path(self, cache_key: str) -> Path:
+        """Get the file path for a cache key."""
+        return self.cache_dir / f"{cache_key}.json"
+        
+    def _save_to_cache(self, url: str, data: Dict[str, Any]) -> None:
+        """Save page data to cache."""
+        try:
+            cache_key = self._get_cache_key(url)
+            cache_path = self._get_cache_path(cache_key)
+            
+            cache_data = {
+                'url': url,
+                'data': data,
+                'timestamp': datetime.now().isoformat()
+            }
+            
+            with cache_path.open('w', encoding='utf-8') as f:
+                json.dump(cache_data, f, ensure_ascii=False, indent=2)
+                
+            self.logger.debug(f"Cached data for {url}")
+        except Exception as e:
+            self.logger.warning(f"Failed to cache data for {url}: {str(e)}")
+            
+    def _get_from_cache(self, url: str) -> Optional[Dict[str, Any]]:
+        """Retrieve page data from cache if valid."""
+        try:
+            cache_key = self._get_cache_key(url)
+            cache_path = self._get_cache_path(cache_key)
+            
+            if not cache_path.exists():
+                return None
+                
+            with cache_path.open('r', encoding='utf-8') as f:
+                cache_data = json.load(f)
+                
+            # Check cache expiration
+            cached_time = datetime.fromisoformat(cache_data['timestamp'])
+            if datetime.now() - cached_time > self.cache_duration:
+                self.logger.debug(f"Cache expired for {url}")
+                cache_path.unlink()  # Remove expired cache
+                return None
+                
+            self.logger.debug(f"Retrieved from cache: {url}")
+            return cache_data['data']
+            
+        except Exception as e:
+            self.logger.warning(f"Failed to retrieve cache for {url}: {str(e)}")
+            return None
+
     async def _crawl_url(self, url: str) -> None:
-        """Crawl a single URL with improved error handling and logging."""
+        """Crawl a single URL with caching."""
         url = url.rstrip('/')
         
         if url in self.visited_urls:
@@ -299,6 +362,14 @@ class WebsiteCrawler:
             
         if not self.can_fetch(url):
             self.logger.debug(f"Skipping {url} - blocked by robots.txt")
+            return
+            
+        # Try to get from cache first
+        cached_data = self._get_from_cache(url)
+        if cached_data:
+            self.content_data[url] = cached_data
+            self.visited_urls.add(url)
+            self.logger.info(f"Used cached data for {url}")
             return
             
         try:
@@ -344,9 +415,10 @@ class WebsiteCrawler:
             # Debug: Log extracted data
             self.logger.debug(f"Extracted data for {url}: {page_data}")
             
-            # Store the data in content_data
+            # Store the data in content_data and cache
             self.content_data[url] = page_data
             self.visited_urls.add(url)
+            self._save_to_cache(url, page_data)
             
             self.logger.info(f"Successfully processed {url}")
             self.logger.info(f"Content data size after processing {url}: {len(self.content_data)}")
@@ -354,7 +426,9 @@ class WebsiteCrawler:
         except Exception as e:
             self.logger.error(f"Error crawling {url}: {str(e)}", exc_info=True)
             # Store empty data for failed URLs
-            self.content_data[url] = self._get_empty_page_data(url, 0)
+            empty_data = self._get_empty_page_data(url, 0)
+            self.content_data[url] = empty_data
+            self._save_to_cache(url, empty_data)  # Cache failures too
 
     async def _parse_sitemap(self, sitemap_url: str) -> Set[str]:
         """Parse sitemap asynchronously."""
@@ -650,6 +724,15 @@ class WebsiteCrawler:
         except Exception as e:
             self.logger.warning(f"Error validating URL {url}: {str(e)}")
             return False
+
+    def clear_cache(self) -> None:
+        """Clear all cached data."""
+        try:
+            for cache_file in self.cache_dir.glob('*.json'):
+                cache_file.unlink()
+            self.logger.info("Cache cleared successfully")
+        except Exception as e:
+            self.logger.error(f"Error clearing cache: {str(e)}")
 
 def setup_logging(log_level=logging.INFO) -> None:
     """

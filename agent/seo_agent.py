@@ -30,14 +30,8 @@ class SEOAgent:
         cache_dir: Directory for caching analysis results
     """
     
-    def __init__(self, access_id: str, secret_key: str) -> None:
-        """
-        Initialize SEO agent with required credentials and tools.
-        
-        Args:
-            access_id: API access ID for keyword research
-            secret_key: API secret key for keyword research
-        """
+    def __init__(self, config: Dict[str, Any]) -> None:
+        """Initialize SEO agent with configuration."""
         self.logger = logging.getLogger(__name__)
         self.logger.info("Initializing SEO Agent...")
         
@@ -51,9 +45,11 @@ class SEOAgent:
             
             # Initialize components
             self.crawler = None
-            self.keyword_research = KeywordResearch(access_id, secret_key)
+            self.keyword_research = KeywordResearch(
+                api_token=config.get('moz_token')
+            )
             self.content_generator = ContentGenerator(self.llm)
-            self.seo_optimizer = SEOOptimizer()
+            self.seo_optimizer = SEOOptimizer(config)
             self.cache_dir = "cache"
             
             os.makedirs(self.cache_dir, exist_ok=True)
@@ -121,11 +117,21 @@ class SEOAgent:
                 return pickle.load(f)
         return None
 
-    def _save_cache(self, domain: str, data: Dict[str, Any]) -> None:
-        """Save analysis data to cache."""
-        cache_path = self._get_cache_path(domain)
-        with open(cache_path, 'wb') as f:
-            pickle.dump(data, f)
+    def _save_cache(self, domain: str, data: Any) -> None:
+        """Save analysis results to cache."""
+        try:
+            # Create cache directory if it doesn't exist
+            os.makedirs('cache', exist_ok=True)
+            
+            # Sanitize domain for filename
+            safe_domain = domain.replace('://', '_').replace('/', '_')
+            cache_path = f'cache/{safe_domain}.pkl'
+            
+            with open(cache_path, 'wb') as f:
+                pickle.dump(data, f)
+            self.logger.debug(f"Saved cache for {domain}")
+        except Exception as e:
+            self.logger.error(f"Error saving cache: {str(e)}")
 
     async def analyze_website(self, domain: str) -> Dict[str, Any]:
         """
@@ -213,30 +219,41 @@ class SEOAgent:
             return self.crawler._get_empty_analysis() if self.crawler else {}
 
     async def _analyze_keywords(self, domain: str) -> Dict[str, Any]:
-        """Perform keyword research."""
+        """Analyze keyword opportunities for domain."""
         try:
-            print(f"🔍 Researching keywords for {domain}...")
-            keywords = await self.keyword_research.get_keywords(domain)
+            print("  • Getting ranking opportunities...")
+            opportunities = self.keyword_research.get_ranking_opportunities(domain)
             
-            if not keywords:
-                print("⚠️ No keywords found, using alternative research method...")
-                keywords = await self.keyword_research.get_alternative_keywords(domain)
+            if not opportunities:
+                print("  ⚠️ No keyword opportunities found")
+                return {}
             
-            if keywords:
-                selected = await self.keyword_research.select_target_keywords(
-                    keywords,
-                    min_volume=300,
-                    max_difficulty=0.7
-                )
-                
-                return {
-                    "total_keywords": len(selected),
-                    "selected_keywords": selected
+            print(f"  ✓ Found {len(opportunities)} keyword opportunities")
+            
+            # Find new keyword opportunities
+            print("  • Finding additional keyword opportunities...")
+            new_keywords = self.keyword_research.find_new_keywords(
+                domain=domain,
+                limit=10
+            )
+            
+            if new_keywords:
+                print(f"  ✓ Found {len(new_keywords)} additional keyword opportunities")
+            
+            return {
+                "ranking_opportunities": {
+                    "total": len(opportunities),
+                    "keywords": opportunities
+                },
+                "new_opportunities": {
+                    "total": len(new_keywords),
+                    "keywords": new_keywords
                 }
-            return {}
+            }
             
         except Exception as e:
             self.logger.error(f"Keyword analysis failed: {str(e)}")
+            print(f"  ❌ Keyword analysis failed: {str(e)}")
             return {}
 
     async def _analyze_content(self, domain: str) -> Dict[str, Any]:
@@ -277,18 +294,28 @@ class SEOAgent:
         """Analyze competitors for top keywords."""
         try:
             competitor_data = {}
-            selected_keywords = keyword_analysis.get('selected_keywords', [])[:5]  # Analyze top 5 keywords
+            selected_keywords = keyword_analysis.get('selected_targets', {}).get('keywords', [])[:5]
+            
+            if not selected_keywords:
+                return {}
+                
+            print(f"  • Analyzing competitors for top {len(selected_keywords)} keywords...")
             
             for keyword_data in selected_keywords:
                 keyword = keyword_data['keyword']
                 analysis = await self.analyze_competitors(domain, keyword)
                 if 'error' not in analysis:
                     competitor_data[keyword] = analysis
-            
-            return competitor_data
+                    print(f"  ✓ Analyzed competitors for '{keyword}'")
+                
+            return {
+                "analyzed_keywords": len(competitor_data),
+                "competitor_data": competitor_data
+            }
             
         except Exception as e:
             self.logger.error(f"Competitor analysis failed: {str(e)}")
+            print(f"  ❌ Competitor analysis failed: {str(e)}")
             return {}
 
     async def analyze_competitors(self, domain: str, keyword: str) -> Dict[str, Any]:
@@ -296,16 +323,20 @@ class SEOAgent:
         Analyze competitor content for a specific keyword
         """
         try:
-            # Get top 10 ranking pages for the keyword
-            serp_data = await self.keyword_research.get_serp_data(keyword)
+            # Get SERP analysis for the keyword
+            serp_data = self.keyword_research.get_serp_analysis(keyword)
+            if not serp_data:
+                return {'error': 'No SERP data available'}
+                
             competitor_analysis = []
+            organic_results = serp_data.get('organic_results', [])
             
-            for result in serp_data[:10]:
-                if domain not in result['url']:  # Skip own domain
+            for result in organic_results[:10]:  # Analyze top 10 results
+                if domain not in result.get('url', ''):  # Skip own domain
                     content = await self.crawler.get_page_content(result['url'])
                     analysis = {
-                        'url': result['url'],
-                        'position': result['position'],
+                        'url': result.get('url', ''),
+                        'position': result.get('position', 0),
                         'content_length': len(content.split()) if content else 0,
                         'page_score': await self.seo_optimizer.analyze_page(result['url'])
                     }
@@ -343,7 +374,7 @@ class SEOAgent:
             return []
         
         keywords = analysis_data.get('keywords', {})  # Remove json.loads since it's already a dict
-        selected_keywords = keywords.get('selected_keywords', [])[:num_articles]
+        selected_keywords = keywords.get('selected_targets', {}).get('keywords', [])[:num_articles]
         
         results = []
         for idx, keyword_data in enumerate(selected_keywords, 1):
@@ -403,39 +434,39 @@ class SEOAgent:
         except Exception as e:
             return json.dumps({"error": str(e)})
         
-    def research_keywords(self, domain):
+    def research_keywords(self, domain: str) -> str:
         """Tool method for keyword research"""
         try:
             print(f"\n🔍 Researching keywords for {domain}...")
-            keywords = self.keyword_research.get_keywords(domain)
-            if not keywords:
-                print("❌ No keywords found")
-                return json.dumps({"error": "No keywords found"})
+            opportunities = self.keyword_research.get_ranking_opportunities(domain)
+            if not opportunities:
+                print("❌ No keyword opportunities found")
+                return json.dumps({"error": "No keyword opportunities found"})
             
-            print(f"📊 Found {len(keywords)} initial keywords")
-            print("🎯 Selecting target keywords...")
+            print(f"📊 Found {len(opportunities)} keyword opportunities")
             
-            selected = self.keyword_research.select_target_keywords(
-                keywords,
-                min_volume=300,
-                max_difficulty=0.7
-            )
+            # Group by rank positions
+            position_groups = defaultdict(list)
+            for kw in opportunities:
+                rank = kw.get('rank_position', 0)
+                if 4 <= rank <= 10:
+                    position_groups['top_10'].append(kw)
+                elif 11 <= rank <= 20:
+                    position_groups['11_20'].append(kw)
+                else:
+                    position_groups['21_30'].append(kw)
             
-            intent_groups = defaultdict(list)
-            for kw in selected:
-                intent_groups[kw['intent']].append(kw)
-            
-            print("\n📈 Keyword Analysis Summary:")
-            print(f"Selected Keywords: {len(selected)}")
-            for intent, kws in intent_groups.items():
-                print(f"{intent.capitalize()}: {len(kws)} keywords")
+            print("\n📈 Keyword Opportunities Summary:")
+            print(f"Total Opportunities: {len(opportunities)}")
+            for pos, kws in position_groups.items():
+                print(f"Position {pos}: {len(kws)} keywords")
             
             result = {
-                "total_keywords": len(selected),
-                "keywords_by_intent": {
-                    intent: len(kws) for intent, kws in intent_groups.items()
+                "total_opportunities": len(opportunities),
+                "opportunities_by_position": {
+                    pos: len(kws) for pos, kws in position_groups.items()
                 },
-                "selected_keywords": selected
+                "top_opportunities": opportunities[:10]  # Top 10 opportunities
             }
             
             return json.dumps(result, indent=2)
