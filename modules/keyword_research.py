@@ -121,6 +121,9 @@ class KeywordResearch:
             "page": {
                 "n": 0,
                 "limit": limit
+            },
+            "options": {
+                "sort": "rank",
             }
         }
         
@@ -182,11 +185,12 @@ class KeywordResearch:
 
     def _process_keyword_metrics(self, data: Dict[str, Any]) -> Dict[str, Any]:
         """Process keyword metrics response."""
+        metrics = data.get('keyword_metrics', {})
         return {
-            'volume': data.get('keyword_metrics', {}).get('volume', 0),
-            'difficulty': data.get('keyword_metrics', {}).get('difficulty', 0),
-            'organic_ctr': data.get('keyword_metrics', {}).get('organic_ctr', 0),
-            'priority': data.get('keyword_metrics', {}).get('priority', 0)
+            'volume': metrics.get('volume', 0) or 0,
+            'difficulty': metrics.get('difficulty', 0) or 0,
+            'organic_ctr': metrics.get('organic_ctr', 0) or 0,
+            'priority': metrics.get('priority', 0) or 0
         }
 
     def get_keyword_suggestions(self, keyword: str, limit: int = 8) -> List[Dict[str, Any]]:
@@ -653,17 +657,19 @@ class KeywordResearch:
             new_keywords = []
             for kw in current_keywords[:5]:  # Analyze top 5 keywords
                 related = self.get_related_keywords(kw['keyword'], limit=limit)
-                print(related)
                 for rk in related:
                     if rk['keyword'] not in current_keyword_set:
                         metrics = self.get_keyword_metrics(rk['keyword'])
-                        if (metrics.get('volume', 0) >= 100 and 
-                            metrics.get('difficulty', 100) <= 60):
+                        # Add null checks and default values
+                        volume = metrics.get('volume', 0) or 0
+                        difficulty = metrics.get('difficulty', 100) or 100
+                        
+                        if (volume >= 100 and difficulty <= 60):
                             rk.update(metrics)
                             rk['opportunity_score'] = self._calculate_opportunity_score(
                                 rank=0,  # Not currently ranking
-                                volume=rk['volume'],
-                                difficulty=rk['difficulty']
+                                volume=volume,
+                                difficulty=difficulty
                             )
                             new_keywords.append(rk)
             

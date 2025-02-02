@@ -234,7 +234,7 @@ class SEOAgent:
             print("  • Finding additional keyword opportunities...")
             new_keywords = self.keyword_research.find_new_keywords(
                 domain=domain,
-                limit=10
+                limit=20
             )
             
             if new_keywords:
