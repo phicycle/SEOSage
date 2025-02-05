@@ -1,0 +1,15 @@
+:py:mod:`src.seoninja.core.seo`
+===============================
+
+.. py:module:: src.seoninja.core.seo
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   optimizer/index.rst
+
+

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction &mdash; SEO Ninja 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=eafc0fe6" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation Guide" href="installation.html" />
+    <link rel="prev" title="Welcome to SEO Ninja’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            SEO Ninja
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-seo-ninja">What is SEO Ninja?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#key-features">Key Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#system-architecture">System Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#core-components">Core Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#communication-flow">Communication Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#task-management">Task Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#state-management">State Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#error-handling">Error Handling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#technology-stack">Technology Stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#required-api-keys">Required API Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installation-steps">Installation Steps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#clone-the-repository">1. Clone the Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#create-virtual-environment">2. Create Virtual Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#install-dependencies">3. Install Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#configure-environment-variables">4. Configure Environment Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#set-up-google-search-console-authentication">5. Set Up Google Search Console Authentication</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#running-the-application">Running the Application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#start-the-api-server">1. Start the API Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#access-the-api-documentation">2. Access the API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#development-setup">Development Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#install-development-dependencies">1. Install Development Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#set-up-pre-commit-hooks">2. Set Up Pre-commit Hooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#run-tests">3. Run Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#build-documentation">4. Build Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#common-issues">Common Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#getting-help">Getting Help</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#system-overview">System Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#core-components">Core Components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#orchestrator-agent">Orchestrator Agent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#specialized-agents">Specialized Agents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#communication-model">Communication Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#inter-agent-communication">Inter-agent Communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#message-types">Message Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#task-processing">Task Processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#task-lifecycle">Task Lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#parallel-processing">Parallel Processing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#resource-management">Resource Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#resource-types">Resource Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#monitoring-system">Monitoring System</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#security-architecture">Security Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#authentication">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#data-protection">Data Protection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#error-handling">Error Handling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#recovery-mechanisms">Recovery Mechanisms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#error-propagation">Error Propagation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#deployment-architecture">Deployment Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#components">Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#scaling-strategy">Scaling Strategy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#future-considerations">Future Considerations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#planned-enhancements">Planned Enhancements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#task-management">Task Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#agent-communication">Agent Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#process-timeline">Process Timeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#resource-monitoring">Resource Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#system-status">System Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#error-responses">Error Responses</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="monitoring.html">Monitoring and Analytics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="monitoring.html#agent-communication-visualization">Agent Communication Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="monitoring.html#flow-analysis">Flow Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="monitoring.html#real-time-monitoring">Real-time Monitoring</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="monitoring.html#process-timeline">Process Timeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="monitoring.html#stage-tracking">Stage Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="monitoring.html#decision-points">Decision Points</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="monitoring.html#resource-monitoring">Resource Monitoring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="monitoring.html#resource-allocation">Resource Allocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="monitoring.html#usage-patterns">Usage Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="monitoring.html#bottleneck-detection">Bottleneck Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="monitoring.html#system-capacity">System Capacity</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="monitoring.html#visualization-integration">Visualization Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="monitoring.html#best-practices">Best Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id1">[1.0.0] - 2024-02-04</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#added">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">[0.9.0] - 2024-01-15</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#id3">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#changed">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id4">[0.8.0] - 2023-12-20</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#id5">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#fixed">Fixed</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a><ul class="simple">
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SEO Ninja</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/introduction.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to SEO Ninja’s documentation!" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="installation.html" class="btn btn-neutral float-right" title="Installation Guide" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
+<section id="what-is-seo-ninja">
+<h2>What is SEO Ninja?<a class="headerlink" href="#what-is-seo-ninja" title="Link to this heading"></a></h2>
+<p>SEO Ninja is a sophisticated multi-agent system designed for comprehensive SEO analysis, content generation, and optimization. The system leverages artificial intelligence and machine learning to provide advanced SEO capabilities through a coordinated network of specialized agents.</p>
+</section>
+<section id="key-features">
+<h2>Key Features<a class="headerlink" href="#key-features" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Multi-agent Architecture</strong>: Coordinated system of specialized agents working together</p></li>
+<li><p><strong>Real-time Monitoring</strong>: Continuous tracking of system performance and resource usage</p></li>
+<li><p><strong>Resource-aware Task Management</strong>: Intelligent allocation and scheduling of tasks</p></li>
+<li><p><strong>Intelligent Content Generation</strong>: AI-powered content creation and optimization</p></li>
+<li><p><strong>Advanced SEO Analysis</strong>: Comprehensive SEO analysis and recommendations</p></li>
+</ul>
+</section>
+<section id="system-architecture">
+<h2>System Architecture<a class="headerlink" href="#system-architecture" title="Link to this heading"></a></h2>
+<section id="core-components">
+<h3>Core Components<a class="headerlink" href="#core-components" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Orchestrator Agent</strong></p>
+<ul class="simple">
+<li><p>Central coordinator managing task decomposition and execution</p></li>
+<li><p>Handles inter-agent communication and state management</p></li>
+<li><p>Provides real-time monitoring and health checks</p></li>
+<li><p>Manages task queues and priorities</p></li>
+</ul>
+</li>
+<li><p><strong>Specialized Agents</strong></p>
+<ul class="simple">
+<li><p><strong>Content Agent</strong>: Generates and optimizes content</p></li>
+<li><p><strong>SEO Optimizer Agent</strong>: Handles technical SEO analysis</p></li>
+<li><p><strong>Crawler Agent</strong>: Performs website crawling and analysis</p></li>
+<li><p><strong>Keyword Research Agent</strong>: Conducts keyword research and analysis</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="communication-flow">
+<h3>Communication Flow<a class="headerlink" href="#communication-flow" title="Link to this heading"></a></h3>
+<p>The system implements a sophisticated communication model:</p>
+<ul class="simple">
+<li><p><strong>Vertical Communication</strong>: Between Orchestrator and Agents</p></li>
+<li><p><strong>Horizontal Communication</strong>: Between Specialized Agents</p></li>
+<li><p><strong>Real-time Updates</strong>: Through Server-Sent Events (SSE)</p></li>
+<li><p><strong>Shared Context</strong>: For coordinated task execution</p></li>
+</ul>
+</section>
+<section id="task-management">
+<h3>Task Management<a class="headerlink" href="#task-management" title="Link to this heading"></a></h3>
+<p>Tasks are managed through a hierarchical system:</p>
+<ol class="arabic simple">
+<li><p>Task Decomposition</p></li>
+<li><p>Resource Allocation</p></li>
+<li><p>Parallel/Sequential Execution</p></li>
+<li><p>Result Aggregation</p></li>
+</ol>
+</section>
+<section id="state-management">
+<h3>State Management<a class="headerlink" href="#state-management" title="Link to this heading"></a></h3>
+<p>The system maintains various state levels:</p>
+<ul class="simple">
+<li><p>Global State</p></li>
+<li><p>Agent States</p></li>
+<li><p>Task States</p></li>
+<li><p>Shared Context</p></li>
+</ul>
+</section>
+<section id="error-handling">
+<h3>Error Handling<a class="headerlink" href="#error-handling" title="Link to this heading"></a></h3>
+<p>Robust error handling mechanisms include:</p>
+<ul class="simple">
+<li><p>Automatic Recovery</p></li>
+<li><p>Graceful Degradation</p></li>
+<li><p>Circuit Breaking</p></li>
+<li><p>Resource Reallocation</p></li>
+</ul>
+</section>
+</section>
+<section id="technology-stack">
+<h2>Technology Stack<a class="headerlink" href="#technology-stack" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Backend</strong>: Python, Flask</p></li>
+<li><p><strong>Task Management</strong>: Async/Await, Queue Management</p></li>
+<li><p><strong>Monitoring</strong>: Real-time Metrics, Resource Tracking</p></li>
+<li><p><strong>Documentation</strong>: Sphinx, OpenAPI/Swagger</p></li>
+<li><p><strong>Testing</strong>: Pytest, Coverage Analysis</p></li>
+</ul>
+</section>
+<section id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
+<p>See the <a class="reference internal" href="installation.html"><span class="doc">Installation Guide</span></a> guide to get started with SEO Ninja.</p>
+<p>For API documentation, see <a class="reference internal" href="api/index.html"><span class="doc">API Documentation</span></a>.</p>
+<p>For monitoring capabilities, see <a class="reference internal" href="monitoring.html"><span class="doc">Monitoring and Analytics</span></a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to SEO Ninja’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="installation.html" class="btn btn-neutral float-right" title="Installation Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Your Name.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

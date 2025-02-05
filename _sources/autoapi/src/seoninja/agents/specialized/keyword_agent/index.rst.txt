@@ -1,0 +1,40 @@
+:py:mod:`src.seoninja.agents.specialized.keyword_agent`
+=======================================================
+
+.. py:module:: src.seoninja.agents.specialized.keyword_agent
+
+.. autoapi-nested-parse::
+
+   Keyword Research Agent implementation.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   src.seoninja.agents.specialized.keyword_agent.KeywordResearchAgent
+
+
+
+
+.. py:class:: KeywordResearchAgent(config: Dict[str, Any] = None)
+
+
+   Bases: :py:obj:`src.seoninja.agents.base.agent.BaseAgent`
+
+   Agent specialized in keyword research and analysis.
+
+   Initialize Keyword Research agent with its specific tools.
+
+   .. py:method:: execute(task: Dict[str, Any]) -> Dict[str, Any]
+      :async:
+
+      Execute a keyword research task with enhanced context awareness.
+
+
+

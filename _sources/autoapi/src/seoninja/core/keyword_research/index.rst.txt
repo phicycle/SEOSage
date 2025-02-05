@@ -1,0 +1,54 @@
+:py:mod:`src.seoninja.core.keyword_research`
+============================================
+
+.. py:module:: src.seoninja.core.keyword_research
+
+.. autoapi-nested-parse::
+
+   Core keyword research functionality.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   src.seoninja.core.keyword_research.KeywordResearch
+
+
+
+
+.. py:class:: KeywordResearch(config: Optional[Dict[str, Any]] = None)
+
+
+   Enhanced keyword research with improved analysis capabilities.
+
+   Initialize with configuration.
+
+   .. py:method:: analyze_keywords(keywords: List[str], competitors: Optional[List[str]] = None) -> Dict[str, Any]
+      :async:
+
+      Analyze keywords with batching and caching.
+
+
+   .. py:method:: clear_cache() -> None
+
+      Clear keyword cache.
+
+
+   .. py:method:: get_performance_metrics() -> Dict[str, float]
+
+      Get performance metrics.
+
+
+   .. py:method:: close() -> None
+      :async:
+
+      Close resources.
+
+
+

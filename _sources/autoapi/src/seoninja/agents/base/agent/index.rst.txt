@@ -1,0 +1,120 @@
+:py:mod:`src.seoninja.agents.base.agent`
+========================================
+
+.. py:module:: src.seoninja.agents.base.agent
+
+.. autoapi-nested-parse::
+
+   Base agent class for SEO Ninja.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   src.seoninja.agents.base.agent.BaseAgent
+
+
+
+
+.. py:class:: BaseAgent(name: str)
+
+
+   Bases: :py:obj:`abc.ABC`
+
+   Base agent class with core functionality.
+
+   Initialize base agent.
+
+   .. py:method:: execute(task: Dict[str, Any]) -> Dict[str, Any]
+      :abstractmethod:
+      :async:
+
+      Execute agent's primary task.
+
+
+   .. py:method:: cleanup_memory(max_age: Optional[datetime.timedelta] = None) -> None
+
+      Clean up old memory entries.
+
+
+   .. py:method:: remember(observation: Dict[str, Any]) -> None
+
+      Store observation in agent's memory with enhanced metadata.
+
+
+   .. py:method:: recall(observation_type: str = None, time_range: tuple = None, agents: List[str] = None, priority: str = None) -> List[Dict[str, Any]]
+
+      Enhanced memory retrieval with filtering capabilities.
+
+
+   .. py:method:: collaborate(agent: BaseAgent, task: Dict[str, Any]) -> Dict[str, Any]
+      :async:
+
+      Enhanced collaboration with context sharing and feedback.
+
+
+   .. py:method:: update_state(updates: Dict[str, Any]) -> None
+
+      Update agent's current state with timestamp.
+
+
+   .. py:method:: get_state(key: str = None, include_metadata: bool = False) -> Any
+
+      Get agent's current state with optional metadata.
+
+
+   .. py:method:: validate_task(task: Dict[str, Any], required_fields: List[str]) -> Optional[str]
+
+      Validate task has required fields.
+
+
+   .. py:method:: log_progress(message: str, level: str = 'info') -> None
+
+      Log progress with appropriate level.
+
+
+   .. py:method:: cleanup() -> None
+
+      Clean up resources and notify collaborators.
+
+
+   .. py:method:: add_observer(observer: Any) -> None
+
+      Add an observer to this agent.
+
+
+   .. py:method:: remove_observer(observer: Any) -> None
+
+      Remove an observer from this agent.
+
+
+   .. py:method:: register_handler(event_type: str, handler: Callable) -> None
+
+      Register a handler for a specific event type.
+
+
+   .. py:method:: notify_observers(event: Dict[str, Any]) -> None
+      :async:
+
+      Notify all observers of an event.
+
+
+   .. py:method:: update_context(context: Dict[str, Any]) -> None
+      :async:
+
+      Update agent's context.
+
+
+   .. py:method:: get_health() -> Dict[str, Any]
+      :async:
+
+      Get agent's health status.
+
+
+

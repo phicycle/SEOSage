@@ -1,0 +1,89 @@
+:py:mod:`src.seoninja.core.crawler`
+===================================
+
+.. py:module:: src.seoninja.core.crawler
+
+.. autoapi-nested-parse::
+
+   Core website crawling functionality.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   src.seoninja.core.crawler.MemoryEfficientSet
+   src.seoninja.core.crawler.WebsiteCrawler
+
+
+
+
+.. py:class:: MemoryEfficientSet(expected_items: int = 10000, error_rate: float = 0.01)
+
+
+   Memory efficient set implementation using bloom filter.
+
+   .. py:method:: add(item: str) -> None
+
+      Add an item to the set.
+
+
+   .. py:method:: __contains__(item: str) -> bool
+
+      Check if an item might be in the set.
+
+
+
+.. py:class:: WebsiteCrawler(config: Dict[str, Any] = None)
+
+
+   Enhanced web crawler with improved performance and memory management.
+
+   Initialize crawler with enhanced configuration.
+
+   .. py:method:: can_fetch(url: str) -> bool
+
+      Check if URL can be fetched according to robots.txt.
+
+      :param url: URL to check
+
+      :returns: True if URL can be fetched
+      :rtype: bool
+
+
+   .. py:method:: crawl_site() -> None
+      :async:
+
+      Crawl the website starting from the domain.
+
+      This method:
+      1. Initializes the HTTP session
+      2. Processes sitemaps if available
+      3. Crawls the main domain and discovered URLs
+      4. Cleans up resources
+
+
+   .. py:method:: analyze_content() -> Dict[str, any]
+
+      Analyze crawled content.
+
+
+   .. py:method:: crawl(url: Optional[str] = None) -> None
+
+      Synchronous wrapper for crawling.
+
+      :param url: Optional URL to start crawling from. If not provided,
+                  uses the domain URL.
+
+
+   .. py:method:: clear_cache() -> None
+
+      Clear the crawler cache.
+
+
+

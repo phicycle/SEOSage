@@ -1,0 +1,27 @@
+:py:mod:`src.seoninja.run_dashboard`
+====================================
+
+.. py:module:: src.seoninja.run_dashboard
+
+.. autoapi-nested-parse::
+
+   Run the SEO Ninja dashboard.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.seoninja.run_dashboard.run_dashboard
+
+
+
+.. py:function:: run_dashboard()
+
+

@@ -1,0 +1,42 @@
+:py:mod:`src.seoninja.dashboard.agent_runner`
+=============================================
+
+.. py:module:: src.seoninja.dashboard.agent_runner
+
+.. autoapi-nested-parse::
+
+   Dashboard interface for running agents.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   src.seoninja.dashboard.agent_runner.AgentRunner
+
+
+
+
+.. py:class:: AgentRunner(orchestrator: src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator)
+
+
+   Dashboard interface for running SEO Ninja agents.
+
+   Initialize agent runner with existing orchestrator instance.
+
+   .. py:method:: render_dashboard()
+
+      Render the agent runner dashboard.
+
+
+   .. py:method:: cleanup()
+
+      Cleanup orchestrator resources.
+
+
+

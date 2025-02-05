@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.seoninja.api.app &mdash; SEO Ninja 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/graphviz.css?v=eafc0fe6" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            SEO Ninja
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../introduction.html#what-is-seo-ninja">What is SEO Ninja?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../introduction.html#key-features">Key Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../introduction.html#system-architecture">System Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../introduction.html#core-components">Core Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../introduction.html#communication-flow">Communication Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../introduction.html#task-management">Task Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../introduction.html#state-management">State Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../introduction.html#error-handling">Error Handling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../introduction.html#technology-stack">Technology Stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../introduction.html#getting-started">Getting Started</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation.html">Installation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../installation.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../installation.html#required-api-keys">Required API Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../installation.html#installation-steps">Installation Steps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../installation.html#clone-the-repository">1. Clone the Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../installation.html#create-virtual-environment">2. Create Virtual Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../installation.html#install-dependencies">3. Install Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../installation.html#configure-environment-variables">4. Configure Environment Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../installation.html#set-up-google-search-console-authentication">5. Set Up Google Search Console Authentication</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../installation.html#running-the-application">Running the Application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../installation.html#start-the-api-server">1. Start the API Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../installation.html#access-the-api-documentation">2. Access the API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../installation.html#development-setup">Development Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../installation.html#install-development-dependencies">1. Install Development Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../installation.html#set-up-pre-commit-hooks">2. Set Up Pre-commit Hooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../installation.html#run-tests">3. Run Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../installation.html#build-documentation">4. Build Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../installation.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../installation.html#common-issues">Common Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../installation.html#getting-help">Getting Help</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../architecture.html">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../architecture.html#system-overview">System Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../architecture.html#core-components">Core Components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../architecture.html#orchestrator-agent">Orchestrator Agent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../architecture.html#specialized-agents">Specialized Agents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../architecture.html#communication-model">Communication Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../architecture.html#inter-agent-communication">Inter-agent Communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../architecture.html#message-types">Message Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../architecture.html#task-processing">Task Processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../architecture.html#task-lifecycle">Task Lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../architecture.html#parallel-processing">Parallel Processing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../architecture.html#resource-management">Resource Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../architecture.html#resource-types">Resource Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../architecture.html#monitoring-system">Monitoring System</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../architecture.html#security-architecture">Security Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../architecture.html#authentication">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../architecture.html#data-protection">Data Protection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../architecture.html#error-handling">Error Handling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../architecture.html#recovery-mechanisms">Recovery Mechanisms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../architecture.html#error-propagation">Error Propagation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../architecture.html#deployment-architecture">Deployment Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../architecture.html#components">Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../architecture.html#scaling-strategy">Scaling Strategy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../architecture.html#future-considerations">Future Considerations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../architecture.html#planned-enhancements">Planned Enhancements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../api/index.html">API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/index.html#task-management">Task Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/index.html#agent-communication">Agent Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/index.html#process-timeline">Process Timeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/index.html#resource-monitoring">Resource Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/index.html#system-status">System Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/index.html#error-responses">Error Responses</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../monitoring.html">Monitoring and Analytics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../monitoring.html#agent-communication-visualization">Agent Communication Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../monitoring.html#flow-analysis">Flow Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../monitoring.html#real-time-monitoring">Real-time Monitoring</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../monitoring.html#process-timeline">Process Timeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../monitoring.html#stage-tracking">Stage Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../monitoring.html#decision-points">Decision Points</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../monitoring.html#resource-monitoring">Resource Monitoring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../monitoring.html#resource-allocation">Resource Allocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../monitoring.html#usage-patterns">Usage Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../monitoring.html#bottleneck-detection">Bottleneck Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../monitoring.html#system-capacity">System Capacity</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../monitoring.html#visualization-integration">Visualization Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../monitoring.html#best-practices">Best Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../changelog.html#id1">[1.0.0] - 2024-02-04</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../changelog.html#added">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../changelog.html#id2">[0.9.0] - 2024-01-15</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../changelog.html#id3">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../changelog.html#changed">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../changelog.html#id4">[0.8.0] - 2023-12-20</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../changelog.html#id5">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../changelog.html#fixed">Fixed</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../index.html">API Reference</a><ul class="simple">
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">SEO Ninja</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.seoninja.api.app</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../_sources/autoapi/src/seoninja/api/app/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-src.seoninja.api.app">
+<span id="src-seoninja-api-app"></span><h1><a class="reference internal" href="#module-src.seoninja.api.app" title="src.seoninja.api.app"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.seoninja.api.app</span></code></a><a class="headerlink" href="#module-src.seoninja.api.app" title="Link to this heading"></a></h1>
+<p>Flask API for SEO Ninja.</p>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.api.app.TaskCreateSchema" title="src.seoninja.api.app.TaskCreateSchema"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TaskCreateSchema</span></code></a></p></td>
+<td><p>Schema for task creation request.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.seoninja.api.app.TaskResponseSchema" title="src.seoninja.api.app.TaskResponseSchema"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TaskResponseSchema</span></code></a></p></td>
+<td><p>Schema for task creation response.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.api.app.TaskStatusSchema" title="src.seoninja.api.app.TaskStatusSchema"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TaskStatusSchema</span></code></a></p></td>
+<td><p>Schema for task status response.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.seoninja.api.app.AgentHealthSchema" title="src.seoninja.api.app.AgentHealthSchema"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AgentHealthSchema</span></code></a></p></td>
+<td><p>Schema for agent health status.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.api.app.LogQuerySchema" title="src.seoninja.api.app.LogQuerySchema"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LogQuerySchema</span></code></a></p></td>
+<td><p>Schema for log query parameters.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.seoninja.api.app.CommunicationFlowSchema" title="src.seoninja.api.app.CommunicationFlowSchema"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CommunicationFlowSchema</span></code></a></p></td>
+<td><p>Schema for communication flow data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.api.app.ProcessTimelineSchema" title="src.seoninja.api.app.ProcessTimelineSchema"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ProcessTimelineSchema</span></code></a></p></td>
+<td><p>Schema for process timeline data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.seoninja.api.app.ResourceMetricsSchema" title="src.seoninja.api.app.ResourceMetricsSchema"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ResourceMetricsSchema</span></code></a></p></td>
+<td><p>Schema for resource metrics data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.api.app.ResourceAllocationSchema" title="src.seoninja.api.app.ResourceAllocationSchema"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ResourceAllocationSchema</span></code></a></p></td>
+<td><p>Schema for resource allocation data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.seoninja.api.app.ResourceUsageSchema" title="src.seoninja.api.app.ResourceUsageSchema"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ResourceUsageSchema</span></code></a></p></td>
+<td><p>Schema for resource usage patterns.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.api.app.ResourceBottleneckSchema" title="src.seoninja.api.app.ResourceBottleneckSchema"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ResourceBottleneckSchema</span></code></a></p></td>
+<td><p>Schema for resource bottleneck data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.seoninja.api.app.SystemCapacitySchema" title="src.seoninja.api.app.SystemCapacitySchema"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SystemCapacitySchema</span></code></a></p></td>
+<td><p>Schema for system capacity metrics.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.api.app.init_orchestrator" title="src.seoninja.api.app.init_orchestrator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_orchestrator</span></code></a>()</p></td>
+<td><p>Initialize orchestrator asynchronously.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.seoninja.api.app.async_route" title="src.seoninja.api.app.async_route"><code class="xref py py-obj docutils literal notranslate"><span class="pre">async_route</span></code></a>(f)</p></td>
+<td><p>Decorator to handle async routes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.api.app.create_task" title="src.seoninja.api.app.create_task"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_task</span></code></a>()</p></td>
+<td><p>Create a new task for the agent system.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.seoninja.api.app.get_task_status" title="src.seoninja.api.app.get_task_status"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_task_status</span></code></a>(task_id)</p></td>
+<td><p>Get status of a specific task.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.api.app.list_tasks" title="src.seoninja.api.app.list_tasks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list_tasks</span></code></a>()</p></td>
+<td><p>List all tasks with their status.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.seoninja.api.app.cancel_task" title="src.seoninja.api.app.cancel_task"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cancel_task</span></code></a>(task_id)</p></td>
+<td><p>Cancel a running task.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.api.app.update_task_priority" title="src.seoninja.api.app.update_task_priority"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_task_priority</span></code></a>(task_id)</p></td>
+<td><p>Update task priority.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.seoninja.api.app.list_agents" title="src.seoninja.api.app.list_agents"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list_agents</span></code></a>()</p></td>
+<td><p>List all available agents and their status.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.api.app.get_agent_health" title="src.seoninja.api.app.get_agent_health"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_agent_health</span></code></a>(agent_name)</p></td>
+<td><p>Get health status of a specific agent.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.seoninja.api.app.stream_updates" title="src.seoninja.api.app.stream_updates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stream_updates</span></code></a>()</p></td>
+<td><p>Stream real-time updates from the agent system.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.api.app.generate_content" title="src.seoninja.api.app.generate_content"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_content</span></code></a>()</p></td>
+<td><p>Generate content endpoint.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.seoninja.api.app.batch_content_generation" title="src.seoninja.api.app.batch_content_generation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">batch_content_generation</span></code></a>()</p></td>
+<td><p>Batch content generation endpoint.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.api.app.run_seo_audit" title="src.seoninja.api.app.run_seo_audit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run_seo_audit</span></code></a>()</p></td>
+<td><p>Run SEO audit endpoint.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.seoninja.api.app.analyze_technical_seo" title="src.seoninja.api.app.analyze_technical_seo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">analyze_technical_seo</span></code></a>()</p></td>
+<td><p>Analyze technical SEO aspects.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.api.app.get_seo_recommendations" title="src.seoninja.api.app.get_seo_recommendations"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_seo_recommendations</span></code></a>()</p></td>
+<td><p>Get SEO recommendations.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.seoninja.api.app.research_keywords" title="src.seoninja.api.app.research_keywords"><code class="xref py py-obj docutils literal notranslate"><span class="pre">research_keywords</span></code></a>()</p></td>
+<td><p>Perform keyword research.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.api.app.analyze_keywords" title="src.seoninja.api.app.analyze_keywords"><code class="xref py py-obj docutils literal notranslate"><span class="pre">analyze_keywords</span></code></a>()</p></td>
+<td><p>Analyze keywords for a given content.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.seoninja.api.app.get_system_status" title="src.seoninja.api.app.get_system_status"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_system_status</span></code></a>()</p></td>
+<td><p>Get overall system status.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.api.app.get_system_metrics" title="src.seoninja.api.app.get_system_metrics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_system_metrics</span></code></a>()</p></td>
+<td><p>Get system performance metrics.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.seoninja.api.app.get_performance_history" title="src.seoninja.api.app.get_performance_history"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_performance_history</span></code></a>()</p></td>
+<td><p>Get historical performance data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.api.app.get_task_history" title="src.seoninja.api.app.get_task_history"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_task_history</span></code></a>()</p></td>
+<td><p>Get historical task data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.seoninja.api.app.get_configuration" title="src.seoninja.api.app.get_configuration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_configuration</span></code></a>()</p></td>
+<td><p>Get current system configuration.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.api.app.update_configuration" title="src.seoninja.api.app.update_configuration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_configuration</span></code></a>()</p></td>
+<td><p>Update system configuration.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.seoninja.api.app.pause_agent" title="src.seoninja.api.app.pause_agent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pause_agent</span></code></a>(agent_name)</p></td>
+<td><p>Pause a specific agent.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.api.app.resume_agent" title="src.seoninja.api.app.resume_agent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resume_agent</span></code></a>(agent_name)</p></td>
+<td><p>Resume a paused agent.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.seoninja.api.app.reset_agent" title="src.seoninja.api.app.reset_agent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_agent</span></code></a>(agent_name)</p></td>
+<td><p>Reset a specific agent to its initial state.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.api.app.get_system_logs" title="src.seoninja.api.app.get_system_logs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_system_logs</span></code></a>()</p></td>
+<td><p>Get system logs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.seoninja.api.app.get_error_logs" title="src.seoninja.api.app.get_error_logs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_error_logs</span></code></a>()</p></td>
+<td><p>Get error logs specifically.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.api.app.get_debug_state" title="src.seoninja.api.app.get_debug_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_debug_state</span></code></a>()</p></td>
+<td><p>Get detailed system state for debugging.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.seoninja.api.app.get_communication_flows" title="src.seoninja.api.app.get_communication_flows"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_communication_flows</span></code></a>([start_time, end_time])</p></td>
+<td><p>Get inter-agent communication flows.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.api.app.stream_communication_data" title="src.seoninja.api.app.stream_communication_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stream_communication_data</span></code></a>()</p></td>
+<td><p>Stream real-time agent interaction data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.seoninja.api.app.get_communication_analytics" title="src.seoninja.api.app.get_communication_analytics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_communication_analytics</span></code></a>([timeframe])</p></td>
+<td><p>Get communication patterns analytics.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.api.app.get_data_flow_metrics" title="src.seoninja.api.app.get_data_flow_metrics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_data_flow_metrics</span></code></a>()</p></td>
+<td><p>Get data flow metrics between agents.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.seoninja.api.app.get_process_timeline" title="src.seoninja.api.app.get_process_timeline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_process_timeline</span></code></a>(process_id[, include_details])</p></td>
+<td><p>Get detailed process stage tracking data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.api.app.get_decision_points" title="src.seoninja.api.app.get_decision_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_decision_points</span></code></a>(process_id[, start_time, end_time])</p></td>
+<td><p>Get decision point logging data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.seoninja.api.app.get_stage_transitions" title="src.seoninja.api.app.get_stage_transitions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_stage_transitions</span></code></a>(process_id)</p></td>
+<td><p>Get stage transition data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.api.app.get_time_analysis" title="src.seoninja.api.app.get_time_analysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_time_analysis</span></code></a>([timeframe, process_type])</p></td>
+<td><p>Get time-based process analysis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.seoninja.api.app.get_resource_allocation" title="src.seoninja.api.app.get_resource_allocation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_resource_allocation</span></code></a>([resource_type, timeframe])</p></td>
+<td><p>Get detailed resource allocation tracking.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.api.app.get_usage_patterns" title="src.seoninja.api.app.get_usage_patterns"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_usage_patterns</span></code></a>([resource_type, start_time, end_time])</p></td>
+<td><p>Get resource usage patterns.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.seoninja.api.app.get_resource_bottlenecks" title="src.seoninja.api.app.get_resource_bottlenecks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_resource_bottlenecks</span></code></a>([analysis_period, threshold])</p></td>
+<td><p>Get resource bottleneck identification.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.api.app.get_system_capacity" title="src.seoninja.api.app.get_system_capacity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_system_capacity</span></code></a>([include_predictions])</p></td>
+<td><p>Get system capacity metrics.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.seoninja.api.app.stream_resource_metrics" title="src.seoninja.api.app.stream_resource_metrics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stream_resource_metrics</span></code></a>()</p></td>
+<td><p>Stream real-time resource metrics.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.api.app.app" title="src.seoninja.api.app.app"><code class="xref py py-obj docutils literal notranslate"><span class="pre">app</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.seoninja.api.app.loop" title="src.seoninja.api.app.loop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">loop</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.api.app.orchestrator" title="src.seoninja.api.app.orchestrator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">orchestrator</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt class="sig sig-object py" id="src.seoninja.api.app.app">
+<span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">app</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#app"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.app" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.init_orchestrator">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">init_orchestrator</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#init_orchestrator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.init_orchestrator" title="Link to this definition"></a></dt>
+<dd><p>Initialize orchestrator asynchronously.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="src.seoninja.api.app.loop">
+<span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">loop</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#loop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.loop" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="src.seoninja.api.app.orchestrator">
+<span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">orchestrator</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#orchestrator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.orchestrator" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.async_route">
+<span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">async_route</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#async_route"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.async_route" title="Link to this definition"></a></dt>
+<dd><p>Decorator to handle async routes.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.seoninja.api.app.TaskCreateSchema">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">TaskCreateSchema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">many</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dump_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">partial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">marshmallow.types.StrSequenceOrSet</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unknown</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#TaskCreateSchema"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.TaskCreateSchema" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">marshmallow.Schema</span></code></p>
+<p>Schema for task creation request.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.TaskCreateSchema.type">
+<span class="sig-name descname"><span class="pre">type</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#TaskCreateSchema.type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.TaskCreateSchema.type" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.TaskCreateSchema.parameters">
+<span class="sig-name descname"><span class="pre">parameters</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#TaskCreateSchema.parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.TaskCreateSchema.parameters" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.TaskCreateSchema.priority">
+<span class="sig-name descname"><span class="pre">priority</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#TaskCreateSchema.priority"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.TaskCreateSchema.priority" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.seoninja.api.app.TaskResponseSchema">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">TaskResponseSchema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">many</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dump_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">partial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">marshmallow.types.StrSequenceOrSet</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unknown</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#TaskResponseSchema"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.TaskResponseSchema" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">marshmallow.Schema</span></code></p>
+<p>Schema for task creation response.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.TaskResponseSchema.success">
+<span class="sig-name descname"><span class="pre">success</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#TaskResponseSchema.success"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.TaskResponseSchema.success" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.TaskResponseSchema.task_id">
+<span class="sig-name descname"><span class="pre">task_id</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#TaskResponseSchema.task_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.TaskResponseSchema.task_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.TaskResponseSchema.status">
+<span class="sig-name descname"><span class="pre">status</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#TaskResponseSchema.status"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.TaskResponseSchema.status" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.seoninja.api.app.TaskStatusSchema">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">TaskStatusSchema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">many</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dump_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">partial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">marshmallow.types.StrSequenceOrSet</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unknown</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#TaskStatusSchema"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.TaskStatusSchema" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">marshmallow.Schema</span></code></p>
+<p>Schema for task status response.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.TaskStatusSchema.task_id">
+<span class="sig-name descname"><span class="pre">task_id</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#TaskStatusSchema.task_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.TaskStatusSchema.task_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.TaskStatusSchema.status">
+<span class="sig-name descname"><span class="pre">status</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#TaskStatusSchema.status"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.TaskStatusSchema.status" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.TaskStatusSchema.progress">
+<span class="sig-name descname"><span class="pre">progress</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#TaskStatusSchema.progress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.TaskStatusSchema.progress" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.TaskStatusSchema.timestamp">
+<span class="sig-name descname"><span class="pre">timestamp</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#TaskStatusSchema.timestamp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.TaskStatusSchema.timestamp" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.seoninja.api.app.AgentHealthSchema">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">AgentHealthSchema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">many</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dump_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">partial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">marshmallow.types.StrSequenceOrSet</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unknown</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#AgentHealthSchema"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.AgentHealthSchema" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">marshmallow.Schema</span></code></p>
+<p>Schema for agent health status.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.AgentHealthSchema.status">
+<span class="sig-name descname"><span class="pre">status</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#AgentHealthSchema.status"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.AgentHealthSchema.status" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.AgentHealthSchema.last_check">
+<span class="sig-name descname"><span class="pre">last_check</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#AgentHealthSchema.last_check"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.AgentHealthSchema.last_check" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.AgentHealthSchema.metrics">
+<span class="sig-name descname"><span class="pre">metrics</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#AgentHealthSchema.metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.AgentHealthSchema.metrics" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.seoninja.api.app.LogQuerySchema">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">LogQuerySchema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">many</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dump_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">partial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">marshmallow.types.StrSequenceOrSet</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unknown</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#LogQuerySchema"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.LogQuerySchema" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">marshmallow.Schema</span></code></p>
+<p>Schema for log query parameters.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.LogQuerySchema.level">
+<span class="sig-name descname"><span class="pre">level</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#LogQuerySchema.level"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.LogQuerySchema.level" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.LogQuerySchema.start_time">
+<span class="sig-name descname"><span class="pre">start_time</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#LogQuerySchema.start_time"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.LogQuerySchema.start_time" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.LogQuerySchema.end_time">
+<span class="sig-name descname"><span class="pre">end_time</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#LogQuerySchema.end_time"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.LogQuerySchema.end_time" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.LogQuerySchema.limit">
+<span class="sig-name descname"><span class="pre">limit</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#LogQuerySchema.limit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.LogQuerySchema.limit" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.seoninja.api.app.CommunicationFlowSchema">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">CommunicationFlowSchema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">many</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dump_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">partial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">marshmallow.types.StrSequenceOrSet</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unknown</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#CommunicationFlowSchema"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.CommunicationFlowSchema" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">marshmallow.Schema</span></code></p>
+<p>Schema for communication flow data.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.CommunicationFlowSchema.source">
+<span class="sig-name descname"><span class="pre">source</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#CommunicationFlowSchema.source"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.CommunicationFlowSchema.source" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.CommunicationFlowSchema.target">
+<span class="sig-name descname"><span class="pre">target</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#CommunicationFlowSchema.target"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.CommunicationFlowSchema.target" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.CommunicationFlowSchema.message_type">
+<span class="sig-name descname"><span class="pre">message_type</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#CommunicationFlowSchema.message_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.CommunicationFlowSchema.message_type" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.CommunicationFlowSchema.timestamp">
+<span class="sig-name descname"><span class="pre">timestamp</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#CommunicationFlowSchema.timestamp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.CommunicationFlowSchema.timestamp" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.seoninja.api.app.ProcessTimelineSchema">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">ProcessTimelineSchema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">many</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dump_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">partial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">marshmallow.types.StrSequenceOrSet</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unknown</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#ProcessTimelineSchema"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.ProcessTimelineSchema" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">marshmallow.Schema</span></code></p>
+<p>Schema for process timeline data.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.ProcessTimelineSchema.process_id">
+<span class="sig-name descname"><span class="pre">process_id</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#ProcessTimelineSchema.process_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.ProcessTimelineSchema.process_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.ProcessTimelineSchema.stages">
+<span class="sig-name descname"><span class="pre">stages</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#ProcessTimelineSchema.stages"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.ProcessTimelineSchema.stages" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.ProcessTimelineSchema.current_stage">
+<span class="sig-name descname"><span class="pre">current_stage</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#ProcessTimelineSchema.current_stage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.ProcessTimelineSchema.current_stage" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.ProcessTimelineSchema.duration">
+<span class="sig-name descname"><span class="pre">duration</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#ProcessTimelineSchema.duration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.ProcessTimelineSchema.duration" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.ProcessTimelineSchema.status">
+<span class="sig-name descname"><span class="pre">status</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#ProcessTimelineSchema.status"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.ProcessTimelineSchema.status" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.seoninja.api.app.ResourceMetricsSchema">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">ResourceMetricsSchema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">many</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dump_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">partial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">marshmallow.types.StrSequenceOrSet</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unknown</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#ResourceMetricsSchema"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.ResourceMetricsSchema" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">marshmallow.Schema</span></code></p>
+<p>Schema for resource metrics data.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.ResourceMetricsSchema.resource_type">
+<span class="sig-name descname"><span class="pre">resource_type</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#ResourceMetricsSchema.resource_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.ResourceMetricsSchema.resource_type" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.ResourceMetricsSchema.utilization">
+<span class="sig-name descname"><span class="pre">utilization</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#ResourceMetricsSchema.utilization"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.ResourceMetricsSchema.utilization" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.ResourceMetricsSchema.timestamp">
+<span class="sig-name descname"><span class="pre">timestamp</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#ResourceMetricsSchema.timestamp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.ResourceMetricsSchema.timestamp" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.ResourceMetricsSchema.metrics">
+<span class="sig-name descname"><span class="pre">metrics</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#ResourceMetricsSchema.metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.ResourceMetricsSchema.metrics" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.seoninja.api.app.ResourceAllocationSchema">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">ResourceAllocationSchema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">many</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dump_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">partial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">marshmallow.types.StrSequenceOrSet</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unknown</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#ResourceAllocationSchema"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.ResourceAllocationSchema" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">marshmallow.Schema</span></code></p>
+<p>Schema for resource allocation data.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.ResourceAllocationSchema.resource_type">
+<span class="sig-name descname"><span class="pre">resource_type</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#ResourceAllocationSchema.resource_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.ResourceAllocationSchema.resource_type" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.ResourceAllocationSchema.timeframe">
+<span class="sig-name descname"><span class="pre">timeframe</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#ResourceAllocationSchema.timeframe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.ResourceAllocationSchema.timeframe" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.ResourceAllocationSchema.allocations">
+<span class="sig-name descname"><span class="pre">allocations</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#ResourceAllocationSchema.allocations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.ResourceAllocationSchema.allocations" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.ResourceAllocationSchema.metrics">
+<span class="sig-name descname"><span class="pre">metrics</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#ResourceAllocationSchema.metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.ResourceAllocationSchema.metrics" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.seoninja.api.app.ResourceUsageSchema">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">ResourceUsageSchema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">many</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dump_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">partial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">marshmallow.types.StrSequenceOrSet</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unknown</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#ResourceUsageSchema"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.ResourceUsageSchema" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">marshmallow.Schema</span></code></p>
+<p>Schema for resource usage patterns.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.ResourceUsageSchema.patterns">
+<span class="sig-name descname"><span class="pre">patterns</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#ResourceUsageSchema.patterns"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.ResourceUsageSchema.patterns" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.ResourceUsageSchema.trends">
+<span class="sig-name descname"><span class="pre">trends</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#ResourceUsageSchema.trends"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.ResourceUsageSchema.trends" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.ResourceUsageSchema.predictions">
+<span class="sig-name descname"><span class="pre">predictions</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#ResourceUsageSchema.predictions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.ResourceUsageSchema.predictions" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.seoninja.api.app.ResourceBottleneckSchema">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">ResourceBottleneckSchema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">many</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dump_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">partial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">marshmallow.types.StrSequenceOrSet</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unknown</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#ResourceBottleneckSchema"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.ResourceBottleneckSchema" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">marshmallow.Schema</span></code></p>
+<p>Schema for resource bottleneck data.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.ResourceBottleneckSchema.bottlenecks">
+<span class="sig-name descname"><span class="pre">bottlenecks</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#ResourceBottleneckSchema.bottlenecks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.ResourceBottleneckSchema.bottlenecks" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.ResourceBottleneckSchema.impact_analysis">
+<span class="sig-name descname"><span class="pre">impact_analysis</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#ResourceBottleneckSchema.impact_analysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.ResourceBottleneckSchema.impact_analysis" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.ResourceBottleneckSchema.recommendations">
+<span class="sig-name descname"><span class="pre">recommendations</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#ResourceBottleneckSchema.recommendations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.ResourceBottleneckSchema.recommendations" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.seoninja.api.app.SystemCapacitySchema">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">SystemCapacitySchema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">many</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dump_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">marshmallow.types.StrSequenceOrSet</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">partial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">marshmallow.types.StrSequenceOrSet</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unknown</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#SystemCapacitySchema"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.SystemCapacitySchema" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">marshmallow.Schema</span></code></p>
+<p>Schema for system capacity metrics.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.SystemCapacitySchema.current_capacity">
+<span class="sig-name descname"><span class="pre">current_capacity</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#SystemCapacitySchema.current_capacity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.SystemCapacitySchema.current_capacity" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.SystemCapacitySchema.utilization">
+<span class="sig-name descname"><span class="pre">utilization</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#SystemCapacitySchema.utilization"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.SystemCapacitySchema.utilization" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.SystemCapacitySchema.headroom">
+<span class="sig-name descname"><span class="pre">headroom</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#SystemCapacitySchema.headroom"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.SystemCapacitySchema.headroom" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.SystemCapacitySchema.limits">
+<span class="sig-name descname"><span class="pre">limits</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#SystemCapacitySchema.limits"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.SystemCapacitySchema.limits" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.seoninja.api.app.SystemCapacitySchema.predictions">
+<span class="sig-name descname"><span class="pre">predictions</span></span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#SystemCapacitySchema.predictions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.SystemCapacitySchema.predictions" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.create_task">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">create_task</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#create_task"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.create_task" title="Link to this definition"></a></dt>
+<dd><p>Create a new task for the agent system.</p>
+<p>This endpoint creates a new task in the system. The task will be queued and processed
+by the appropriate agents based on its type and parameters.</p>
+<p>—
+post:</p>
+<blockquote>
+<div><p>description: Create a new task
+parameters:</p>
+<blockquote>
+<div><ul>
+<li><p>in: body
+name: body
+schema:</p>
+<blockquote>
+<div><p>type: object
+required:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>type</p></li>
+</ul>
+</div></blockquote>
+<dl class="simple">
+<dt>properties:</dt><dd><dl class="simple">
+<dt>type:</dt><dd><p>type: string
+description: Type of task to create</p>
+</dd>
+<dt>parameters:</dt><dd><p>type: object
+description: Task parameters</p>
+</dd>
+<dt>priority:</dt><dd><p>type: string
+description: Task priority level</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<dl>
+<dt>responses:</dt><dd><dl>
+<dt>200:</dt><dd><p>description: Task created successfully
+schema:</p>
+<blockquote>
+<div><p>type: object
+properties:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>success:</dt><dd><p>type: boolean</p>
+</dd>
+<dt>task_id:</dt><dd><p>type: string</p>
+</dd>
+<dt>status:</dt><dd><p>type: string</p>
+</dd>
+</dl>
+</div></blockquote>
+</div></blockquote>
+</dd>
+<dt>400:</dt><dd><p>description: Invalid parameters</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.get_task_status">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">get_task_status</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#get_task_status"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.get_task_status" title="Link to this definition"></a></dt>
+<dd><p>Get status of a specific task.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.list_tasks">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">list_tasks</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#list_tasks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.list_tasks" title="Link to this definition"></a></dt>
+<dd><p>List all tasks with their status.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.cancel_task">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">cancel_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#cancel_task"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.cancel_task" title="Link to this definition"></a></dt>
+<dd><p>Cancel a running task.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.update_task_priority">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">update_task_priority</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#update_task_priority"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.update_task_priority" title="Link to this definition"></a></dt>
+<dd><p>Update task priority.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.list_agents">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">list_agents</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#list_agents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.list_agents" title="Link to this definition"></a></dt>
+<dd><p>List all available agents and their status.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.get_agent_health">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">get_agent_health</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">agent_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#get_agent_health"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.get_agent_health" title="Link to this definition"></a></dt>
+<dd><p>Get health status of a specific agent.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.stream_updates">
+<span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">stream_updates</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#stream_updates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.stream_updates" title="Link to this definition"></a></dt>
+<dd><p>Stream real-time updates from the agent system.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.generate_content">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">generate_content</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#generate_content"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.generate_content" title="Link to this definition"></a></dt>
+<dd><p>Generate content endpoint.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.batch_content_generation">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">batch_content_generation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#batch_content_generation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.batch_content_generation" title="Link to this definition"></a></dt>
+<dd><p>Batch content generation endpoint.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.run_seo_audit">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">run_seo_audit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#run_seo_audit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.run_seo_audit" title="Link to this definition"></a></dt>
+<dd><p>Run SEO audit endpoint.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.analyze_technical_seo">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">analyze_technical_seo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#analyze_technical_seo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.analyze_technical_seo" title="Link to this definition"></a></dt>
+<dd><p>Analyze technical SEO aspects.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.get_seo_recommendations">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">get_seo_recommendations</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#get_seo_recommendations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.get_seo_recommendations" title="Link to this definition"></a></dt>
+<dd><p>Get SEO recommendations.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.research_keywords">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">research_keywords</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#research_keywords"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.research_keywords" title="Link to this definition"></a></dt>
+<dd><p>Perform keyword research.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.analyze_keywords">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">analyze_keywords</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#analyze_keywords"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.analyze_keywords" title="Link to this definition"></a></dt>
+<dd><p>Analyze keywords for a given content.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.get_system_status">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">get_system_status</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#get_system_status"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.get_system_status" title="Link to this definition"></a></dt>
+<dd><p>Get overall system status.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.get_system_metrics">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">get_system_metrics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#get_system_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.get_system_metrics" title="Link to this definition"></a></dt>
+<dd><p>Get system performance metrics.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.get_performance_history">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">get_performance_history</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#get_performance_history"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.get_performance_history" title="Link to this definition"></a></dt>
+<dd><p>Get historical performance data.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.get_task_history">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">get_task_history</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#get_task_history"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.get_task_history" title="Link to this definition"></a></dt>
+<dd><p>Get historical task data.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.get_configuration">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">get_configuration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#get_configuration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.get_configuration" title="Link to this definition"></a></dt>
+<dd><p>Get current system configuration.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.update_configuration">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">update_configuration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#update_configuration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.update_configuration" title="Link to this definition"></a></dt>
+<dd><p>Update system configuration.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.pause_agent">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">pause_agent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">agent_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#pause_agent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.pause_agent" title="Link to this definition"></a></dt>
+<dd><p>Pause a specific agent.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.resume_agent">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">resume_agent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">agent_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#resume_agent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.resume_agent" title="Link to this definition"></a></dt>
+<dd><p>Resume a paused agent.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.reset_agent">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">reset_agent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">agent_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#reset_agent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.reset_agent" title="Link to this definition"></a></dt>
+<dd><p>Reset a specific agent to its initial state.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.get_system_logs">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">get_system_logs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#get_system_logs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.get_system_logs" title="Link to this definition"></a></dt>
+<dd><p>Get system logs.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.get_error_logs">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">get_error_logs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#get_error_logs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.get_error_logs" title="Link to this definition"></a></dt>
+<dd><p>Get error logs specifically.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.get_debug_state">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">get_debug_state</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#get_debug_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.get_debug_state" title="Link to this definition"></a></dt>
+<dd><p>Get detailed system state for debugging.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.get_communication_flows">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">get_communication_flows</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime.datetime</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime.datetime</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#get_communication_flows"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.get_communication_flows" title="Link to this definition"></a></dt>
+<dd><p>Get inter-agent communication flows.
+—
+get:</p>
+<blockquote>
+<div><p>description: Get communication flows between agents
+parameters:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>in: query
+name: start_time
+type: string
+format: date-time
+description: Start time for filtering flows</p></li>
+<li><p>in: query
+name: end_time
+type: string
+format: date-time
+description: End time for filtering flows</p></li>
+</ul>
+</div></blockquote>
+<dl>
+<dt>responses:</dt><dd><dl>
+<dt>200:</dt><dd><p>description: Communication flows retrieved successfully
+schema:</p>
+<blockquote>
+<div><p>type: array
+items:</p>
+<blockquote>
+<div><p>$ref: ‘#/definitions/CommunicationFlowSchema’</p>
+</div></blockquote>
+</div></blockquote>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.stream_communication_data">
+<span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">stream_communication_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#stream_communication_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.stream_communication_data" title="Link to this definition"></a></dt>
+<dd><p>Stream real-time agent interaction data.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.get_communication_analytics">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">get_communication_analytics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeframe</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'24h'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#get_communication_analytics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.get_communication_analytics" title="Link to this definition"></a></dt>
+<dd><p>Get communication patterns analytics.
+—
+get:</p>
+<blockquote>
+<div><p>description: Get analytics about communication patterns between agents
+parameters:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>in: query
+name: timeframe
+type: string
+default: 24h
+description: Time frame for analysis (e.g., ‘24h’, ‘7d’)</p></li>
+</ul>
+</div></blockquote>
+<dl>
+<dt>responses:</dt><dd><dl>
+<dt>200:</dt><dd><p>description: Communication analytics retrieved successfully
+schema:</p>
+<blockquote>
+<div><p>type: object
+properties:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>patterns:</dt><dd><p>type: object</p>
+</dd>
+<dt>metrics:</dt><dd><p>type: object</p>
+</dd>
+<dt>insights:</dt><dd><p>type: object</p>
+</dd>
+</dl>
+</div></blockquote>
+</div></blockquote>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.get_data_flow_metrics">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">get_data_flow_metrics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#get_data_flow_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.get_data_flow_metrics" title="Link to this definition"></a></dt>
+<dd><p>Get data flow metrics between agents.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.get_process_timeline">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">get_process_timeline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">process_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_details</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#get_process_timeline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.get_process_timeline" title="Link to this definition"></a></dt>
+<dd><p>Get detailed process stage tracking data.
+—
+get:</p>
+<blockquote>
+<div><p>description: Get timeline and stages of a specific process
+parameters:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>in: query
+name: process_id
+type: string
+required: true
+description: ID of the process to track</p></li>
+<li><p>in: query
+name: include_details
+type: boolean
+default: false
+description: Whether to include additional stage details</p></li>
+</ul>
+</div></blockquote>
+<dl>
+<dt>responses:</dt><dd><dl>
+<dt>200:</dt><dd><p>description: Process timeline retrieved successfully
+schema:</p>
+<blockquote>
+<div><p>$ref: ‘#/definitions/ProcessTimelineSchema’</p>
+</div></blockquote>
+</dd>
+<dt>404:</dt><dd><p>description: Process not found</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.get_decision_points">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">get_decision_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">process_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime.datetime</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime.datetime</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#get_decision_points"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.get_decision_points" title="Link to this definition"></a></dt>
+<dd><p>Get decision point logging data.
+—
+get:</p>
+<blockquote>
+<div><p>description: Get decision points and their outcomes for a process
+parameters:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>in: query
+name: process_id
+type: string
+required: true
+description: ID of the process</p></li>
+<li><p>in: query
+name: start_time
+type: string
+format: date-time
+description: Start time for filtering decisions</p></li>
+<li><p>in: query
+name: end_time
+type: string
+format: date-time
+description: End time for filtering decisions</p></li>
+</ul>
+</div></blockquote>
+<dl>
+<dt>responses:</dt><dd><dl>
+<dt>200:</dt><dd><p>description: Decision points retrieved successfully
+schema:</p>
+<blockquote>
+<div><p>type: object
+properties:</p>
+<blockquote>
+<div><dl>
+<dt>decisions:</dt><dd><p>type: array
+items:</p>
+<blockquote>
+<div><p>type: object</p>
+</div></blockquote>
+</dd>
+<dt>metrics:</dt><dd><p>type: object</p>
+</dd>
+</dl>
+</div></blockquote>
+</div></blockquote>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.get_stage_transitions">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">get_stage_transitions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">process_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#get_stage_transitions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.get_stage_transitions" title="Link to this definition"></a></dt>
+<dd><p>Get stage transition data.
+—
+get:</p>
+<blockquote>
+<div><p>description: Get stage transitions for a process
+parameters:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>in: query
+name: process_id
+type: string
+required: true
+description: ID of the process</p></li>
+</ul>
+</div></blockquote>
+<dl>
+<dt>responses:</dt><dd><dl>
+<dt>200:</dt><dd><p>description: Stage transitions retrieved successfully
+schema:</p>
+<blockquote>
+<div><p>type: object
+properties:</p>
+<blockquote>
+<div><dl>
+<dt>transitions:</dt><dd><p>type: array
+items:</p>
+<blockquote>
+<div><p>type: object</p>
+</div></blockquote>
+</dd>
+<dt>metrics:</dt><dd><p>type: object</p>
+</dd>
+</dl>
+</div></blockquote>
+</div></blockquote>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.get_time_analysis">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">get_time_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeframe</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'24h'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">process_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#get_time_analysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.get_time_analysis" title="Link to this definition"></a></dt>
+<dd><p>Get time-based process analysis.
+—
+get:</p>
+<blockquote>
+<div><p>description: Get time-based analysis of processes
+parameters:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>in: query
+name: timeframe
+type: string
+default: 24h
+description: Time frame for analysis (e.g., ‘24h’, ‘7d’)</p></li>
+<li><p>in: query
+name: process_type
+type: string
+description: Type of process to analyze</p></li>
+</ul>
+</div></blockquote>
+<dl>
+<dt>responses:</dt><dd><dl>
+<dt>200:</dt><dd><p>description: Time analysis retrieved successfully
+schema:</p>
+<blockquote>
+<div><p>type: object
+properties:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>metrics:</dt><dd><p>type: object</p>
+</dd>
+<dt>trends:</dt><dd><p>type: object</p>
+</dd>
+<dt>optimization_suggestions:</dt><dd><p>type: object</p>
+</dd>
+</dl>
+</div></blockquote>
+</div></blockquote>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.get_resource_allocation">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">get_resource_allocation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resource_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeframe</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1h'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#get_resource_allocation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.get_resource_allocation" title="Link to this definition"></a></dt>
+<dd><p>Get detailed resource allocation tracking.
+—
+get:</p>
+<blockquote>
+<div><p>description: Get resource allocation metrics
+parameters:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>in: query
+name: resource_type
+type: string
+description: Type of resource to monitor</p></li>
+<li><p>in: query
+name: timeframe
+type: string
+default: 1h
+description: Time frame for analysis (e.g., ‘1h’, ‘24h’)</p></li>
+</ul>
+</div></blockquote>
+<dl>
+<dt>responses:</dt><dd><dl>
+<dt>200:</dt><dd><p>description: Resource allocation metrics retrieved successfully
+schema:</p>
+<blockquote>
+<div><p>$ref: ‘#/definitions/ResourceAllocationSchema’</p>
+</div></blockquote>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.get_usage_patterns">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">get_usage_patterns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resource_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime.datetime</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime.datetime</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#get_usage_patterns"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.get_usage_patterns" title="Link to this definition"></a></dt>
+<dd><p>Get resource usage patterns.
+—
+get:</p>
+<blockquote>
+<div><p>description: Get resource usage patterns and trends
+parameters:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>in: query
+name: resource_type
+type: string
+description: Type of resource to analyze</p></li>
+<li><p>in: query
+name: start_time
+type: string
+format: date-time
+description: Start time for analysis</p></li>
+<li><p>in: query
+name: end_time
+type: string
+format: date-time
+description: End time for analysis</p></li>
+</ul>
+</div></blockquote>
+<dl>
+<dt>responses:</dt><dd><dl>
+<dt>200:</dt><dd><p>description: Resource usage patterns retrieved successfully
+schema:</p>
+<blockquote>
+<div><p>$ref: ‘#/definitions/ResourceUsageSchema’</p>
+</div></blockquote>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.get_resource_bottlenecks">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">get_resource_bottlenecks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">analysis_period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'24h'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.8</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#get_resource_bottlenecks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.get_resource_bottlenecks" title="Link to this definition"></a></dt>
+<dd><p>Get resource bottleneck identification.
+—
+get:</p>
+<blockquote>
+<div><p>description: Identify resource bottlenecks and get recommendations
+parameters:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>in: query
+name: analysis_period
+type: string
+default: 24h
+description: Period for analysis (e.g., ‘24h’, ‘7d’)</p></li>
+<li><p>in: query
+name: threshold
+type: number
+default: 0.8
+description: Utilization threshold for bottleneck detection (0.0-1.0)</p></li>
+</ul>
+</div></blockquote>
+<dl>
+<dt>responses:</dt><dd><dl>
+<dt>200:</dt><dd><p>description: Resource bottlenecks identified successfully
+schema:</p>
+<blockquote>
+<div><p>$ref: ‘#/definitions/ResourceBottleneckSchema’</p>
+</div></blockquote>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.get_system_capacity">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">get_system_capacity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">include_predictions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#get_system_capacity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.get_system_capacity" title="Link to this definition"></a></dt>
+<dd><p>Get system capacity metrics.
+—
+get:</p>
+<blockquote>
+<div><p>description: Get current system capacity and optional future predictions
+parameters:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>in: query
+name: include_predictions
+type: boolean
+default: false
+description: Whether to include capacity predictions</p></li>
+</ul>
+</div></blockquote>
+<dl>
+<dt>responses:</dt><dd><dl>
+<dt>200:</dt><dd><p>description: System capacity metrics retrieved successfully
+schema:</p>
+<blockquote>
+<div><p>$ref: ‘#/definitions/SystemCapacitySchema’</p>
+</div></blockquote>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.seoninja.api.app.stream_resource_metrics">
+<span class="sig-prename descclassname"><span class="pre">src.seoninja.api.app.</span></span><span class="sig-name descname"><span class="pre">stream_resource_metrics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/src/seoninja/api/app.html#stream_resource_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.api.app.stream_resource_metrics" title="Link to this definition"></a></dt>
+<dd><p>Stream real-time resource metrics.
+—
+get:</p>
+<blockquote>
+<div><p>description: Get real-time resource metrics as Server-Sent Events
+responses:</p>
+<blockquote>
+<div><dl>
+<dt>200:</dt><dd><p>description: SSE stream started
+content:</p>
+<blockquote>
+<div><dl>
+<dt>text/event-stream:</dt><dd><dl>
+<dt>schema:</dt><dd><p>type: object
+properties:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>timestamp:</dt><dd><p>type: string
+format: date-time</p>
+</dd>
+<dt>cpu_usage:</dt><dd><p>type: object</p>
+</dd>
+<dt>memory_usage:</dt><dd><p>type: object</p>
+</dd>
+<dt>network_usage:</dt><dd><p>type: object</p>
+</dd>
+<dt>agent_resources:</dt><dd><p>type: object</p>
+</dd>
+<dt>queue_metrics:</dt><dd><p>type: object</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd>
+</dl>
+</div></blockquote>
+</div></blockquote>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Your Name.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

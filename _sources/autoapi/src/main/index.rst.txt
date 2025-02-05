@@ -1,0 +1,18 @@
+:py:mod:`src.main`
+==================
+
+.. py:module:: src.main
+
+.. autoapi-nested-parse::
+
+   Main entry point for SEO Ninja.
+
+
+
+Module Contents
+---------------
+
+.. py:data:: logger
+
+   
+

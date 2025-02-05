@@ -1,0 +1,71 @@
+:py:mod:`src.seoninja.core.seo.optimizer`
+=========================================
+
+.. py:module:: src.seoninja.core.seo.optimizer
+
+.. autoapi-nested-parse::
+
+   Core SEO optimization functionality.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   src.seoninja.core.seo.optimizer.SEOOptimizer
+
+
+
+
+.. py:class:: SEOOptimizer(config: Optional[Dict[str, Any]] = None)
+
+
+   Enhanced SEO optimization with improved rules and caching.
+
+   Initialize optimizer with configuration.
+
+   .. py:method:: get_optimization_score(url: str, content: str) -> Dict[str, Any]
+
+      Get SEO optimization score with caching.
+
+
+   .. py:method:: clear_cache() -> None
+
+      Clear optimization cache.
+
+
+   .. py:method:: get_performance_metrics() -> Dict[str, float]
+
+      Get performance metrics.
+
+
+   .. py:method:: analyze_technical(url: str) -> Dict[str, Any]
+      :async:
+
+      Analyze technical SEO aspects.
+
+
+   .. py:method:: optimize_meta_tags(content: str, keyword_data: Dict[str, Any], content_analysis: Dict[str, Any]) -> Dict[str, Any]
+      :async:
+
+      Optimize meta tags with context.
+
+
+   .. py:method:: analyze_performance(url: str) -> Dict[str, Any]
+      :async:
+
+      Analyze page performance.
+
+
+   .. py:method:: generate_recommendations(content: str, technical_data: Dict[str, Any], content_data: Dict[str, Any], keyword_data: Dict[str, Any]) -> Dict[str, Any]
+      :async:
+
+      Generate comprehensive SEO recommendations.
+
+
+

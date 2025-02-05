@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.seoninja.core.seo.optimizer &mdash; SEO Ninja 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/graphviz.css?v=eafc0fe6" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            SEO Ninja
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../introduction.html#what-is-seo-ninja">What is SEO Ninja?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../introduction.html#key-features">Key Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../introduction.html#system-architecture">System Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../introduction.html#core-components">Core Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../introduction.html#communication-flow">Communication Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../introduction.html#task-management">Task Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../introduction.html#state-management">State Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../introduction.html#error-handling">Error Handling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../introduction.html#technology-stack">Technology Stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../introduction.html#getting-started">Getting Started</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation.html">Installation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../installation.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../installation.html#required-api-keys">Required API Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../installation.html#installation-steps">Installation Steps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../installation.html#clone-the-repository">1. Clone the Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../installation.html#create-virtual-environment">2. Create Virtual Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../installation.html#install-dependencies">3. Install Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../installation.html#configure-environment-variables">4. Configure Environment Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../installation.html#set-up-google-search-console-authentication">5. Set Up Google Search Console Authentication</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../installation.html#running-the-application">Running the Application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../installation.html#start-the-api-server">1. Start the API Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../installation.html#access-the-api-documentation">2. Access the API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../installation.html#development-setup">Development Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../installation.html#install-development-dependencies">1. Install Development Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../installation.html#set-up-pre-commit-hooks">2. Set Up Pre-commit Hooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../installation.html#run-tests">3. Run Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../installation.html#build-documentation">4. Build Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../installation.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../installation.html#common-issues">Common Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../installation.html#getting-help">Getting Help</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../architecture.html">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../architecture.html#system-overview">System Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../architecture.html#core-components">Core Components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../architecture.html#orchestrator-agent">Orchestrator Agent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../architecture.html#specialized-agents">Specialized Agents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../architecture.html#communication-model">Communication Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../architecture.html#inter-agent-communication">Inter-agent Communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../architecture.html#message-types">Message Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../architecture.html#task-processing">Task Processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../architecture.html#task-lifecycle">Task Lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../architecture.html#parallel-processing">Parallel Processing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../architecture.html#resource-management">Resource Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../architecture.html#resource-types">Resource Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../architecture.html#monitoring-system">Monitoring System</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../architecture.html#security-architecture">Security Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../architecture.html#authentication">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../architecture.html#data-protection">Data Protection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../architecture.html#error-handling">Error Handling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../architecture.html#recovery-mechanisms">Recovery Mechanisms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../architecture.html#error-propagation">Error Propagation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../architecture.html#deployment-architecture">Deployment Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../architecture.html#components">Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../architecture.html#scaling-strategy">Scaling Strategy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../architecture.html#future-considerations">Future Considerations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../architecture.html#planned-enhancements">Planned Enhancements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../api/index.html">API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/index.html#task-management">Task Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/index.html#agent-communication">Agent Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/index.html#process-timeline">Process Timeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/index.html#resource-monitoring">Resource Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/index.html#system-status">System Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api/index.html#error-responses">Error Responses</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../monitoring.html">Monitoring and Analytics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../monitoring.html#agent-communication-visualization">Agent Communication Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../monitoring.html#flow-analysis">Flow Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../monitoring.html#real-time-monitoring">Real-time Monitoring</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../monitoring.html#process-timeline">Process Timeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../monitoring.html#stage-tracking">Stage Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../monitoring.html#decision-points">Decision Points</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../monitoring.html#resource-monitoring">Resource Monitoring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../monitoring.html#resource-allocation">Resource Allocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../monitoring.html#usage-patterns">Usage Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../monitoring.html#bottleneck-detection">Bottleneck Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../monitoring.html#system-capacity">System Capacity</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../monitoring.html#visualization-integration">Visualization Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../monitoring.html#best-practices">Best Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../changelog.html#id1">[1.0.0] - 2024-02-04</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../changelog.html#added">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../changelog.html#id2">[0.9.0] - 2024-01-15</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../changelog.html#id3">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../changelog.html#changed">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../changelog.html#id4">[0.8.0] - 2023-12-20</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../changelog.html#id5">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../changelog.html#fixed">Fixed</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../autoapi/index.html">API Reference</a><ul class="simple">
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">SEO Ninja</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">src.seoninja.core.seo.optimizer</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for src.seoninja.core.seo.optimizer</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Core SEO optimization functionality.&quot;&quot;&quot;</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Set</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bs4</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">lru_cache</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
+
+<div class="viewcode-block" id="SEOOptimizer">
+<a class="viewcode-back" href="../../../../../autoapi/src/seoninja/core/seo/optimizer/index.html#src.seoninja.core.seo.optimizer.SEOOptimizer">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">SEOOptimizer</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Enhanced SEO optimization with improved rules and caching.&quot;&quot;&quot;</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize optimizer with configuration.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+        
+        <span class="c1"># Cache configuration</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cache_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;data/cache/seo&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cache_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cache_duration</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+        
+        <span class="c1"># Load optimization rules</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_load_rules</span><span class="p">()</span>
+        
+        <span class="c1"># Initialize performance metrics</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_metrics</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_load_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Load SEO optimization rules with weights.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rules</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;min_length&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+                <span class="s1">&#39;max_length&#39;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
+                <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="mf">0.15</span>
+            <span class="p">},</span>
+            <span class="s1">&#39;meta_description&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;min_length&#39;</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span>
+                <span class="s1">&#39;max_length&#39;</span><span class="p">:</span> <span class="mi">155</span><span class="p">,</span>
+                <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="mf">0.1</span>
+            <span class="p">},</span>
+            <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;h1_count&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+                <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="mf">0.1</span>
+            <span class="p">},</span>
+            <span class="s1">&#39;content&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;min_words&#39;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
+                <span class="s1">&#39;keyword_density&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+                    <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mf">0.03</span>
+                <span class="p">},</span>
+                <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="mf">0.25</span>
+            <span class="p">},</span>
+            <span class="s1">&#39;images&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;alt_text&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="s1">&#39;max_size_kb&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+                <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="mf">0.1</span>
+            <span class="p">},</span>
+            <span class="s1">&#39;links&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;internal_min&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="s1">&#39;external_min&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="mf">0.1</span>
+            <span class="p">},</span>
+            <span class="s1">&#39;mobile&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;viewport&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="s1">&#39;responsive&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="mf">0.1</span>
+            <span class="p">},</span>
+            <span class="s1">&#39;performance&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;load_time_max&#39;</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span>
+                <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="mf">0.1</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        
+    <span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<div class="viewcode-block" id="SEOOptimizer.get_optimization_score">
+<a class="viewcode-back" href="../../../../../autoapi/src/seoninja/core/seo/optimizer/index.html#src.seoninja.core.seo.optimizer.SEOOptimizer.get_optimization_score">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_optimization_score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get SEO optimization score with caching.&quot;&quot;&quot;</span>
+        <span class="n">cache_key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_cache_key</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
+        
+        <span class="c1"># Check cache first</span>
+        <span class="n">cached_result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_from_cache</span><span class="p">(</span><span class="n">cache_key</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">cached_result</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cached_result</span>
+            
+        <span class="c1"># Calculate scores</span>
+        <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">scores</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_scores</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_metrics</span><span class="p">[</span><span class="s1">&#39;score_calculation_time&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span>
+        
+        <span class="c1"># Cache results</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_save_to_cache</span><span class="p">(</span><span class="n">cache_key</span><span class="p">,</span> <span class="n">scores</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">scores</span></div>
+
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_calculate_scores</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate detailed SEO scores.&quot;&quot;&quot;</span>
+        <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+        <span class="n">scores</span> <span class="o">=</span> <span class="p">{}</span>
+        
+        <span class="c1"># Title optimization</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">string</span> <span class="k">if</span> <span class="n">soup</span><span class="o">.</span><span class="n">title</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
+        <span class="n">scores</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_title_score</span><span class="p">(</span><span class="n">title</span><span class="p">),</span>
+            <span class="s1">&#39;issues&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_title_issues</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+        <span class="p">}</span>
+        
+        <span class="c1"># Meta description</span>
+        <span class="n">meta_desc</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;meta&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;description&#39;</span><span class="p">})</span>
+        <span class="n">meta_content</span> <span class="o">=</span> <span class="n">meta_desc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">meta_desc</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
+        <span class="n">scores</span><span class="p">[</span><span class="s1">&#39;meta_description&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_meta_description_score</span><span class="p">(</span><span class="n">meta_content</span><span class="p">),</span>
+            <span class="s1">&#39;issues&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_meta_description_issues</span><span class="p">(</span><span class="n">meta_content</span><span class="p">)</span>
+        <span class="p">}</span>
+        
+        <span class="c1"># Headers analysis</span>
+        <span class="n">headers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_analyze_headers</span><span class="p">(</span><span class="n">soup</span><span class="p">)</span>
+        <span class="n">scores</span><span class="p">[</span><span class="s1">&#39;headers&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_headers_score</span><span class="p">(</span><span class="n">headers</span><span class="p">),</span>
+            <span class="s1">&#39;issues&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_headers_issues</span><span class="p">(</span><span class="n">headers</span><span class="p">)</span>
+        <span class="p">}</span>
+        
+        <span class="c1"># Content analysis</span>
+        <span class="n">content_text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_content</span><span class="p">(</span><span class="n">soup</span><span class="p">)</span>
+        <span class="n">scores</span><span class="p">[</span><span class="s1">&#39;content&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_content_score</span><span class="p">(</span><span class="n">content_text</span><span class="p">),</span>
+            <span class="s1">&#39;issues&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_content_issues</span><span class="p">(</span><span class="n">content_text</span><span class="p">)</span>
+        <span class="p">}</span>
+        
+        <span class="c1"># Image optimization</span>
+        <span class="n">images</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">)</span>
+        <span class="n">scores</span><span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_images_score</span><span class="p">(</span><span class="n">images</span><span class="p">),</span>
+            <span class="s1">&#39;issues&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_images_issues</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+        <span class="p">}</span>
+        
+        <span class="c1"># Link analysis</span>
+        <span class="n">links</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_analyze_links</span><span class="p">(</span><span class="n">soup</span><span class="p">)</span>
+        <span class="n">scores</span><span class="p">[</span><span class="s1">&#39;links&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_links_score</span><span class="p">(</span><span class="n">links</span><span class="p">),</span>
+            <span class="s1">&#39;issues&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_links_issues</span><span class="p">(</span><span class="n">links</span><span class="p">)</span>
+        <span class="p">}</span>
+        
+        <span class="c1"># Mobile optimization</span>
+        <span class="n">scores</span><span class="p">[</span><span class="s1">&#39;mobile&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_mobile_score</span><span class="p">(</span><span class="n">soup</span><span class="p">),</span>
+            <span class="s1">&#39;issues&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_mobile_issues</span><span class="p">(</span><span class="n">soup</span><span class="p">)</span>
+        <span class="p">}</span>
+        
+        <span class="c1"># Calculate overall score</span>
+        <span class="n">scores</span><span class="p">[</span><span class="s1">&#39;overall&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_overall_score</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">scores</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_title_score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate title optimization score.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">title</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">0.0</span>
+            
+        <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+        <span class="n">rules</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span>
+        
+        <span class="k">if</span> <span class="n">length</span> <span class="o">&lt;</span> <span class="n">rules</span><span class="p">[</span><span class="s1">&#39;min_length&#39;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="mf">0.5</span>
+        <span class="k">elif</span> <span class="n">length</span> <span class="o">&gt;</span> <span class="n">rules</span><span class="p">[</span><span class="s1">&#39;max_length&#39;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="mf">0.7</span>
+        <span class="k">return</span> <span class="mf">1.0</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_title_issues</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get title optimization issues.&quot;&quot;&quot;</span>
+        <span class="n">issues</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">rules</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">title</span><span class="p">:</span>
+            <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Missing title tag&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">issues</span>
+            
+        <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">length</span> <span class="o">&lt;</span> <span class="n">rules</span><span class="p">[</span><span class="s1">&#39;min_length&#39;</span><span class="p">]:</span>
+            <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Title too short (</span><span class="si">{</span><span class="n">length</span><span class="si">}</span><span class="s2"> chars)&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">length</span> <span class="o">&gt;</span> <span class="n">rules</span><span class="p">[</span><span class="s1">&#39;max_length&#39;</span><span class="p">]:</span>
+            <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Title too long (</span><span class="si">{</span><span class="n">length</span><span class="si">}</span><span class="s2"> chars)&quot;</span><span class="p">)</span>
+            
+        <span class="k">return</span> <span class="n">issues</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_meta_description_score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">description</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate meta description score.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">description</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">0.0</span>
+            
+        <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">description</span><span class="p">)</span>
+        <span class="n">rules</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">[</span><span class="s1">&#39;meta_description&#39;</span><span class="p">]</span>
+        
+        <span class="k">if</span> <span class="n">length</span> <span class="o">&lt;</span> <span class="n">rules</span><span class="p">[</span><span class="s1">&#39;min_length&#39;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="mf">0.5</span>
+        <span class="k">elif</span> <span class="n">length</span> <span class="o">&gt;</span> <span class="n">rules</span><span class="p">[</span><span class="s1">&#39;max_length&#39;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="mf">0.7</span>
+        <span class="k">return</span> <span class="mf">1.0</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_meta_description_issues</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">description</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get meta description issues.&quot;&quot;&quot;</span>
+        <span class="n">issues</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">rules</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">[</span><span class="s1">&#39;meta_description&#39;</span><span class="p">]</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">description</span><span class="p">:</span>
+            <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Missing meta description&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">issues</span>
+            
+        <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">description</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">length</span> <span class="o">&lt;</span> <span class="n">rules</span><span class="p">[</span><span class="s1">&#39;min_length&#39;</span><span class="p">]:</span>
+            <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Meta description too short (</span><span class="si">{</span><span class="n">length</span><span class="si">}</span><span class="s2"> chars)&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">length</span> <span class="o">&gt;</span> <span class="n">rules</span><span class="p">[</span><span class="s1">&#39;max_length&#39;</span><span class="p">]:</span>
+            <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Meta description too long (</span><span class="si">{</span><span class="n">length</span><span class="si">}</span><span class="s2"> chars)&quot;</span><span class="p">)</span>
+            
+        <span class="k">return</span> <span class="n">issues</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_analyze_headers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">soup</span><span class="p">:</span> <span class="n">BeautifulSoup</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Analyze header structure.&quot;&quot;&quot;</span>
+        <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;h1_count&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">)),</span>
+            <span class="s1">&#39;structure&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_header_structure</span><span class="p">(</span><span class="n">soup</span><span class="p">),</span>
+            <span class="s1">&#39;keywords&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_header_keywords</span><span class="p">(</span><span class="n">soup</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">headers</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_headers_score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">headers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate headers optimization score.&quot;&quot;&quot;</span>
+        <span class="n">rules</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">[</span><span class="s1">&#39;headers&#39;</span><span class="p">]</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="mf">1.0</span>
+        
+        <span class="c1"># Check H1 count</span>
+        <span class="k">if</span> <span class="n">headers</span><span class="p">[</span><span class="s1">&#39;h1_count&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">rules</span><span class="p">[</span><span class="s1">&#39;h1_count&#39;</span><span class="p">]:</span>
+            <span class="n">score</span> <span class="o">*=</span> <span class="mf">0.7</span>
+            
+        <span class="c1"># Check header structure</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_valid_header_structure</span><span class="p">(</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;structure&#39;</span><span class="p">]):</span>
+            <span class="n">score</span> <span class="o">*=</span> <span class="mf">0.8</span>
+            
+        <span class="k">return</span> <span class="n">score</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_headers_issues</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">headers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get header optimization issues.&quot;&quot;&quot;</span>
+        <span class="n">issues</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">rules</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">[</span><span class="s1">&#39;headers&#39;</span><span class="p">]</span>
+        
+        <span class="k">if</span> <span class="n">headers</span><span class="p">[</span><span class="s1">&#39;h1_count&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Missing H1 tag&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">headers</span><span class="p">[</span><span class="s1">&#39;h1_count&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Multiple H1 tags found&quot;</span><span class="p">)</span>
+            
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_valid_header_structure</span><span class="p">(</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;structure&#39;</span><span class="p">]):</span>
+            <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Invalid header structure&quot;</span><span class="p">)</span>
+            
+        <span class="k">return</span> <span class="n">issues</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_content_score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate content optimization score.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">content</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">0.0</span>
+            
+        <span class="n">words</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="n">rules</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">[</span><span class="s1">&#39;content&#39;</span><span class="p">]</span>
+        
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">rules</span><span class="p">[</span><span class="s1">&#39;min_words&#39;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="mf">0.5</span>
+            
+        <span class="c1"># Check keyword density</span>
+        <span class="n">density</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_keyword_density</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">density</span> <span class="o">&lt;</span> <span class="n">rules</span><span class="p">[</span><span class="s1">&#39;keyword_density&#39;</span><span class="p">][</span><span class="s1">&#39;min&#39;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="mf">0.7</span>
+        <span class="k">elif</span> <span class="n">density</span> <span class="o">&gt;</span> <span class="n">rules</span><span class="p">[</span><span class="s1">&#39;keyword_density&#39;</span><span class="p">][</span><span class="s1">&#39;max&#39;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="mf">0.6</span>
+            
+        <span class="k">return</span> <span class="mf">1.0</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_content_issues</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get content optimization issues.&quot;&quot;&quot;</span>
+        <span class="n">issues</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">rules</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">[</span><span class="s1">&#39;content&#39;</span><span class="p">]</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">content</span><span class="p">:</span>
+            <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Missing main content&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">issues</span>
+            
+        <span class="n">words</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">rules</span><span class="p">[</span><span class="s1">&#39;min_words&#39;</span><span class="p">]:</span>
+            <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Content too short (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span><span class="si">}</span><span class="s2"> words)&quot;</span><span class="p">)</span>
+            
+        <span class="n">density</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_keyword_density</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">density</span> <span class="o">&lt;</span> <span class="n">rules</span><span class="p">[</span><span class="s1">&#39;keyword_density&#39;</span><span class="p">][</span><span class="s1">&#39;min&#39;</span><span class="p">]:</span>
+            <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Keyword density too low&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">density</span> <span class="o">&gt;</span> <span class="n">rules</span><span class="p">[</span><span class="s1">&#39;keyword_density&#39;</span><span class="p">][</span><span class="s1">&#39;max&#39;</span><span class="p">]:</span>
+            <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Keyword density too high&quot;</span><span class="p">)</span>
+            
+        <span class="k">return</span> <span class="n">issues</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_calculate_overall_score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scores</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate overall optimization score.&quot;&quot;&quot;</span>
+        <span class="n">total_score</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">total_weight</span> <span class="o">=</span> <span class="mf">0.0</span>
+        
+        <span class="k">for</span> <span class="n">category</span><span class="p">,</span> <span class="n">details</span> <span class="ow">in</span> <span class="n">scores</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">category</span> <span class="o">!=</span> <span class="s1">&#39;overall&#39;</span><span class="p">:</span>
+                <span class="n">weight</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">[</span><span class="n">category</span><span class="p">][</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span>
+                <span class="n">total_score</span> <span class="o">+=</span> <span class="n">details</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">weight</span>
+                <span class="n">total_weight</span> <span class="o">+=</span> <span class="n">weight</span>
+                
+        <span class="k">return</span> <span class="n">total_score</span> <span class="o">/</span> <span class="n">total_weight</span> <span class="k">if</span> <span class="n">total_weight</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mf">0.0</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_cache_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate cache key for URL and content.&quot;&quot;&quot;</span>
+        <span class="n">content_hash</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">content</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">content_hash</span><span class="si">}</span><span class="s2">&quot;</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_from_cache</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cache_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get cached optimization results.&quot;&quot;&quot;</span>
+        <span class="n">cache_file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cache_key</span><span class="si">}</span><span class="s2">.json&quot;</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">cache_file</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="k">return</span> <span class="kc">None</span>
+            
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">cache_file</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
+            <span class="n">cached_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;timestamp&#39;</span><span class="p">])</span>
+            
+            <span class="k">if</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">cached_time</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache_duration</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span>
+                
+            <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;scores&#39;</span><span class="p">]</span>
+            
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cache read error: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+            
+    <span class="k">def</span><span class="w"> </span><span class="nf">_save_to_cache</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cache_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">scores</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Save optimization results to cache.&quot;&quot;&quot;</span>
+        <span class="n">cache_file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cache_key</span><span class="si">}</span><span class="s2">.json&quot;</span>
+        
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span>
+                <span class="s1">&#39;scores&#39;</span><span class="p">:</span> <span class="n">scores</span>
+            <span class="p">}</span>
+            <span class="n">cache_file</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+            
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cache write error: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            
+    <span class="k">def</span><span class="w"> </span><span class="nf">_extract_content</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">soup</span><span class="p">:</span> <span class="n">BeautifulSoup</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Extract main content from HTML.&quot;&quot;&quot;</span>
+        <span class="c1"># Remove script and style elements</span>
+        <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">soup</span><span class="p">([</span><span class="s1">&#39;script&#39;</span><span class="p">,</span> <span class="s1">&#39;style&#39;</span><span class="p">]):</span>
+            <span class="n">element</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span>
+            
+        <span class="c1"># Get text content</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+        
+        <span class="c1"># Normalize whitespace</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>
+        <span class="n">chunks</span> <span class="o">=</span> <span class="p">(</span><span class="n">phrase</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span> <span class="k">for</span> <span class="n">phrase</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;  &quot;</span><span class="p">))</span>
+        
+        <span class="k">return</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">chunk</span> <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">chunks</span> <span class="k">if</span> <span class="n">chunk</span><span class="p">)</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_calculate_keyword_density</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate keyword density in content.&quot;&quot;&quot;</span>
+        <span class="c1"># This is a simplified implementation</span>
+        <span class="c1"># In practice, you would use the target keywords from the configuration</span>
+        <span class="n">words</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="n">total_words</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">total_words</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">0.0</span>
+            
+        <span class="c1"># Count keyword occurrences</span>
+        <span class="n">keyword_count</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">keyword_count</span> <span class="o">/</span> <span class="n">total_words</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_header_structure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">soup</span><span class="p">:</span> <span class="n">BeautifulSoup</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get hierarchical header structure.&quot;&quot;&quot;</span>
+        <span class="n">headers</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">header</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;h</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">):</span>
+                <span class="n">headers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;h</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">headers</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_is_valid_header_structure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">headers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if header structure is valid.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">headers</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+            
+        <span class="c1"># Check for sequential order</span>
+        <span class="n">current_level</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">header</span> <span class="ow">in</span> <span class="n">headers</span><span class="p">:</span>
+            <span class="n">level</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">header</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">level</span> <span class="o">&gt;</span> <span class="n">current_level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">False</span>
+            <span class="n">current_level</span> <span class="o">=</span> <span class="n">level</span>
+            
+        <span class="k">return</span> <span class="kc">True</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_extract_header_keywords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">soup</span><span class="p">:</span> <span class="n">BeautifulSoup</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Extract keywords from headers.&quot;&quot;&quot;</span>
+        <span class="n">keywords</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">header</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;h</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">):</span>
+                <span class="n">words</span> <span class="o">=</span> <span class="n">header</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                <span class="n">keywords</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">keywords</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_analyze_links</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">soup</span><span class="p">:</span> <span class="n">BeautifulSoup</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Analyze link structure.&quot;&quot;&quot;</span>
+        <span class="n">links</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;internal&#39;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s1">&#39;external&#39;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s1">&#39;broken&#39;</span><span class="p">:</span> <span class="p">[]</span>
+        <span class="p">}</span>
+        
+        <span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="n">href</span> <span class="o">=</span> <span class="n">link</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">href</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">):</span>
+                <span class="k">continue</span>
+                
+            <span class="k">if</span> <span class="n">href</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">):</span>
+                <span class="n">links</span><span class="p">[</span><span class="s1">&#39;external&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">href</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">links</span><span class="p">[</span><span class="s1">&#39;internal&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">href</span><span class="p">)</span>
+                
+        <span class="k">return</span> <span class="n">links</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_links_score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">links</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate links optimization score.&quot;&quot;&quot;</span>
+        <span class="n">rules</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">[</span><span class="s1">&#39;links&#39;</span><span class="p">]</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="mf">1.0</span>
+        
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">links</span><span class="p">[</span><span class="s1">&#39;internal&#39;</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">rules</span><span class="p">[</span><span class="s1">&#39;internal_min&#39;</span><span class="p">]:</span>
+            <span class="n">score</span> <span class="o">*=</span> <span class="mf">0.8</span>
+            
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">links</span><span class="p">[</span><span class="s1">&#39;external&#39;</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">rules</span><span class="p">[</span><span class="s1">&#39;external_min&#39;</span><span class="p">]:</span>
+            <span class="n">score</span> <span class="o">*=</span> <span class="mf">0.9</span>
+            
+        <span class="k">return</span> <span class="n">score</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_links_issues</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">links</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get link optimization issues.&quot;&quot;&quot;</span>
+        <span class="n">issues</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">rules</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">[</span><span class="s1">&#39;links&#39;</span><span class="p">]</span>
+        
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">links</span><span class="p">[</span><span class="s1">&#39;internal&#39;</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">rules</span><span class="p">[</span><span class="s1">&#39;internal_min&#39;</span><span class="p">]:</span>
+            <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Insufficient internal links&quot;</span><span class="p">)</span>
+            
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">links</span><span class="p">[</span><span class="s1">&#39;external&#39;</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">rules</span><span class="p">[</span><span class="s1">&#39;external_min&#39;</span><span class="p">]:</span>
+            <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Insufficient external links&quot;</span><span class="p">)</span>
+            
+        <span class="k">if</span> <span class="n">links</span><span class="p">[</span><span class="s1">&#39;broken&#39;</span><span class="p">]:</span>
+            <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">links</span><span class="p">[</span><span class="s1">&#39;broken&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2"> broken links&quot;</span><span class="p">)</span>
+            
+        <span class="k">return</span> <span class="n">issues</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_images_score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">images</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate images optimization score.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">images</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">1.0</span>
+            
+        <span class="n">score</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">images</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;alt&#39;</span><span class="p">):</span>
+                <span class="n">score</span> <span class="o">*=</span> <span class="mf">0.9</span>
+                
+        <span class="k">return</span> <span class="n">score</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_images_issues</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">images</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get image optimization issues.&quot;&quot;&quot;</span>
+        <span class="n">issues</span> <span class="o">=</span> <span class="p">[]</span>
+        
+        <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">images</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;alt&#39;</span><span class="p">):</span>
+                <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Missing alt text for image: </span><span class="si">{</span><span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;unknown&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                
+        <span class="k">return</span> <span class="n">issues</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_mobile_score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">soup</span><span class="p">:</span> <span class="n">BeautifulSoup</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate mobile optimization score.&quot;&quot;&quot;</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="n">rules</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">[</span><span class="s1">&#39;mobile&#39;</span><span class="p">]</span>
+        
+        <span class="c1"># Check viewport</span>
+        <span class="n">viewport</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;meta&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;viewport&#39;</span><span class="p">})</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">viewport</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">*=</span> <span class="mf">0.7</span>
+            
+        <span class="c1"># Check responsive design</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_responsive_design</span><span class="p">(</span><span class="n">soup</span><span class="p">):</span>
+            <span class="n">score</span> <span class="o">*=</span> <span class="mf">0.8</span>
+            
+        <span class="k">return</span> <span class="n">score</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_mobile_issues</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">soup</span><span class="p">:</span> <span class="n">BeautifulSoup</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get mobile optimization issues.&quot;&quot;&quot;</span>
+        <span class="n">issues</span> <span class="o">=</span> <span class="p">[]</span>
+        
+        <span class="n">viewport</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;meta&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;viewport&#39;</span><span class="p">})</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">viewport</span><span class="p">:</span>
+            <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Missing viewport meta tag&quot;</span><span class="p">)</span>
+            
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_responsive_design</span><span class="p">(</span><span class="n">soup</span><span class="p">):</span>
+            <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Non-responsive design detected&quot;</span><span class="p">)</span>
+            
+        <span class="k">return</span> <span class="n">issues</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_is_responsive_design</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">soup</span><span class="p">:</span> <span class="n">BeautifulSoup</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if design is responsive.&quot;&quot;&quot;</span>
+        <span class="c1"># Check for common responsive design indicators</span>
+        <span class="n">viewport</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;meta&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;viewport&#39;</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">viewport</span> <span class="ow">and</span> <span class="s1">&#39;width=device-width&#39;</span> <span class="ow">in</span> <span class="n">viewport</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+            
+        <span class="c1"># Check for media queries in style tags</span>
+        <span class="k">for</span> <span class="n">style</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;style&#39;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="s1">&#39;@media&#39;</span> <span class="ow">in</span> <span class="n">style</span><span class="o">.</span><span class="n">string</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">True</span>
+                
+        <span class="k">return</span> <span class="kc">False</span>
+        
+<div class="viewcode-block" id="SEOOptimizer.clear_cache">
+<a class="viewcode-back" href="../../../../../autoapi/src/seoninja/core/seo/optimizer/index.html#src.seoninja.core.seo.optimizer.SEOOptimizer.clear_cache">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">clear_cache</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Clear optimization cache.&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">cache_file</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache_dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*.json&#39;</span><span class="p">):</span>
+                <span class="n">cache_file</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Cache cleared successfully&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error clearing cache: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+            
+<div class="viewcode-block" id="SEOOptimizer.get_performance_metrics">
+<a class="viewcode-back" href="../../../../../autoapi/src/seoninja/core/seo/optimizer/index.html#src.seoninja.core.seo.optimizer.SEOOptimizer.get_performance_metrics">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_performance_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get performance metrics.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_metrics</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SEOOptimizer.analyze_technical">
+<a class="viewcode-back" href="../../../../../autoapi/src/seoninja/core/seo/optimizer/index.html#src.seoninja.core.seo.optimizer.SEOOptimizer.analyze_technical">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">analyze_technical</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Analyze technical SEO aspects.&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">results</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;issues&#39;</span><span class="p">:</span> <span class="p">[],</span>
+                <span class="s1">&#39;metrics&#39;</span><span class="p">:</span> <span class="p">{},</span>
+                <span class="s1">&#39;recommendations&#39;</span><span class="p">:</span> <span class="p">[]</span>
+            <span class="p">}</span>
+            
+            <span class="c1"># Analyze various technical aspects</span>
+            <span class="n">results</span><span class="p">[</span><span class="s1">&#39;issues&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_technical_issues</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
+            <span class="n">results</span><span class="p">[</span><span class="s1">&#39;metrics&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_technical_metrics</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
+            <span class="n">results</span><span class="p">[</span><span class="s1">&#39;recommendations&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_generate_technical_recommendations</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+            <span class="p">)</span>
+            
+            <span class="k">return</span> <span class="n">results</span>
+            
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error in technical analysis: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)}</span></div>
+
+
+<div class="viewcode-block" id="SEOOptimizer.optimize_meta_tags">
+<a class="viewcode-back" href="../../../../../autoapi/src/seoninja/core/seo/optimizer/index.html#src.seoninja.core.seo.optimizer.SEOOptimizer.optimize_meta_tags">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">optimize_meta_tags</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">content</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">keyword_data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+        <span class="n">content_analysis</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Optimize meta tags with context.&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="s1">&#39;meta_tags&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_optimized_meta_tags</span><span class="p">(</span>
+                    <span class="n">content</span><span class="p">,</span>
+                    <span class="n">keyword_data</span>
+                <span class="p">),</span>
+                <span class="s1">&#39;recommendations&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_meta_optimization_recommendations</span><span class="p">(</span>
+                    <span class="n">content_analysis</span>
+                <span class="p">),</span>
+                <span class="s1">&#39;optimization_score&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_meta_optimization_score</span><span class="p">(</span>
+                    <span class="n">content</span><span class="p">,</span>
+                    <span class="n">keyword_data</span>
+                <span class="p">)</span>
+            <span class="p">}</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error optimizing meta tags: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)}</span></div>
+
+
+<div class="viewcode-block" id="SEOOptimizer.analyze_performance">
+<a class="viewcode-back" href="../../../../../autoapi/src/seoninja/core/seo/optimizer/index.html#src.seoninja.core.seo.optimizer.SEOOptimizer.analyze_performance">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">analyze_performance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Analyze page performance.&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="s1">&#39;performance_metrics&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_performance_metrics</span><span class="p">(</span><span class="n">url</span><span class="p">),</span>
+                <span class="s1">&#39;optimization_suggestions&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_performance_suggestions</span><span class="p">(</span><span class="n">url</span><span class="p">),</span>
+                <span class="s1">&#39;critical_issues&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_critical_performance_issues</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error analyzing performance: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)}</span></div>
+
+
+<div class="viewcode-block" id="SEOOptimizer.generate_recommendations">
+<a class="viewcode-back" href="../../../../../autoapi/src/seoninja/core/seo/optimizer/index.html#src.seoninja.core.seo.optimizer.SEOOptimizer.generate_recommendations">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">generate_recommendations</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">content</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">technical_data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+        <span class="n">content_data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+        <span class="n">keyword_data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate comprehensive SEO recommendations.&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="s1">&#39;technical&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_technical_recommendations</span><span class="p">(</span><span class="n">technical_data</span><span class="p">),</span>
+                <span class="s1">&#39;content&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_content_recommendations</span><span class="p">(</span><span class="n">content_data</span><span class="p">),</span>
+                <span class="s1">&#39;meta&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_meta_recommendations</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">keyword_data</span><span class="p">),</span>
+                <span class="s1">&#39;performance&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_performance_recommendations</span><span class="p">(</span><span class="n">technical_data</span><span class="p">),</span>
+                <span class="s1">&#39;priority_actions&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_priority_actions</span><span class="p">(</span>
+                    <span class="n">technical_data</span><span class="p">,</span>
+                    <span class="n">content_data</span><span class="p">,</span>
+                    <span class="n">keyword_data</span>
+                <span class="p">)</span>
+            <span class="p">}</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error generating recommendations: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)}</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Your Name.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

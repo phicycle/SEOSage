@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Documentation &mdash; SEO Ninja 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Monitoring and Analytics" href="../monitoring.html" />
+    <link rel="prev" title="Architecture" href="../architecture.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SEO Ninja
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#what-is-seo-ninja">What is SEO Ninja?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#key-features">Key Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#system-architecture">System Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#core-components">Core Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#communication-flow">Communication Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#task-management">Task Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#state-management">State Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#error-handling">Error Handling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#technology-stack">Technology Stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#getting-started">Getting Started</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#required-api-keys">Required API Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#installation-steps">Installation Steps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#clone-the-repository">1. Clone the Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#create-virtual-environment">2. Create Virtual Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#install-dependencies">3. Install Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#configure-environment-variables">4. Configure Environment Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#set-up-google-search-console-authentication">5. Set Up Google Search Console Authentication</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#running-the-application">Running the Application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#start-the-api-server">1. Start the API Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#access-the-api-documentation">2. Access the API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#development-setup">Development Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#install-development-dependencies">1. Install Development Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#set-up-pre-commit-hooks">2. Set Up Pre-commit Hooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#run-tests">3. Run Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#build-documentation">4. Build Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#common-issues">Common Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#getting-help">Getting Help</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture.html">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#system-overview">System Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#core-components">Core Components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#orchestrator-agent">Orchestrator Agent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#specialized-agents">Specialized Agents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#communication-model">Communication Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#inter-agent-communication">Inter-agent Communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#message-types">Message Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#task-processing">Task Processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#task-lifecycle">Task Lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#parallel-processing">Parallel Processing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#resource-management">Resource Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#resource-types">Resource Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#monitoring-system">Monitoring System</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#security-architecture">Security Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#authentication">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#data-protection">Data Protection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#error-handling">Error Handling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#recovery-mechanisms">Recovery Mechanisms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#error-propagation">Error Propagation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#deployment-architecture">Deployment Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#components">Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#scaling-strategy">Scaling Strategy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#future-considerations">Future Considerations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#planned-enhancements">Planned Enhancements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#task-management">Task Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#agent-communication">Agent Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#process-timeline">Process Timeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#resource-monitoring">Resource Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#system-status">System Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#error-responses">Error Responses</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../monitoring.html">Monitoring and Analytics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../monitoring.html#agent-communication-visualization">Agent Communication Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../monitoring.html#flow-analysis">Flow Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../monitoring.html#real-time-monitoring">Real-time Monitoring</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../monitoring.html#process-timeline">Process Timeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../monitoring.html#stage-tracking">Stage Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../monitoring.html#decision-points">Decision Points</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../monitoring.html#resource-monitoring">Resource Monitoring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../monitoring.html#resource-allocation">Resource Allocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../monitoring.html#usage-patterns">Usage Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../monitoring.html#bottleneck-detection">Bottleneck Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../monitoring.html#system-capacity">System Capacity</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../monitoring.html#visualization-integration">Visualization Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../monitoring.html#best-practices">Best Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id1">[1.0.0] - 2024-02-04</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#added">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id2">[0.9.0] - 2024-01-15</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id3">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#changed">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id4">[0.8.0] - 2023-12-20</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id5">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#fixed">Fixed</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../autoapi/index.html">API Reference</a><ul class="simple">
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SEO Ninja</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="../architecture.html" class="btn btn-neutral float-left" title="Architecture" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../monitoring.html" class="btn btn-neutral float-right" title="Monitoring and Analytics" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-documentation">
+<h1>API Documentation<a class="headerlink" href="#api-documentation" title="Link to this heading"></a></h1>
+<section id="task-management">
+<h2>Task Management<a class="headerlink" href="#task-management" title="Link to this heading"></a></h2>
+<dl class="http post">
+<dt class="sig sig-object http" id="post--api-tasks">
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/api/tasks</span></span><a class="headerlink" href="#post--api-tasks" title="Link to this definition"></a></dt>
+<dd><p>Create a new task.</p>
+<p><strong>Example request</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/api/tasks</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;content_generation&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;parameters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;keyword&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;example keyword&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;intent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;informational&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;priority&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;high&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;task_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123456&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;queued&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="agent-communication">
+<h2>Agent Communication<a class="headerlink" href="#agent-communication" title="Link to this heading"></a></h2>
+<dl class="http get">
+<dt class="sig sig-object http" id="get--api-communication-flows">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/api/communication/flows</span></span><a class="headerlink" href="#get--api-communication-flows" title="Link to this definition"></a></dt>
+<dd><p>Get inter-agent communication flows.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Query Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_time</strong> – Start time for filtering (ISO format)</p></li>
+<li><p><strong>end_time</strong> – End time for filtering (ISO format)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Status Codes<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – No error</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="http get">
+<dt class="sig sig-object http" id="get--api-communication-realtime">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/api/communication/realtime</span></span><a class="headerlink" href="#get--api-communication-realtime" title="Link to this definition"></a></dt>
+<dd><p>Stream real-time agent interaction data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – Server-sent events stream started</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="http get">
+<dt class="sig sig-object http" id="get--api-communication-analytics">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/api/communication/analytics</span></span><a class="headerlink" href="#get--api-communication-analytics" title="Link to this definition"></a></dt>
+<dd><p>Get communication patterns analytics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Query Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>timeframe</strong> – Time frame for analysis (e.g., ‘24h’)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Status Codes<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – No error</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="process-timeline">
+<h2>Process Timeline<a class="headerlink" href="#process-timeline" title="Link to this heading"></a></h2>
+<dl class="http get">
+<dt class="sig sig-object http" id="get--api-timeline-process">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/api/timeline/process</span></span><a class="headerlink" href="#get--api-timeline-process" title="Link to this definition"></a></dt>
+<dd><p>Get detailed process stage tracking.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Query Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>process_id</strong> – ID of the process to track</p></li>
+<li><p><strong>include_details</strong> – Include additional details (boolean)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Status Codes<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – No error</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="http get">
+<dt class="sig sig-object http" id="get--api-timeline-decisions">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/api/timeline/decisions</span></span><a class="headerlink" href="#get--api-timeline-decisions" title="Link to this definition"></a></dt>
+<dd><p>Get decision point logging.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Query Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>process_id</strong> – ID of the process</p></li>
+<li><p><strong>start_time</strong> – Start time for filtering</p></li>
+<li><p><strong>end_time</strong> – End time for filtering</p></li>
+</ul>
+</dd>
+<dt class="field-even">Status Codes<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – No error</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="resource-monitoring">
+<h2>Resource Monitoring<a class="headerlink" href="#resource-monitoring" title="Link to this heading"></a></h2>
+<dl class="http get">
+<dt class="sig sig-object http" id="get--api-resources-allocation">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/api/resources/allocation</span></span><a class="headerlink" href="#get--api-resources-allocation" title="Link to this definition"></a></dt>
+<dd><p>Get detailed resource allocation tracking.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Query Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resource_type</strong> – Type of resource to monitor</p></li>
+<li><p><strong>timeframe</strong> – Time frame for analysis</p></li>
+</ul>
+</dd>
+<dt class="field-even">Status Codes<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – No error</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="http get">
+<dt class="sig sig-object http" id="get--api-resources-usage-patterns">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/api/resources/usage-patterns</span></span><a class="headerlink" href="#get--api-resources-usage-patterns" title="Link to this definition"></a></dt>
+<dd><p>Get resource usage patterns.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Query Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resource_type</strong> – Type of resource</p></li>
+<li><p><strong>start_time</strong> – Start time for analysis</p></li>
+<li><p><strong>end_time</strong> – End time for analysis</p></li>
+</ul>
+</dd>
+<dt class="field-even">Status Codes<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – No error</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="http get">
+<dt class="sig sig-object http" id="get--api-resources-bottlenecks">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/api/resources/bottlenecks</span></span><a class="headerlink" href="#get--api-resources-bottlenecks" title="Link to this definition"></a></dt>
+<dd><p>Get resource bottleneck identification.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Query Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>analysis_period</strong> – Period for analysis (default: ‘24h’)</p></li>
+<li><p><strong>threshold</strong> – Bottleneck threshold (default: 0.8)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Status Codes<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – No error</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="system-status">
+<h2>System Status<a class="headerlink" href="#system-status" title="Link to this heading"></a></h2>
+<dl class="http get">
+<dt class="sig sig-object http" id="get--api-system-status">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/api/system/status</span></span><a class="headerlink" href="#get--api-system-status" title="Link to this definition"></a></dt>
+<dd><p>Get overall system status.</p>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;agents&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;healthy&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;seo&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;healthy&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;keyword&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;healthy&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;crawler&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;healthy&quot;</span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;tasks&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;active_tasks&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;system_health&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;optimal&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;last_update&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-02-04T12:00:00Z&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="error-responses">
+<h2>Error Responses<a class="headerlink" href="#error-responses" title="Link to this heading"></a></h2>
+<dl class="http any">
+<dt class="sig sig-object http" id="any--api-*">
+<span class="sig-name descname"><span class="pre">ANY</span> </span><span class="sig-name descname"><span class="pre">/api/*</span></span><a class="headerlink" href="#any--api-*" title="Link to this definition"></a></dt>
+<dd><p>Common error responses for all endpoints.</p>
+<p><strong>Example error response</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Invalid parameters&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;details&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Missing required field: type&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">400 Bad Request</a></span> – Bad request</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2">401 Unauthorized</a></span> – Authentication required</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4">403 Forbidden</a></span> – Forbidden</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5">404 Not Found</a></span> – Resource not found</p></li>
+<li><p><span><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc6585#section-4">429 Too Many Requests</a></span> – Too many requests</p></li>
+<li><p><span><a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1">500 Internal Server Error</a></span> – Server error</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../architecture.html" class="btn btn-neutral float-left" title="Architecture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../monitoring.html" class="btn btn-neutral float-right" title="Monitoring and Analytics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Your Name.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

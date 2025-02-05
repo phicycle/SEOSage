@@ -1,0 +1,175 @@
+:py:mod:`src.seoninja`
+======================
+
+.. py:module:: src.seoninja
+
+.. autoapi-nested-parse::
+
+   SEO Ninja - An agent-based SEO optimization toolkit.
+
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   core/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   run_dashboard/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   src.seoninja.SEOOrchestrator
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.seoninja.get_settings
+
+
+
+.. py:class:: SEOOrchestrator(storage: Optional[src.seoninja.utils.storage.PersistentStorage] = None, gsc_credentials: Optional[Dict[str, Any]] = None, moz_token: Optional[str] = None, target_domain: Optional[str] = None, openai_api_key: Optional[str] = None)
+
+
+   Bases: :py:obj:`src.seoninja.agents.base.agent.BaseAgent`
+
+   Orchestrates multiple specialized agents for SEO tasks with enhanced coordination.
+
+   Initialize orchestrator with enhanced components.
+
+   .. py:method:: execute(task: Dict[str, Any]) -> Dict[str, Any]
+      :async:
+
+      Execute a complex task by coordinating multiple agents with enhanced context sharing.
+
+
+   .. py:method:: cleanup() -> None
+
+      Clean up resources.
+
+
+   .. py:method:: run() -> None
+      :async:
+
+      Start the orchestrator and initialize all agents.
+
+
+   .. py:method:: shutdown() -> None
+      :async:
+
+      Gracefully shutdown the orchestrator and all agents.
+
+
+   .. py:method:: handle_event(agent_name: str, event: Dict[str, Any]) -> None
+      :async:
+
+      Handle events from observed agents.
+
+
+   .. py:method:: get_communication_flows(start_time: Optional[str] = None, end_time: Optional[str] = None) -> Dict[str, Any]
+      :async:
+
+      Get inter-agent communication flows.
+
+
+   .. py:method:: get_realtime_communication() -> Dict[str, Any]
+
+      Get real-time agent interaction data.
+
+
+   .. py:method:: get_communication_analytics(timeframe: str = '24h') -> Dict[str, Any]
+      :async:
+
+      Get communication patterns analytics.
+
+
+   .. py:method:: get_data_flow_metrics(start_time: Optional[str] = None, end_time: Optional[str] = None) -> Dict[str, Any]
+      :async:
+
+      Get data flow metrics between agents.
+
+
+   .. py:method:: get_process_timeline(process_id: str, include_details: bool = False) -> Dict[str, Any]
+      :async:
+
+      Get detailed process stage tracking data.
+
+
+   .. py:method:: get_decision_points(process_id: str, start_time: Optional[str] = None, end_time: Optional[str] = None) -> Dict[str, Any]
+      :async:
+
+      Get decision point logging data.
+
+
+   .. py:method:: get_stage_transitions(process_id: str) -> Dict[str, Any]
+      :async:
+
+      Get stage transition data.
+
+
+   .. py:method:: get_time_analysis(timeframe: str, process_type: Optional[str] = None) -> Dict[str, Any]
+      :async:
+
+      Get time-based process analysis.
+
+
+   .. py:method:: get_resource_allocation(resource_type: Optional[str] = None, timeframe: str = '1h') -> Dict[str, Any]
+      :async:
+
+      Get detailed resource allocation tracking.
+
+
+   .. py:method:: get_usage_patterns(resource_type: Optional[str], start_time: Optional[str], end_time: Optional[str]) -> Dict[str, Any]
+      :async:
+
+      Get resource usage patterns.
+
+
+   .. py:method:: get_resource_bottlenecks(analysis_period: str = '24h', threshold: float = 0.8) -> Dict[str, Any]
+      :async:
+
+      Get resource bottleneck identification.
+
+
+   .. py:method:: get_system_capacity(include_predictions: bool = False) -> Dict[str, Any]
+      :async:
+
+      Get system capacity metrics.
+
+
+   .. py:method:: get_realtime_resource_metrics() -> Dict[str, Any]
+
+      Get real-time resource metrics.
+
+
+   .. py:method:: cleanup() -> None
+
+      Clean up resources.
+
+
+
+.. py:function:: get_settings() -> Settings
+
+   Get the singleton settings instance.
+
+

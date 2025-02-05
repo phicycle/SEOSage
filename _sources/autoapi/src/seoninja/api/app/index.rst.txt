@@ -1,0 +1,906 @@
+:py:mod:`src.seoninja.api.app`
+==============================
+
+.. py:module:: src.seoninja.api.app
+
+.. autoapi-nested-parse::
+
+   Flask API for SEO Ninja.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   src.seoninja.api.app.TaskCreateSchema
+   src.seoninja.api.app.TaskResponseSchema
+   src.seoninja.api.app.TaskStatusSchema
+   src.seoninja.api.app.AgentHealthSchema
+   src.seoninja.api.app.LogQuerySchema
+   src.seoninja.api.app.CommunicationFlowSchema
+   src.seoninja.api.app.ProcessTimelineSchema
+   src.seoninja.api.app.ResourceMetricsSchema
+   src.seoninja.api.app.ResourceAllocationSchema
+   src.seoninja.api.app.ResourceUsageSchema
+   src.seoninja.api.app.ResourceBottleneckSchema
+   src.seoninja.api.app.SystemCapacitySchema
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.seoninja.api.app.init_orchestrator
+   src.seoninja.api.app.async_route
+   src.seoninja.api.app.create_task
+   src.seoninja.api.app.get_task_status
+   src.seoninja.api.app.list_tasks
+   src.seoninja.api.app.cancel_task
+   src.seoninja.api.app.update_task_priority
+   src.seoninja.api.app.list_agents
+   src.seoninja.api.app.get_agent_health
+   src.seoninja.api.app.stream_updates
+   src.seoninja.api.app.generate_content
+   src.seoninja.api.app.batch_content_generation
+   src.seoninja.api.app.run_seo_audit
+   src.seoninja.api.app.analyze_technical_seo
+   src.seoninja.api.app.get_seo_recommendations
+   src.seoninja.api.app.research_keywords
+   src.seoninja.api.app.analyze_keywords
+   src.seoninja.api.app.get_system_status
+   src.seoninja.api.app.get_system_metrics
+   src.seoninja.api.app.get_performance_history
+   src.seoninja.api.app.get_task_history
+   src.seoninja.api.app.get_configuration
+   src.seoninja.api.app.update_configuration
+   src.seoninja.api.app.pause_agent
+   src.seoninja.api.app.resume_agent
+   src.seoninja.api.app.reset_agent
+   src.seoninja.api.app.get_system_logs
+   src.seoninja.api.app.get_error_logs
+   src.seoninja.api.app.get_debug_state
+   src.seoninja.api.app.get_communication_flows
+   src.seoninja.api.app.stream_communication_data
+   src.seoninja.api.app.get_communication_analytics
+   src.seoninja.api.app.get_data_flow_metrics
+   src.seoninja.api.app.get_process_timeline
+   src.seoninja.api.app.get_decision_points
+   src.seoninja.api.app.get_stage_transitions
+   src.seoninja.api.app.get_time_analysis
+   src.seoninja.api.app.get_resource_allocation
+   src.seoninja.api.app.get_usage_patterns
+   src.seoninja.api.app.get_resource_bottlenecks
+   src.seoninja.api.app.get_system_capacity
+   src.seoninja.api.app.stream_resource_metrics
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   src.seoninja.api.app.app
+   src.seoninja.api.app.loop
+   src.seoninja.api.app.orchestrator
+
+
+.. py:data:: app
+
+   
+
+.. py:function:: init_orchestrator()
+   :async:
+
+   Initialize orchestrator asynchronously.
+
+
+.. py:data:: loop
+
+   
+
+.. py:data:: orchestrator
+
+   
+
+.. py:function:: async_route(f)
+
+   Decorator to handle async routes.
+
+
+.. py:class:: TaskCreateSchema(*, only: marshmallow.types.StrSequenceOrSet | None = None, exclude: marshmallow.types.StrSequenceOrSet = (), many: bool | None = None, context: dict | None = None, load_only: marshmallow.types.StrSequenceOrSet = (), dump_only: marshmallow.types.StrSequenceOrSet = (), partial: bool | marshmallow.types.StrSequenceOrSet | None = None, unknown: str | None = None)
+
+
+   Bases: :py:obj:`marshmallow.Schema`
+
+   Schema for task creation request.
+
+   .. py:attribute:: type
+
+      
+
+   .. py:attribute:: parameters
+
+      
+
+   .. py:attribute:: priority
+
+      
+
+
+.. py:class:: TaskResponseSchema(*, only: marshmallow.types.StrSequenceOrSet | None = None, exclude: marshmallow.types.StrSequenceOrSet = (), many: bool | None = None, context: dict | None = None, load_only: marshmallow.types.StrSequenceOrSet = (), dump_only: marshmallow.types.StrSequenceOrSet = (), partial: bool | marshmallow.types.StrSequenceOrSet | None = None, unknown: str | None = None)
+
+
+   Bases: :py:obj:`marshmallow.Schema`
+
+   Schema for task creation response.
+
+   .. py:attribute:: success
+
+      
+
+   .. py:attribute:: task_id
+
+      
+
+   .. py:attribute:: status
+
+      
+
+
+.. py:class:: TaskStatusSchema(*, only: marshmallow.types.StrSequenceOrSet | None = None, exclude: marshmallow.types.StrSequenceOrSet = (), many: bool | None = None, context: dict | None = None, load_only: marshmallow.types.StrSequenceOrSet = (), dump_only: marshmallow.types.StrSequenceOrSet = (), partial: bool | marshmallow.types.StrSequenceOrSet | None = None, unknown: str | None = None)
+
+
+   Bases: :py:obj:`marshmallow.Schema`
+
+   Schema for task status response.
+
+   .. py:attribute:: task_id
+
+      
+
+   .. py:attribute:: status
+
+      
+
+   .. py:attribute:: progress
+
+      
+
+   .. py:attribute:: timestamp
+
+      
+
+
+.. py:class:: AgentHealthSchema(*, only: marshmallow.types.StrSequenceOrSet | None = None, exclude: marshmallow.types.StrSequenceOrSet = (), many: bool | None = None, context: dict | None = None, load_only: marshmallow.types.StrSequenceOrSet = (), dump_only: marshmallow.types.StrSequenceOrSet = (), partial: bool | marshmallow.types.StrSequenceOrSet | None = None, unknown: str | None = None)
+
+
+   Bases: :py:obj:`marshmallow.Schema`
+
+   Schema for agent health status.
+
+   .. py:attribute:: status
+
+      
+
+   .. py:attribute:: last_check
+
+      
+
+   .. py:attribute:: metrics
+
+      
+
+
+.. py:class:: LogQuerySchema(*, only: marshmallow.types.StrSequenceOrSet | None = None, exclude: marshmallow.types.StrSequenceOrSet = (), many: bool | None = None, context: dict | None = None, load_only: marshmallow.types.StrSequenceOrSet = (), dump_only: marshmallow.types.StrSequenceOrSet = (), partial: bool | marshmallow.types.StrSequenceOrSet | None = None, unknown: str | None = None)
+
+
+   Bases: :py:obj:`marshmallow.Schema`
+
+   Schema for log query parameters.
+
+   .. py:attribute:: level
+
+      
+
+   .. py:attribute:: start_time
+
+      
+
+   .. py:attribute:: end_time
+
+      
+
+   .. py:attribute:: limit
+
+      
+
+
+.. py:class:: CommunicationFlowSchema(*, only: marshmallow.types.StrSequenceOrSet | None = None, exclude: marshmallow.types.StrSequenceOrSet = (), many: bool | None = None, context: dict | None = None, load_only: marshmallow.types.StrSequenceOrSet = (), dump_only: marshmallow.types.StrSequenceOrSet = (), partial: bool | marshmallow.types.StrSequenceOrSet | None = None, unknown: str | None = None)
+
+
+   Bases: :py:obj:`marshmallow.Schema`
+
+   Schema for communication flow data.
+
+   .. py:attribute:: source
+
+      
+
+   .. py:attribute:: target
+
+      
+
+   .. py:attribute:: message_type
+
+      
+
+   .. py:attribute:: timestamp
+
+      
+
+
+.. py:class:: ProcessTimelineSchema(*, only: marshmallow.types.StrSequenceOrSet | None = None, exclude: marshmallow.types.StrSequenceOrSet = (), many: bool | None = None, context: dict | None = None, load_only: marshmallow.types.StrSequenceOrSet = (), dump_only: marshmallow.types.StrSequenceOrSet = (), partial: bool | marshmallow.types.StrSequenceOrSet | None = None, unknown: str | None = None)
+
+
+   Bases: :py:obj:`marshmallow.Schema`
+
+   Schema for process timeline data.
+
+   .. py:attribute:: process_id
+
+      
+
+   .. py:attribute:: stages
+
+      
+
+   .. py:attribute:: current_stage
+
+      
+
+   .. py:attribute:: duration
+
+      
+
+   .. py:attribute:: status
+
+      
+
+
+.. py:class:: ResourceMetricsSchema(*, only: marshmallow.types.StrSequenceOrSet | None = None, exclude: marshmallow.types.StrSequenceOrSet = (), many: bool | None = None, context: dict | None = None, load_only: marshmallow.types.StrSequenceOrSet = (), dump_only: marshmallow.types.StrSequenceOrSet = (), partial: bool | marshmallow.types.StrSequenceOrSet | None = None, unknown: str | None = None)
+
+
+   Bases: :py:obj:`marshmallow.Schema`
+
+   Schema for resource metrics data.
+
+   .. py:attribute:: resource_type
+
+      
+
+   .. py:attribute:: utilization
+
+      
+
+   .. py:attribute:: timestamp
+
+      
+
+   .. py:attribute:: metrics
+
+      
+
+
+.. py:class:: ResourceAllocationSchema(*, only: marshmallow.types.StrSequenceOrSet | None = None, exclude: marshmallow.types.StrSequenceOrSet = (), many: bool | None = None, context: dict | None = None, load_only: marshmallow.types.StrSequenceOrSet = (), dump_only: marshmallow.types.StrSequenceOrSet = (), partial: bool | marshmallow.types.StrSequenceOrSet | None = None, unknown: str | None = None)
+
+
+   Bases: :py:obj:`marshmallow.Schema`
+
+   Schema for resource allocation data.
+
+   .. py:attribute:: resource_type
+
+      
+
+   .. py:attribute:: timeframe
+
+      
+
+   .. py:attribute:: allocations
+
+      
+
+   .. py:attribute:: metrics
+
+      
+
+
+.. py:class:: ResourceUsageSchema(*, only: marshmallow.types.StrSequenceOrSet | None = None, exclude: marshmallow.types.StrSequenceOrSet = (), many: bool | None = None, context: dict | None = None, load_only: marshmallow.types.StrSequenceOrSet = (), dump_only: marshmallow.types.StrSequenceOrSet = (), partial: bool | marshmallow.types.StrSequenceOrSet | None = None, unknown: str | None = None)
+
+
+   Bases: :py:obj:`marshmallow.Schema`
+
+   Schema for resource usage patterns.
+
+   .. py:attribute:: patterns
+
+      
+
+   .. py:attribute:: trends
+
+      
+
+   .. py:attribute:: predictions
+
+      
+
+
+.. py:class:: ResourceBottleneckSchema(*, only: marshmallow.types.StrSequenceOrSet | None = None, exclude: marshmallow.types.StrSequenceOrSet = (), many: bool | None = None, context: dict | None = None, load_only: marshmallow.types.StrSequenceOrSet = (), dump_only: marshmallow.types.StrSequenceOrSet = (), partial: bool | marshmallow.types.StrSequenceOrSet | None = None, unknown: str | None = None)
+
+
+   Bases: :py:obj:`marshmallow.Schema`
+
+   Schema for resource bottleneck data.
+
+   .. py:attribute:: bottlenecks
+
+      
+
+   .. py:attribute:: impact_analysis
+
+      
+
+   .. py:attribute:: recommendations
+
+      
+
+
+.. py:class:: SystemCapacitySchema(*, only: marshmallow.types.StrSequenceOrSet | None = None, exclude: marshmallow.types.StrSequenceOrSet = (), many: bool | None = None, context: dict | None = None, load_only: marshmallow.types.StrSequenceOrSet = (), dump_only: marshmallow.types.StrSequenceOrSet = (), partial: bool | marshmallow.types.StrSequenceOrSet | None = None, unknown: str | None = None)
+
+
+   Bases: :py:obj:`marshmallow.Schema`
+
+   Schema for system capacity metrics.
+
+   .. py:attribute:: current_capacity
+
+      
+
+   .. py:attribute:: utilization
+
+      
+
+   .. py:attribute:: headroom
+
+      
+
+   .. py:attribute:: limits
+
+      
+
+   .. py:attribute:: predictions
+
+      
+
+
+.. py:function:: create_task()
+   :async:
+
+   Create a new task for the agent system.
+
+   This endpoint creates a new task in the system. The task will be queued and processed
+   by the appropriate agents based on its type and parameters.
+
+   ---
+   post:
+     description: Create a new task
+     parameters:
+       - in: body
+         name: body
+         schema:
+           type: object
+           required:
+             - type
+           properties:
+             type:
+               type: string
+               description: Type of task to create
+             parameters:
+               type: object
+               description: Task parameters
+             priority:
+               type: string
+               description: Task priority level
+     responses:
+       200:
+         description: Task created successfully
+         schema:
+           type: object
+           properties:
+             success:
+               type: boolean
+             task_id:
+               type: string
+             status:
+               type: string
+       400:
+         description: Invalid parameters
+
+
+.. py:function:: get_task_status(task_id: str)
+   :async:
+
+   Get status of a specific task.
+
+
+.. py:function:: list_tasks()
+   :async:
+
+   List all tasks with their status.
+
+
+.. py:function:: cancel_task(task_id: str)
+   :async:
+
+   Cancel a running task.
+
+
+.. py:function:: update_task_priority(task_id: str)
+   :async:
+
+   Update task priority.
+
+
+.. py:function:: list_agents()
+   :async:
+
+   List all available agents and their status.
+
+
+.. py:function:: get_agent_health(agent_name: str)
+   :async:
+
+   Get health status of a specific agent.
+
+
+.. py:function:: stream_updates()
+
+   Stream real-time updates from the agent system.
+
+
+.. py:function:: generate_content()
+   :async:
+
+   Generate content endpoint.
+
+
+.. py:function:: batch_content_generation()
+   :async:
+
+   Batch content generation endpoint.
+
+
+.. py:function:: run_seo_audit()
+   :async:
+
+   Run SEO audit endpoint.
+
+
+.. py:function:: analyze_technical_seo()
+   :async:
+
+   Analyze technical SEO aspects.
+
+
+.. py:function:: get_seo_recommendations()
+   :async:
+
+   Get SEO recommendations.
+
+
+.. py:function:: research_keywords()
+   :async:
+
+   Perform keyword research.
+
+
+.. py:function:: analyze_keywords()
+   :async:
+
+   Analyze keywords for a given content.
+
+
+.. py:function:: get_system_status()
+   :async:
+
+   Get overall system status.
+
+
+.. py:function:: get_system_metrics()
+   :async:
+
+   Get system performance metrics.
+
+
+.. py:function:: get_performance_history()
+   :async:
+
+   Get historical performance data.
+
+
+.. py:function:: get_task_history()
+   :async:
+
+   Get historical task data.
+
+
+.. py:function:: get_configuration()
+   :async:
+
+   Get current system configuration.
+
+
+.. py:function:: update_configuration()
+   :async:
+
+   Update system configuration.
+
+
+.. py:function:: pause_agent(agent_name: str)
+   :async:
+
+   Pause a specific agent.
+
+
+.. py:function:: resume_agent(agent_name: str)
+   :async:
+
+   Resume a paused agent.
+
+
+.. py:function:: reset_agent(agent_name: str)
+   :async:
+
+   Reset a specific agent to its initial state.
+
+
+.. py:function:: get_system_logs()
+   :async:
+
+   Get system logs.
+
+
+.. py:function:: get_error_logs()
+   :async:
+
+   Get error logs specifically.
+
+
+.. py:function:: get_debug_state()
+   :async:
+
+   Get detailed system state for debugging.
+
+
+.. py:function:: get_communication_flows(start_time: datetime.datetime = None, end_time: datetime.datetime = None)
+   :async:
+
+   Get inter-agent communication flows.
+   ---
+   get:
+     description: Get communication flows between agents
+     parameters:
+       - in: query
+         name: start_time
+         type: string
+         format: date-time
+         description: Start time for filtering flows
+       - in: query
+         name: end_time
+         type: string
+         format: date-time
+         description: End time for filtering flows
+     responses:
+       200:
+         description: Communication flows retrieved successfully
+         schema:
+           type: array
+           items:
+             $ref: '#/definitions/CommunicationFlowSchema'
+
+
+.. py:function:: stream_communication_data()
+
+   Stream real-time agent interaction data.
+
+
+.. py:function:: get_communication_analytics(timeframe: str = '24h')
+   :async:
+
+   Get communication patterns analytics.
+   ---
+   get:
+     description: Get analytics about communication patterns between agents
+     parameters:
+       - in: query
+         name: timeframe
+         type: string
+         default: 24h
+         description: Time frame for analysis (e.g., '24h', '7d')
+     responses:
+       200:
+         description: Communication analytics retrieved successfully
+         schema:
+           type: object
+           properties:
+             patterns:
+               type: object
+             metrics:
+               type: object
+             insights:
+               type: object
+
+
+.. py:function:: get_data_flow_metrics()
+   :async:
+
+   Get data flow metrics between agents.
+
+
+.. py:function:: get_process_timeline(process_id: str, include_details: bool = False)
+   :async:
+
+   Get detailed process stage tracking data.
+   ---
+   get:
+     description: Get timeline and stages of a specific process
+     parameters:
+       - in: query
+         name: process_id
+         type: string
+         required: true
+         description: ID of the process to track
+       - in: query
+         name: include_details
+         type: boolean
+         default: false
+         description: Whether to include additional stage details
+     responses:
+       200:
+         description: Process timeline retrieved successfully
+         schema:
+           $ref: '#/definitions/ProcessTimelineSchema'
+       404:
+         description: Process not found
+
+
+.. py:function:: get_decision_points(process_id: str, start_time: datetime.datetime = None, end_time: datetime.datetime = None)
+   :async:
+
+   Get decision point logging data.
+   ---
+   get:
+     description: Get decision points and their outcomes for a process
+     parameters:
+       - in: query
+         name: process_id
+         type: string
+         required: true
+         description: ID of the process
+       - in: query
+         name: start_time
+         type: string
+         format: date-time
+         description: Start time for filtering decisions
+       - in: query
+         name: end_time
+         type: string
+         format: date-time
+         description: End time for filtering decisions
+     responses:
+       200:
+         description: Decision points retrieved successfully
+         schema:
+           type: object
+           properties:
+             decisions:
+               type: array
+               items:
+                 type: object
+             metrics:
+               type: object
+
+
+.. py:function:: get_stage_transitions(process_id: str)
+   :async:
+
+   Get stage transition data.
+   ---
+   get:
+     description: Get stage transitions for a process
+     parameters:
+       - in: query
+         name: process_id
+         type: string
+         required: true
+         description: ID of the process
+     responses:
+       200:
+         description: Stage transitions retrieved successfully
+         schema:
+           type: object
+           properties:
+             transitions:
+               type: array
+               items:
+                 type: object
+             metrics:
+               type: object
+
+
+.. py:function:: get_time_analysis(timeframe: str = '24h', process_type: str = None)
+   :async:
+
+   Get time-based process analysis.
+   ---
+   get:
+     description: Get time-based analysis of processes
+     parameters:
+       - in: query
+         name: timeframe
+         type: string
+         default: 24h
+         description: Time frame for analysis (e.g., '24h', '7d')
+       - in: query
+         name: process_type
+         type: string
+         description: Type of process to analyze
+     responses:
+       200:
+         description: Time analysis retrieved successfully
+         schema:
+           type: object
+           properties:
+             metrics:
+               type: object
+             trends:
+               type: object
+             optimization_suggestions:
+               type: object
+
+
+.. py:function:: get_resource_allocation(resource_type: str = None, timeframe: str = '1h')
+   :async:
+
+   Get detailed resource allocation tracking.
+   ---
+   get:
+     description: Get resource allocation metrics
+     parameters:
+       - in: query
+         name: resource_type
+         type: string
+         description: Type of resource to monitor
+       - in: query
+         name: timeframe
+         type: string
+         default: 1h
+         description: Time frame for analysis (e.g., '1h', '24h')
+     responses:
+       200:
+         description: Resource allocation metrics retrieved successfully
+         schema:
+           $ref: '#/definitions/ResourceAllocationSchema'
+
+
+.. py:function:: get_usage_patterns(resource_type: str = None, start_time: datetime.datetime = None, end_time: datetime.datetime = None)
+   :async:
+
+   Get resource usage patterns.
+   ---
+   get:
+     description: Get resource usage patterns and trends
+     parameters:
+       - in: query
+         name: resource_type
+         type: string
+         description: Type of resource to analyze
+       - in: query
+         name: start_time
+         type: string
+         format: date-time
+         description: Start time for analysis
+       - in: query
+         name: end_time
+         type: string
+         format: date-time
+         description: End time for analysis
+     responses:
+       200:
+         description: Resource usage patterns retrieved successfully
+         schema:
+           $ref: '#/definitions/ResourceUsageSchema'
+
+
+.. py:function:: get_resource_bottlenecks(analysis_period: str = '24h', threshold: float = 0.8)
+   :async:
+
+   Get resource bottleneck identification.
+   ---
+   get:
+     description: Identify resource bottlenecks and get recommendations
+     parameters:
+       - in: query
+         name: analysis_period
+         type: string
+         default: 24h
+         description: Period for analysis (e.g., '24h', '7d')
+       - in: query
+         name: threshold
+         type: number
+         default: 0.8
+         description: Utilization threshold for bottleneck detection (0.0-1.0)
+     responses:
+       200:
+         description: Resource bottlenecks identified successfully
+         schema:
+           $ref: '#/definitions/ResourceBottleneckSchema'
+
+
+.. py:function:: get_system_capacity(include_predictions: bool = False)
+   :async:
+
+   Get system capacity metrics.
+   ---
+   get:
+     description: Get current system capacity and optional future predictions
+     parameters:
+       - in: query
+         name: include_predictions
+         type: boolean
+         default: false
+         description: Whether to include capacity predictions
+     responses:
+       200:
+         description: System capacity metrics retrieved successfully
+         schema:
+           $ref: '#/definitions/SystemCapacitySchema'
+
+
+.. py:function:: stream_resource_metrics()
+
+   Stream real-time resource metrics.
+   ---
+   get:
+     description: Get real-time resource metrics as Server-Sent Events
+     responses:
+       200:
+         description: SSE stream started
+         content:
+           text/event-stream:
+             schema:
+               type: object
+               properties:
+                 timestamp:
+                   type: string
+                   format: date-time
+                 cpu_usage:
+                   type: object
+                 memory_usage:
+                   type: object
+                 network_usage:
+                   type: object
+                 agent_resources:
+                   type: object
+                 queue_metrics:
+                   type: object
+
+

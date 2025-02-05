@@ -1,0 +1,11 @@
+:py:mod:`src.dashboard`
+=======================
+
+.. py:module:: src.dashboard
+
+.. autoapi-nested-parse::
+
+   Streamlit entry point.
+
+
+

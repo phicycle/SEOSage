@@ -1,0 +1,66 @@
+:py:mod:`src.seoninja.core.content_generator`
+=============================================
+
+.. py:module:: src.seoninja.core.content_generator
+
+.. autoapi-nested-parse::
+
+   Core content generation functionality.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   src.seoninja.core.content_generator.ContentGenerator
+
+
+
+
+.. py:class:: ContentGenerator(llm: Any)
+
+
+   Enhanced content generator with advanced NLP and AI capabilities.
+
+   :ivar llm: Language model instance
+   :ivar template: Base template for content generation
+   :ivar website_context: Dictionary storing website context from crawler
+   :ivar internal_links: Dictionary mapping topics to relevant internal URLs
+   :ivar vectorizer: TF-IDF vectorizer for topic modeling
+   :ivar lemmatizer: WordNet lemmatizer for text processing
+
+
+   Initialize content generator with language model.
+
+   .. py:method:: set_website_context(crawler_data: Dict[str, Any]) -> None
+
+      Set website context from crawler data.
+
+      :param crawler_data: Dictionary containing crawled website data
+
+
+   .. py:method:: generate_blog_post(keyword_data: Dict[str, Any]) -> str
+      :async:
+
+      Enhanced blog post generation with advanced features.
+
+
+   .. py:method:: save_as_markdown(content: str, keyword: str, output_dir: str = 'data/output/blogs') -> str
+      :async:
+
+      Save content with versioning and metadata.
+
+      :param content: Blog post content
+      :param keyword: Target keyword
+      :param output_dir: Output directory for blog posts
+
+      :returns: Path to saved file
+      :rtype: str
+
+
+

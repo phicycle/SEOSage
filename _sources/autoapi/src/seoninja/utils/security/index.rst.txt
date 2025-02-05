@@ -1,0 +1,91 @@
+:py:mod:`src.seoninja.utils.security`
+=====================================
+
+.. py:module:: src.seoninja.utils.security
+
+.. autoapi-nested-parse::
+
+   Security and rate limiting utilities.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   src.seoninja.utils.security.APIKeyManager
+   src.seoninja.utils.security.RateLimiter
+   src.seoninja.utils.security.InputValidator
+
+
+
+
+.. py:class:: APIKeyManager
+
+
+   Manages API keys securely.
+
+   Initialize API key manager.
+
+   .. py:method:: set_api_key(service: str, key: str) -> None
+
+      Securely store API key.
+
+
+   .. py:method:: get_api_key(service: str) -> Optional[str]
+
+      Retrieve API key.
+
+
+
+.. py:class:: RateLimiter
+
+
+   Rate limiting implementation.
+
+   Initialize rate limiter.
+
+   .. py:method:: add_limit(service: str, requests: int, period: int) -> None
+
+      Add rate limit for a service.
+
+
+   .. py:method:: can_request(service: str) -> bool
+
+      Check if request is allowed.
+
+
+   .. py:method:: add_request(service: str) -> None
+
+      Record a request.
+
+
+
+.. py:class:: InputValidator
+
+
+   Input validation and sanitization.
+
+   .. py:method:: validate_keyword_data(data: Dict[str, Any]) -> Optional[str]
+      :staticmethod:
+
+      Validate keyword data.
+
+
+   .. py:method:: sanitize_content(content: str) -> str
+      :staticmethod:
+
+      Sanitize content input.
+
+
+   .. py:method:: validate_url(url: str) -> Optional[str]
+      :staticmethod:
+
+      Validate URL format.
+
+
+

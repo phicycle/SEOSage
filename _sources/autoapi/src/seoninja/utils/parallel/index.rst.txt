@@ -1,0 +1,36 @@
+:py:mod:`src.seoninja.utils.parallel`
+=====================================
+
+.. py:module:: src.seoninja.utils.parallel
+
+.. autoapi-nested-parse::
+
+   Utility for parallel task execution.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.seoninja.utils.parallel.run_parallel_tasks
+
+
+
+.. py:function:: run_parallel_tasks(tasks: List[Dict[str, Any]]) -> List[Dict[str, Any]]
+   :async:
+
+   Run multiple agent tasks in parallel.
+
+   :param tasks: List of task dictionaries, each containing:
+                 - agent: BaseAgent instance
+                 - task: Task dictionary for the agent
+
+   :returns: List of results from each task
+
+

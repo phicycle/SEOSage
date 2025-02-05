@@ -1,0 +1,26 @@
+:py:mod:`src.seoninja.core`
+===========================
+
+.. py:module:: src.seoninja.core
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   seo/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   content_generator/index.rst
+   crawler/index.rst
+   keyword_research/index.rst
+
+

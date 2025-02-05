@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.seoninja.core.keyword_research &mdash; SEO Ninja 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=eafc0fe6" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            SEO Ninja
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#what-is-seo-ninja">What is SEO Ninja?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#key-features">Key Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#system-architecture">System Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#core-components">Core Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#communication-flow">Communication Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#task-management">Task Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#state-management">State Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#error-handling">Error Handling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#technology-stack">Technology Stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#getting-started">Getting Started</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#required-api-keys">Required API Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#installation-steps">Installation Steps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#clone-the-repository">1. Clone the Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#create-virtual-environment">2. Create Virtual Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#install-dependencies">3. Install Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#configure-environment-variables">4. Configure Environment Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#set-up-google-search-console-authentication">5. Set Up Google Search Console Authentication</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#running-the-application">Running the Application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#start-the-api-server">1. Start the API Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#access-the-api-documentation">2. Access the API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#development-setup">Development Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#install-development-dependencies">1. Install Development Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#set-up-pre-commit-hooks">2. Set Up Pre-commit Hooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#run-tests">3. Run Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#build-documentation">4. Build Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#common-issues">Common Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#getting-help">Getting Help</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../architecture.html">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../architecture.html#system-overview">System Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../architecture.html#core-components">Core Components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#orchestrator-agent">Orchestrator Agent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#specialized-agents">Specialized Agents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../architecture.html#communication-model">Communication Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#inter-agent-communication">Inter-agent Communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#message-types">Message Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../architecture.html#task-processing">Task Processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#task-lifecycle">Task Lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#parallel-processing">Parallel Processing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../architecture.html#resource-management">Resource Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#resource-types">Resource Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#monitoring-system">Monitoring System</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../architecture.html#security-architecture">Security Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#authentication">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#data-protection">Data Protection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../architecture.html#error-handling">Error Handling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#recovery-mechanisms">Recovery Mechanisms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#error-propagation">Error Propagation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../architecture.html#deployment-architecture">Deployment Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#components">Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#scaling-strategy">Scaling Strategy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../architecture.html#future-considerations">Future Considerations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#planned-enhancements">Planned Enhancements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html">API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/index.html#task-management">Task Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/index.html#agent-communication">Agent Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/index.html#process-timeline">Process Timeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/index.html#resource-monitoring">Resource Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/index.html#system-status">System Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/index.html#error-responses">Error Responses</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../monitoring.html">Monitoring and Analytics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../monitoring.html#agent-communication-visualization">Agent Communication Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../monitoring.html#flow-analysis">Flow Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../monitoring.html#real-time-monitoring">Real-time Monitoring</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../monitoring.html#process-timeline">Process Timeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../monitoring.html#stage-tracking">Stage Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../monitoring.html#decision-points">Decision Points</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../monitoring.html#resource-monitoring">Resource Monitoring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../monitoring.html#resource-allocation">Resource Allocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../monitoring.html#usage-patterns">Usage Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../monitoring.html#bottleneck-detection">Bottleneck Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../monitoring.html#system-capacity">System Capacity</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../monitoring.html#visualization-integration">Visualization Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../monitoring.html#best-practices">Best Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id1">[1.0.0] - 2024-02-04</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#added">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id2">[0.9.0] - 2024-01-15</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#id3">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#changed">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id4">[0.8.0] - 2023-12-20</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#id5">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#fixed">Fixed</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../autoapi/index.html">API Reference</a><ul class="simple">
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">SEO Ninja</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">src.seoninja.core.keyword_research</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for src.seoninja.core.keyword_research</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Core keyword research functionality.&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">uuid</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">google.oauth2.credentials</span><span class="w"> </span><span class="kn">import</span> <span class="n">Credentials</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">googleapiclient.discovery</span><span class="w"> </span><span class="kn">import</span> <span class="n">build</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">aiohttp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">lru_cache</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_extraction.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics.pairwise</span><span class="w"> </span><span class="kn">import</span> <span class="n">cosine_similarity</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">aiohttp</span><span class="w"> </span><span class="kn">import</span> <span class="n">ClientTimeout</span>
+
+<div class="viewcode-block" id="KeywordResearch">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/core/keyword_research/index.html#src.seoninja.core.keyword_research.KeywordResearch">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">KeywordResearch</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Enhanced keyword research with improved analysis capabilities.&quot;&quot;&quot;</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize with configuration.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+        
+        <span class="c1"># API configuration</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_api_key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;api_key&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_api_base_url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;api_base_url&#39;</span><span class="p">,</span> <span class="s1">&#39;https://api.keywordtool.io/v1&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_batch_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;batch_size&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rate_limit</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rate_limit&#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>  <span class="c1"># Requests per second</span>
+        
+        <span class="c1"># Cache configuration</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cache_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;data/cache/keywords&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cache_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cache_duration</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+        
+        <span class="c1"># Initialize metrics</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_metrics</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+        
+        <span class="c1"># Initialize session</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">aiohttp</span><span class="o">.</span><span class="n">ClientSession</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_last_request_time</span> <span class="o">=</span> <span class="mi">0</span>
+        
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_init_session</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize API session with retry logic.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">closed</span><span class="p">:</span>
+            <span class="n">timeout</span> <span class="o">=</span> <span class="n">ClientTimeout</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_session</span> <span class="o">=</span> <span class="n">aiohttp</span><span class="o">.</span><span class="n">ClientSession</span><span class="p">(</span>
+                <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span>
+                <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;Bearer </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_api_key</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">}</span>
+            <span class="p">)</span>
+            
+<div class="viewcode-block" id="KeywordResearch.analyze_keywords">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/core/keyword_research/index.html#src.seoninja.core.keyword_research.KeywordResearch.analyze_keywords">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">analyze_keywords</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">keywords</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+        <span class="n">competitors</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Analyze keywords with batching and caching.&quot;&quot;&quot;</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_session</span><span class="p">()</span>
+        
+        <span class="n">results</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;keywords&#39;</span><span class="p">:</span> <span class="p">{},</span>
+            <span class="s1">&#39;metrics&#39;</span><span class="p">:</span> <span class="p">{},</span>
+            <span class="s1">&#39;suggestions&#39;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s1">&#39;competitors&#39;</span><span class="p">:</span> <span class="p">{}</span>
+        <span class="p">}</span>
+        
+        <span class="c1"># Process keywords in batches</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">keywords</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_batch_size</span><span class="p">):</span>
+            <span class="n">batch</span> <span class="o">=</span> <span class="n">keywords</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_batch_size</span><span class="p">]</span>
+            <span class="n">batch_results</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process_keyword_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
+            <span class="n">results</span><span class="p">[</span><span class="s1">&#39;keywords&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">batch_results</span><span class="p">)</span>
+            
+        <span class="c1"># Analyze competitors if provided</span>
+        <span class="k">if</span> <span class="n">competitors</span><span class="p">:</span>
+            <span class="n">results</span><span class="p">[</span><span class="s1">&#39;competitors&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_analyze_competitors</span><span class="p">(</span>
+                <span class="n">keywords</span><span class="p">,</span>
+                <span class="n">competitors</span>
+            <span class="p">)</span>
+            
+        <span class="c1"># Generate keyword suggestions</span>
+        <span class="n">results</span><span class="p">[</span><span class="s1">&#39;suggestions&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_suggestions</span><span class="p">(</span><span class="n">keywords</span><span class="p">)</span>
+        
+        <span class="c1"># Calculate aggregate metrics</span>
+        <span class="n">results</span><span class="p">[</span><span class="s1">&#39;metrics&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_metrics</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">results</span></div>
+
+        
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_process_keyword_batch</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">keywords</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Process a batch of keywords.&quot;&quot;&quot;</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">cache_hits</span> <span class="o">=</span> <span class="mi">0</span>
+        
+        <span class="k">for</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">keywords</span><span class="p">:</span>
+            <span class="c1"># Check cache first</span>
+            <span class="n">cached_result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_from_cache</span><span class="p">(</span><span class="n">keyword</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">cached_result</span><span class="p">:</span>
+                <span class="n">results</span><span class="p">[</span><span class="n">keyword</span><span class="p">]</span> <span class="o">=</span> <span class="n">cached_result</span>
+                <span class="n">cache_hits</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">continue</span>
+                
+            <span class="c1"># Respect rate limiting</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_respect_rate_limit</span><span class="p">()</span>
+            
+            <span class="k">try</span><span class="p">:</span>
+                <span class="c1"># Get keyword metrics</span>
+                <span class="n">metrics</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_keyword_metrics</span><span class="p">(</span><span class="n">keyword</span><span class="p">)</span>
+                
+                <span class="c1"># Get search intent</span>
+                <span class="n">intent</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_analyze_search_intent</span><span class="p">(</span><span class="n">keyword</span><span class="p">)</span>
+                
+                <span class="c1"># Get related keywords</span>
+                <span class="n">related</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_related_keywords</span><span class="p">(</span><span class="n">keyword</span><span class="p">)</span>
+                
+                <span class="c1"># Combine results</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s1">&#39;metrics&#39;</span><span class="p">:</span> <span class="n">metrics</span><span class="p">,</span>
+                    <span class="s1">&#39;intent&#39;</span><span class="p">:</span> <span class="n">intent</span><span class="p">,</span>
+                    <span class="s1">&#39;related&#39;</span><span class="p">:</span> <span class="n">related</span><span class="p">,</span>
+                    <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+                <span class="p">}</span>
+                
+                <span class="c1"># Cache result</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_save_to_cache</span><span class="p">(</span><span class="n">keyword</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+                
+                <span class="n">results</span><span class="p">[</span><span class="n">keyword</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
+                
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error processing keyword </span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">results</span><span class="p">[</span><span class="n">keyword</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)}</span>
+                
+        <span class="bp">self</span><span class="o">.</span><span class="n">_metrics</span><span class="p">[</span><span class="s1">&#39;cache_hit_rate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cache_hits</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">keywords</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">results</span>
+        
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_get_keyword_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get keyword metrics from API.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Session not initialized&quot;</span><span class="p">)</span>
+            
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_api_base_url</span><span class="si">}</span><span class="s2">/metrics&quot;</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;keyword&#39;</span><span class="p">:</span> <span class="n">keyword</span><span class="p">}</span>
+        
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">async</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="k">await</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;API error: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error getting metrics for </span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">{}</span>
+            
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_analyze_search_intent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Analyze search intent for keyword.&quot;&quot;&quot;</span>
+        <span class="c1"># Intent categories</span>
+        <span class="n">intents</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;informational&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+            <span class="s1">&#39;navigational&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+            <span class="s1">&#39;transactional&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+            <span class="s1">&#39;commercial&#39;</span><span class="p">:</span> <span class="mf">0.0</span>
+        <span class="p">}</span>
+        
+        <span class="c1"># Intent signals</span>
+        <span class="n">signals</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;informational&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;how&#39;</span><span class="p">,</span> <span class="s1">&#39;what&#39;</span><span class="p">,</span> <span class="s1">&#39;why&#39;</span><span class="p">,</span> <span class="s1">&#39;when&#39;</span><span class="p">,</span> <span class="s1">&#39;where&#39;</span><span class="p">,</span> <span class="s1">&#39;guide&#39;</span><span class="p">,</span> <span class="s1">&#39;tutorial&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;navigational&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="s1">&#39;sign in&#39;</span><span class="p">,</span> <span class="s1">&#39;website&#39;</span><span class="p">,</span> <span class="s1">&#39;official&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;transactional&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;buy&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;order&#39;</span><span class="p">,</span> <span class="s1">&#39;purchase&#39;</span><span class="p">,</span> <span class="s1">&#39;cheap&#39;</span><span class="p">,</span> <span class="s1">&#39;deal&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;commercial&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="s1">&#39;review&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;vs&#39;</span><span class="p">,</span> <span class="s1">&#39;compare&#39;</span><span class="p">]</span>
+        <span class="p">}</span>
+        
+        <span class="c1"># Calculate intent scores</span>
+        <span class="n">words</span> <span class="o">=</span> <span class="n">keyword</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">intent</span><span class="p">,</span> <span class="n">keywords</span> <span class="ow">in</span> <span class="n">signals</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">score</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">keywords</span><span class="p">)</span>
+            <span class="n">intents</span><span class="p">[</span><span class="n">intent</span><span class="p">]</span> <span class="o">=</span> <span class="n">score</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="k">if</span> <span class="n">words</span> <span class="k">else</span> <span class="mf">0.0</span>
+            
+        <span class="c1"># Normalize scores</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">intents</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">total</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">intent</span> <span class="ow">in</span> <span class="n">intents</span><span class="p">:</span>
+                <span class="n">intents</span><span class="p">[</span><span class="n">intent</span><span class="p">]</span> <span class="o">/=</span> <span class="n">total</span>
+                
+        <span class="k">return</span> <span class="n">intents</span>
+        
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_get_related_keywords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get related keywords from API.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Session not initialized&quot;</span><span class="p">)</span>
+            
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_api_base_url</span><span class="si">}</span><span class="s2">/related&quot;</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;keyword&#39;</span><span class="p">:</span> <span class="n">keyword</span><span class="p">,</span> <span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">}</span>
+        
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">async</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="k">await</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;API error: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error getting related keywords for </span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">[]</span>
+            
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_analyze_competitors</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">keywords</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+        <span class="n">competitors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Analyze competitor keyword usage.&quot;&quot;&quot;</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+        
+        <span class="k">for</span> <span class="n">competitor</span> <span class="ow">in</span> <span class="n">competitors</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="c1"># Get competitor content</span>
+                <span class="n">content</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fetch_competitor_content</span><span class="p">(</span><span class="n">competitor</span><span class="p">)</span>
+                
+                <span class="c1"># Analyze keyword usage</span>
+                <span class="n">keyword_usage</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_analyze_keyword_usage</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">keywords</span><span class="p">)</span>
+                
+                <span class="c1"># Get content topics</span>
+                <span class="n">topics</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_topics</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+                
+                <span class="n">results</span><span class="p">[</span><span class="n">competitor</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s1">&#39;keyword_usage&#39;</span><span class="p">:</span> <span class="n">keyword_usage</span><span class="p">,</span>
+                    <span class="s1">&#39;topics&#39;</span><span class="p">:</span> <span class="n">topics</span><span class="p">,</span>
+                    <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+                <span class="p">}</span>
+                
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error analyzing competitor </span><span class="si">{</span><span class="n">competitor</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">results</span><span class="p">[</span><span class="n">competitor</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)}</span>
+                
+        <span class="k">return</span> <span class="n">results</span>
+        
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_fetch_competitor_content</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Fetch competitor website content.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Session not initialized&quot;</span><span class="p">)</span>
+            
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">async</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="k">await</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to fetch content: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error fetching content from </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+            
+    <span class="k">def</span><span class="w"> </span><span class="nf">_analyze_keyword_usage</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">content</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">keywords</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Analyze keyword usage in content.&quot;&quot;&quot;</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+        
+        <span class="c1"># Normalize content</span>
+        <span class="n">content_lower</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="n">words</span> <span class="o">=</span> <span class="n">content_lower</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="n">total_words</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+        
+        <span class="k">for</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">keywords</span><span class="p">:</span>
+            <span class="n">keyword_lower</span> <span class="o">=</span> <span class="n">keyword</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="n">count</span> <span class="o">=</span> <span class="n">content_lower</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">keyword_lower</span><span class="p">)</span>
+            
+            <span class="n">results</span><span class="p">[</span><span class="n">keyword</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;count&#39;</span><span class="p">:</span> <span class="n">count</span><span class="p">,</span>
+                <span class="s1">&#39;density&#39;</span><span class="p">:</span> <span class="n">count</span> <span class="o">/</span> <span class="n">total_words</span> <span class="k">if</span> <span class="n">total_words</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mf">0.0</span><span class="p">,</span>
+                <span class="s1">&#39;prominence&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_prominence</span><span class="p">(</span><span class="n">content_lower</span><span class="p">,</span> <span class="n">keyword_lower</span><span class="p">)</span>
+            <span class="p">}</span>
+            
+        <span class="k">return</span> <span class="n">results</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_calculate_prominence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate keyword prominence in content.&quot;&quot;&quot;</span>
+        <span class="c1"># Prominence factors:</span>
+        <span class="c1"># - Appearance in title/headers</span>
+        <span class="c1"># - Position in content</span>
+        <span class="c1"># - Density in important sections</span>
+        
+        <span class="n">prominence</span> <span class="o">=</span> <span class="mf">0.0</span>
+        
+        <span class="c1"># Check position of first occurrence</span>
+        <span class="n">first_pos</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">keyword</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">first_pos</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># Higher score for earlier appearances</span>
+            <span class="n">prominence</span> <span class="o">+=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="p">(</span><span class="n">first_pos</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">content</span><span class="p">))</span>
+            
+        <span class="c1"># Add bonus for title/header appearances</span>
+        <span class="k">if</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">content</span><span class="p">[:</span><span class="mi">100</span><span class="p">]:</span>  <span class="c1"># Approximate title/header area</span>
+            <span class="n">prominence</span> <span class="o">+=</span> <span class="mf">0.5</span>
+            
+        <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">prominence</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_extract_topics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Extract main topics from content.&quot;&quot;&quot;</span>
+        <span class="c1"># Use TF-IDF to identify important terms</span>
+        <span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span>
+            <span class="n">max_features</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+            <span class="n">stop_words</span><span class="o">=</span><span class="s1">&#39;english&#39;</span><span class="p">,</span>
+            <span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="p">)</span>
+        
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Transform content</span>
+            <span class="n">tfidf_matrix</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">([</span><span class="n">content</span><span class="p">])</span>
+            
+            <span class="c1"># Get feature names and scores</span>
+            <span class="n">feature_names</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()</span>
+            <span class="n">scores</span> <span class="o">=</span> <span class="n">tfidf_matrix</span><span class="o">.</span><span class="n">toarray</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+            
+            <span class="c1"># Sort by importance</span>
+            <span class="n">topics</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s1">&#39;topic&#39;</span><span class="p">:</span> <span class="n">feature_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                    <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="p">}</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">scores</span><span class="p">)[</span><span class="o">-</span><span class="mi">10</span><span class="p">:][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="p">]</span>
+            
+            <span class="k">return</span> <span class="n">topics</span>
+            
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error extracting topics: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">[]</span>
+            
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_generate_suggestions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keywords</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate keyword suggestions.&quot;&quot;&quot;</span>
+        <span class="n">suggestions</span> <span class="o">=</span> <span class="p">[]</span>
+        
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Get suggestions from API</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_api_base_url</span><span class="si">}</span><span class="s2">/suggestions&quot;</span>
+            <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;keywords&#39;</span><span class="p">:</span> <span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">keywords</span><span class="p">),</span> <span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}</span>
+            
+            <span class="k">async</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+                    <span class="n">api_suggestions</span> <span class="o">=</span> <span class="k">await</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+                    <span class="n">suggestions</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">api_suggestions</span><span class="p">)</span>
+                    
+            <span class="c1"># Add variations of existing keywords</span>
+            <span class="n">variations</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_keyword_variations</span><span class="p">(</span><span class="n">keywords</span><span class="p">)</span>
+            <span class="n">suggestions</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">variations</span><span class="p">)</span>
+            
+            <span class="c1"># Remove duplicates and sort by score</span>
+            <span class="n">suggestions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deduplicate_suggestions</span><span class="p">(</span><span class="n">suggestions</span><span class="p">)</span>
+            
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error generating suggestions: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            
+        <span class="k">return</span> <span class="n">suggestions</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_generate_keyword_variations</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">keywords</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate variations of keywords.&quot;&quot;&quot;</span>
+        <span class="n">variations</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">modifiers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;cheap&#39;</span><span class="p">,</span> <span class="s1">&#39;online&#39;</span><span class="p">,</span> <span class="s1">&#39;free&#39;</span><span class="p">,</span> <span class="s1">&#39;professional&#39;</span><span class="p">]</span>
+        
+        <span class="k">for</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">keywords</span><span class="p">:</span>
+            <span class="c1"># Add modifiers</span>
+            <span class="k">for</span> <span class="n">modifier</span> <span class="ow">in</span> <span class="n">modifiers</span><span class="p">:</span>
+                <span class="n">variations</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                    <span class="s1">&#39;keyword&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">modifier</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                    <span class="s1">&#39;source&#39;</span><span class="p">:</span> <span class="s1">&#39;variation&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="mf">0.5</span>
+                <span class="p">})</span>
+                <span class="n">variations</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                    <span class="s1">&#39;keyword&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">modifier</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                    <span class="s1">&#39;source&#39;</span><span class="p">:</span> <span class="s1">&#39;variation&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="mf">0.5</span>
+                <span class="p">})</span>
+                
+        <span class="k">return</span> <span class="n">variations</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_deduplicate_suggestions</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">suggestions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove duplicate suggestions and sort by score.&quot;&quot;&quot;</span>
+        <span class="c1"># Use dict to remove duplicates while keeping highest score</span>
+        <span class="n">unique_suggestions</span> <span class="o">=</span> <span class="p">{}</span>
+        
+        <span class="k">for</span> <span class="n">suggestion</span> <span class="ow">in</span> <span class="n">suggestions</span><span class="p">:</span>
+            <span class="n">keyword</span> <span class="o">=</span> <span class="n">suggestion</span><span class="p">[</span><span class="s1">&#39;keyword&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="p">(</span>
+                <span class="n">keyword</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">unique_suggestions</span> <span class="ow">or</span>
+                <span class="n">suggestion</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">unique_suggestions</span><span class="p">[</span><span class="n">keyword</span><span class="p">][</span><span class="s1">&#39;score&#39;</span><span class="p">]</span>
+            <span class="p">):</span>
+                <span class="n">unique_suggestions</span><span class="p">[</span><span class="n">keyword</span><span class="p">]</span> <span class="o">=</span> <span class="n">suggestion</span>
+                
+        <span class="c1"># Convert back to list and sort by score</span>
+        <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span>
+            <span class="n">unique_suggestions</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span>
+            <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">],</span>
+            <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_calculate_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate aggregate metrics from results.&quot;&quot;&quot;</span>
+        <span class="n">metrics</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;total_keywords&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;keywords&#39;</span><span class="p">]),</span>
+            <span class="s1">&#39;avg_competition&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+            <span class="s1">&#39;avg_search_volume&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+            <span class="s1">&#39;intent_distribution&#39;</span><span class="p">:</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+        <span class="p">}</span>
+        
+        <span class="c1"># Calculate averages</span>
+        <span class="k">for</span> <span class="n">keyword</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;keywords&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="s1">&#39;metrics&#39;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+                <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;avg_competition&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;metrics&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;competition&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;avg_search_volume&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;metrics&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;search_volume&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                
+            <span class="k">if</span> <span class="s1">&#39;intent&#39;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">intent</span><span class="p">,</span> <span class="n">score</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;intent&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;intent_distribution&#39;</span><span class="p">][</span><span class="n">intent</span><span class="p">]</span> <span class="o">+=</span> <span class="n">score</span>
+                    
+        <span class="c1"># Normalize averages</span>
+        <span class="k">if</span> <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;total_keywords&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;avg_competition&#39;</span><span class="p">]</span> <span class="o">/=</span> <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;total_keywords&#39;</span><span class="p">]</span>
+            <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;avg_search_volume&#39;</span><span class="p">]</span> <span class="o">/=</span> <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;total_keywords&#39;</span><span class="p">]</span>
+            
+            <span class="k">for</span> <span class="n">intent</span> <span class="ow">in</span> <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;intent_distribution&#39;</span><span class="p">]:</span>
+                <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;intent_distribution&#39;</span><span class="p">][</span><span class="n">intent</span><span class="p">]</span> <span class="o">/=</span> <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;total_keywords&#39;</span><span class="p">]</span>
+                
+        <span class="k">return</span> <span class="n">metrics</span>
+        
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_respect_rate_limit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Respect API rate limiting.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rate_limit</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">current_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            <span class="n">time_since_last</span> <span class="o">=</span> <span class="n">current_time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_last_request_time</span>
+            
+            <span class="k">if</span> <span class="n">time_since_last</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rate_limit</span><span class="p">:</span>
+                <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_rate_limit</span> <span class="o">-</span> <span class="n">time_since_last</span><span class="p">)</span>
+                
+            <span class="bp">self</span><span class="o">.</span><span class="n">_last_request_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_cache_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate cache key for keyword.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">keyword</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_from_cache</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get cached keyword results.&quot;&quot;&quot;</span>
+        <span class="n">cache_key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_cache_key</span><span class="p">(</span><span class="n">keyword</span><span class="p">)</span>
+        <span class="n">cache_file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cache_key</span><span class="si">}</span><span class="s2">.json&quot;</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">cache_file</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="k">return</span> <span class="kc">None</span>
+            
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">cache_file</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
+            <span class="n">cached_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;timestamp&#39;</span><span class="p">])</span>
+            
+            <span class="k">if</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">cached_time</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache_duration</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span>
+                
+            <span class="k">return</span> <span class="n">data</span>
+            
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cache read error: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+            
+    <span class="k">def</span><span class="w"> </span><span class="nf">_save_to_cache</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Save keyword results to cache.&quot;&quot;&quot;</span>
+        <span class="n">cache_key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_cache_key</span><span class="p">(</span><span class="n">keyword</span><span class="p">)</span>
+        <span class="n">cache_file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cache_key</span><span class="si">}</span><span class="s2">.json&quot;</span>
+        
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cache_file</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+            
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cache write error: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            
+<div class="viewcode-block" id="KeywordResearch.clear_cache">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/core/keyword_research/index.html#src.seoninja.core.keyword_research.KeywordResearch.clear_cache">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">clear_cache</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Clear keyword cache.&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">cache_file</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache_dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*.json&#39;</span><span class="p">):</span>
+                <span class="n">cache_file</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Cache cleared successfully&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error clearing cache: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+            
+<div class="viewcode-block" id="KeywordResearch.get_performance_metrics">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/core/keyword_research/index.html#src.seoninja.core.keyword_research.KeywordResearch.get_performance_metrics">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_performance_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get performance metrics.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_metrics</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="KeywordResearch.close">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/core/keyword_research/index.html#src.seoninja.core.keyword_research.KeywordResearch.close">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Close resources.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_session</span> <span class="o">=</span> <span class="kc">None</span> </div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Your Name.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

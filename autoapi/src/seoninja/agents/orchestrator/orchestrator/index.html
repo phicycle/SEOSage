@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.seoninja.agents.orchestrator.orchestrator &mdash; SEO Ninja 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../../../_static/graphviz.css?v=eafc0fe6" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../../index.html" class="icon icon-home">
+            SEO Ninja
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../introduction.html#what-is-seo-ninja">What is SEO Ninja?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../introduction.html#key-features">Key Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../introduction.html#system-architecture">System Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../introduction.html#core-components">Core Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../introduction.html#communication-flow">Communication Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../introduction.html#task-management">Task Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../introduction.html#state-management">State Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../introduction.html#error-handling">Error Handling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../introduction.html#technology-stack">Technology Stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../introduction.html#getting-started">Getting Started</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../installation.html">Installation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../installation.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../installation.html#required-api-keys">Required API Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../installation.html#installation-steps">Installation Steps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../installation.html#clone-the-repository">1. Clone the Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../installation.html#create-virtual-environment">2. Create Virtual Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../installation.html#install-dependencies">3. Install Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../installation.html#configure-environment-variables">4. Configure Environment Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../installation.html#set-up-google-search-console-authentication">5. Set Up Google Search Console Authentication</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../installation.html#running-the-application">Running the Application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../installation.html#start-the-api-server">1. Start the API Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../installation.html#access-the-api-documentation">2. Access the API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../installation.html#development-setup">Development Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../installation.html#install-development-dependencies">1. Install Development Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../installation.html#set-up-pre-commit-hooks">2. Set Up Pre-commit Hooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../installation.html#run-tests">3. Run Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../installation.html#build-documentation">4. Build Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../installation.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../installation.html#common-issues">Common Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../installation.html#getting-help">Getting Help</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../architecture.html">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../architecture.html#system-overview">System Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../architecture.html#core-components">Core Components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../architecture.html#orchestrator-agent">Orchestrator Agent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../architecture.html#specialized-agents">Specialized Agents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../architecture.html#communication-model">Communication Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../architecture.html#inter-agent-communication">Inter-agent Communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../architecture.html#message-types">Message Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../architecture.html#task-processing">Task Processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../architecture.html#task-lifecycle">Task Lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../architecture.html#parallel-processing">Parallel Processing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../architecture.html#resource-management">Resource Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../architecture.html#resource-types">Resource Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../architecture.html#monitoring-system">Monitoring System</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../architecture.html#security-architecture">Security Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../architecture.html#authentication">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../architecture.html#data-protection">Data Protection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../architecture.html#error-handling">Error Handling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../architecture.html#recovery-mechanisms">Recovery Mechanisms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../architecture.html#error-propagation">Error Propagation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../architecture.html#deployment-architecture">Deployment Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../architecture.html#components">Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../architecture.html#scaling-strategy">Scaling Strategy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../architecture.html#future-considerations">Future Considerations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../architecture.html#planned-enhancements">Planned Enhancements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../api/index.html">API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../api/index.html#task-management">Task Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../api/index.html#agent-communication">Agent Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../api/index.html#process-timeline">Process Timeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../api/index.html#resource-monitoring">Resource Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../api/index.html#system-status">System Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../api/index.html#error-responses">Error Responses</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../monitoring.html">Monitoring and Analytics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../monitoring.html#agent-communication-visualization">Agent Communication Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../monitoring.html#flow-analysis">Flow Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../monitoring.html#real-time-monitoring">Real-time Monitoring</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../monitoring.html#process-timeline">Process Timeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../monitoring.html#stage-tracking">Stage Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../monitoring.html#decision-points">Decision Points</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../monitoring.html#resource-monitoring">Resource Monitoring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../monitoring.html#resource-allocation">Resource Allocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../monitoring.html#usage-patterns">Usage Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../monitoring.html#bottleneck-detection">Bottleneck Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../monitoring.html#system-capacity">System Capacity</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../monitoring.html#visualization-integration">Visualization Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../monitoring.html#best-practices">Best Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../changelog.html#id1">[1.0.0] - 2024-02-04</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../changelog.html#added">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../changelog.html#id2">[0.9.0] - 2024-01-15</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../changelog.html#id3">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../changelog.html#changed">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../changelog.html#id4">[0.8.0] - 2023-12-20</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../changelog.html#id5">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../changelog.html#fixed">Fixed</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../index.html">API Reference</a><ul class="simple">
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../index.html">SEO Ninja</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.seoninja.agents.orchestrator.orchestrator</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../../_sources/autoapi/src/seoninja/agents/orchestrator/orchestrator/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-src.seoninja.agents.orchestrator.orchestrator">
+<span id="src-seoninja-agents-orchestrator-orchestrator"></span><h1><a class="reference internal" href="#module-src.seoninja.agents.orchestrator.orchestrator" title="src.seoninja.agents.orchestrator.orchestrator"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.seoninja.agents.orchestrator.orchestrator</span></code></a><a class="headerlink" href="#module-src.seoninja.agents.orchestrator.orchestrator" title="Link to this heading"></a></h1>
+<p>Orchestrator agent for coordinating specialized agents.</p>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.agents.orchestrator.orchestrator.TaskDecomposer" title="src.seoninja.agents.orchestrator.orchestrator.TaskDecomposer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TaskDecomposer</span></code></a></p></td>
+<td><p>Decomposes complex tasks into subtasks with enhanced context sharing.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.seoninja.agents.orchestrator.orchestrator.BatchExecutor" title="src.seoninja.agents.orchestrator.orchestrator.BatchExecutor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BatchExecutor</span></code></a></p></td>
+<td><p>Handles batched execution of tasks with retries.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator" title="src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SEOOrchestrator</span></code></a></p></td>
+<td><p>Orchestrates multiple specialized agents for SEO tasks with enhanced coordination.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.seoninja.agents.orchestrator.orchestrator.TaskDecomposer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.agents.orchestrator.orchestrator.</span></span><span class="sig-name descname"><span class="pre">TaskDecomposer</span></span><a class="reference internal" href="../../../../../../_modules/src/seoninja/agents/orchestrator/orchestrator.html#TaskDecomposer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.agents.orchestrator.orchestrator.TaskDecomposer" title="Link to this definition"></a></dt>
+<dd><p>Decomposes complex tasks into subtasks with enhanced context sharing.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.seoninja.agents.orchestrator.orchestrator.TaskDecomposer.decompose_task">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">decompose_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shared_context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../../../_modules/src/seoninja/agents/orchestrator/orchestrator.html#TaskDecomposer.decompose_task"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.agents.orchestrator.orchestrator.TaskDecomposer.decompose_task" title="Link to this definition"></a></dt>
+<dd><p>Decompose task into subtasks with context preservation.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.seoninja.agents.orchestrator.orchestrator.BatchExecutor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.agents.orchestrator.orchestrator.</span></span><span class="sig-name descname"><span class="pre">BatchExecutor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_retries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retry_delay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../_modules/src/seoninja/agents/orchestrator/orchestrator.html#BatchExecutor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.agents.orchestrator.orchestrator.BatchExecutor" title="Link to this definition"></a></dt>
+<dd><p>Handles batched execution of tasks with retries.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.seoninja.agents.orchestrator.orchestrator.BatchExecutor.execute">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tasks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">executor_func</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../../../_modules/src/seoninja/agents/orchestrator/orchestrator.html#BatchExecutor.execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.agents.orchestrator.orchestrator.BatchExecutor.execute" title="Link to this definition"></a></dt>
+<dd><p>Execute tasks in batches with retry logic.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.seoninja.agents.orchestrator.orchestrator.</span></span><span class="sig-name descname"><span class="pre">SEOOrchestrator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">storage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../../utils/storage/index.html#src.seoninja.utils.storage.PersistentStorage" title="src.seoninja.utils.storage.PersistentStorage"><span class="pre">src.seoninja.utils.storage.PersistentStorage</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gsc_credentials</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moz_token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_domain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">openai_api_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../_modules/src/seoninja/agents/orchestrator/orchestrator.html#SEOOrchestrator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../../base/agent/index.html#src.seoninja.agents.base.agent.BaseAgent" title="src.seoninja.agents.base.agent.BaseAgent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">src.seoninja.agents.base.agent.BaseAgent</span></code></a></p>
+<p>Orchestrates multiple specialized agents for SEO tasks with enhanced coordination.</p>
+<p>Initialize orchestrator with enhanced components.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.execute">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../../../_modules/src/seoninja/agents/orchestrator/orchestrator.html#SEOOrchestrator.execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.execute" title="Link to this definition"></a></dt>
+<dd><p>Execute a complex task by coordinating multiple agents with enhanced context sharing.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.cleanup">
+<span class="sig-name descname"><span class="pre">cleanup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../../../_modules/src/seoninja/agents/orchestrator/orchestrator.html#SEOOrchestrator.cleanup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.cleanup" title="Link to this definition"></a></dt>
+<dd><p>Clean up resources.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.run">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../../../_modules/src/seoninja/agents/orchestrator/orchestrator.html#SEOOrchestrator.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.run" title="Link to this definition"></a></dt>
+<dd><p>Start the orchestrator and initialize all agents.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.shutdown">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shutdown</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../../../_modules/src/seoninja/agents/orchestrator/orchestrator.html#SEOOrchestrator.shutdown"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.shutdown" title="Link to this definition"></a></dt>
+<dd><p>Gracefully shutdown the orchestrator and all agents.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.handle_event">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">handle_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">agent_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../../../_modules/src/seoninja/agents/orchestrator/orchestrator.html#SEOOrchestrator.handle_event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.handle_event" title="Link to this definition"></a></dt>
+<dd><p>Handle events from observed agents.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.get_communication_flows">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_communication_flows</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../../../_modules/src/seoninja/agents/orchestrator/orchestrator.html#SEOOrchestrator.get_communication_flows"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.get_communication_flows" title="Link to this definition"></a></dt>
+<dd><p>Get inter-agent communication flows.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.get_realtime_communication">
+<span class="sig-name descname"><span class="pre">get_realtime_communication</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../../../_modules/src/seoninja/agents/orchestrator/orchestrator.html#SEOOrchestrator.get_realtime_communication"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.get_realtime_communication" title="Link to this definition"></a></dt>
+<dd><p>Get real-time agent interaction data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.get_communication_analytics">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_communication_analytics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeframe</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'24h'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../../../_modules/src/seoninja/agents/orchestrator/orchestrator.html#SEOOrchestrator.get_communication_analytics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.get_communication_analytics" title="Link to this definition"></a></dt>
+<dd><p>Get communication patterns analytics.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.get_data_flow_metrics">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_data_flow_metrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../../../_modules/src/seoninja/agents/orchestrator/orchestrator.html#SEOOrchestrator.get_data_flow_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.get_data_flow_metrics" title="Link to this definition"></a></dt>
+<dd><p>Get data flow metrics between agents.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.get_process_timeline">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_process_timeline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">process_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_details</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../../../_modules/src/seoninja/agents/orchestrator/orchestrator.html#SEOOrchestrator.get_process_timeline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.get_process_timeline" title="Link to this definition"></a></dt>
+<dd><p>Get detailed process stage tracking data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.get_decision_points">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_decision_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">process_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../../../_modules/src/seoninja/agents/orchestrator/orchestrator.html#SEOOrchestrator.get_decision_points"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.get_decision_points" title="Link to this definition"></a></dt>
+<dd><p>Get decision point logging data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.get_stage_transitions">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_stage_transitions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">process_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../../../_modules/src/seoninja/agents/orchestrator/orchestrator.html#SEOOrchestrator.get_stage_transitions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.get_stage_transitions" title="Link to this definition"></a></dt>
+<dd><p>Get stage transition data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.get_time_analysis">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_time_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeframe</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">process_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../../../_modules/src/seoninja/agents/orchestrator/orchestrator.html#SEOOrchestrator.get_time_analysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.get_time_analysis" title="Link to this definition"></a></dt>
+<dd><p>Get time-based process analysis.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.get_resource_allocation">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_resource_allocation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resource_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeframe</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1h'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../../../_modules/src/seoninja/agents/orchestrator/orchestrator.html#SEOOrchestrator.get_resource_allocation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.get_resource_allocation" title="Link to this definition"></a></dt>
+<dd><p>Get detailed resource allocation tracking.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.get_usage_patterns">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_usage_patterns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resource_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../../../_modules/src/seoninja/agents/orchestrator/orchestrator.html#SEOOrchestrator.get_usage_patterns"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.get_usage_patterns" title="Link to this definition"></a></dt>
+<dd><p>Get resource usage patterns.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.get_resource_bottlenecks">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_resource_bottlenecks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">analysis_period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'24h'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.8</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../../../_modules/src/seoninja/agents/orchestrator/orchestrator.html#SEOOrchestrator.get_resource_bottlenecks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.get_resource_bottlenecks" title="Link to this definition"></a></dt>
+<dd><p>Get resource bottleneck identification.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.get_system_capacity">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_system_capacity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">include_predictions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../../../_modules/src/seoninja/agents/orchestrator/orchestrator.html#SEOOrchestrator.get_system_capacity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.get_system_capacity" title="Link to this definition"></a></dt>
+<dd><p>Get system capacity metrics.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.get_realtime_resource_metrics">
+<span class="sig-name descname"><span class="pre">get_realtime_resource_metrics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../../../_modules/src/seoninja/agents/orchestrator/orchestrator.html#SEOOrchestrator.get_realtime_resource_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.seoninja.agents.orchestrator.orchestrator.SEOOrchestrator.get_realtime_resource_metrics" title="Link to this definition"></a></dt>
+<dd><p>Get real-time resource metrics.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">cleanup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../../../_modules/src/seoninja/agents/orchestrator/orchestrator.html#SEOOrchestrator.cleanup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dd><p>Clean up resources.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Your Name.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

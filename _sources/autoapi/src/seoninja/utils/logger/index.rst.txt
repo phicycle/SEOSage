@@ -1,0 +1,29 @@
+:py:mod:`src.seoninja.utils.logger`
+===================================
+
+.. py:module:: src.seoninja.utils.logger
+
+.. autoapi-nested-parse::
+
+   Logging utility for SEO Ninja.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.seoninja.utils.logger.setup_logger
+
+
+
+.. py:function:: setup_logger(name: str) -> logging.Logger
+
+   Set up a logger with file and console handlers.
+
+

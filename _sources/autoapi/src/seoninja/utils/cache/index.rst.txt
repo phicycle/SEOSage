@@ -1,0 +1,67 @@
+:py:mod:`src.seoninja.utils.cache`
+==================================
+
+.. py:module:: src.seoninja.utils.cache
+
+.. autoapi-nested-parse::
+
+   Caching utility for SEO Ninja.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   src.seoninja.utils.cache.Cache
+
+
+
+
+.. py:class:: Cache(namespace: str, cache_duration: int = 30 * 24 * 60 * 60)
+
+
+   Cache manager for storing and retrieving analysis results.
+
+   Initialize cache manager.
+
+   :param namespace: Cache namespace (e.g., 'crawler', 'keyword_research')
+   :param cache_duration: Cache duration in seconds (default: 30 days)
+
+   .. py:method:: load(key: str, analysis_type: str) -> Optional[Dict[str, Any]]
+
+      Load cached data if available and fresh.
+
+      :param key: Cache key (e.g., domain name)
+      :param analysis_type: Type of analysis (e.g., 'crawl', 'keywords')
+
+      :returns: Cached data if available and fresh, None otherwise
+
+
+   .. py:method:: save(key: str, analysis_type: str, data: Any) -> None
+
+      Save data to cache.
+
+      :param key: Cache key (e.g., domain name)
+      :param analysis_type: Type of analysis (e.g., 'crawl', 'keywords')
+      :param data: Data to cache
+
+
+   .. py:method:: clear(key: Optional[str] = None, analysis_type: Optional[str] = None) -> None
+
+      Clear cache entries.
+
+      :param key: Optional key to clear specific entries
+      :param analysis_type: Optional analysis type to clear specific entries
+
+
+   .. py:method:: get_stats() -> Dict[str, Any]
+
+      Get cache statistics.
+
+
+

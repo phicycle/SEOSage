@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.seoninja.core.content_generator &mdash; SEO Ninja 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=eafc0fe6" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            SEO Ninja
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#what-is-seo-ninja">What is SEO Ninja?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#key-features">Key Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#system-architecture">System Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#core-components">Core Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#communication-flow">Communication Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#task-management">Task Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#state-management">State Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#error-handling">Error Handling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#technology-stack">Technology Stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#getting-started">Getting Started</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#required-api-keys">Required API Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#installation-steps">Installation Steps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#clone-the-repository">1. Clone the Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#create-virtual-environment">2. Create Virtual Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#install-dependencies">3. Install Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#configure-environment-variables">4. Configure Environment Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#set-up-google-search-console-authentication">5. Set Up Google Search Console Authentication</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#running-the-application">Running the Application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#start-the-api-server">1. Start the API Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#access-the-api-documentation">2. Access the API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#development-setup">Development Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#install-development-dependencies">1. Install Development Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#set-up-pre-commit-hooks">2. Set Up Pre-commit Hooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#run-tests">3. Run Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#build-documentation">4. Build Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#common-issues">Common Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#getting-help">Getting Help</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../architecture.html">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../architecture.html#system-overview">System Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../architecture.html#core-components">Core Components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#orchestrator-agent">Orchestrator Agent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#specialized-agents">Specialized Agents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../architecture.html#communication-model">Communication Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#inter-agent-communication">Inter-agent Communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#message-types">Message Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../architecture.html#task-processing">Task Processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#task-lifecycle">Task Lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#parallel-processing">Parallel Processing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../architecture.html#resource-management">Resource Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#resource-types">Resource Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#monitoring-system">Monitoring System</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../architecture.html#security-architecture">Security Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#authentication">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#data-protection">Data Protection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../architecture.html#error-handling">Error Handling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#recovery-mechanisms">Recovery Mechanisms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#error-propagation">Error Propagation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../architecture.html#deployment-architecture">Deployment Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#components">Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#scaling-strategy">Scaling Strategy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../architecture.html#future-considerations">Future Considerations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#planned-enhancements">Planned Enhancements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html">API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/index.html#task-management">Task Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/index.html#agent-communication">Agent Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/index.html#process-timeline">Process Timeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/index.html#resource-monitoring">Resource Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/index.html#system-status">System Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/index.html#error-responses">Error Responses</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../monitoring.html">Monitoring and Analytics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../monitoring.html#agent-communication-visualization">Agent Communication Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../monitoring.html#flow-analysis">Flow Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../monitoring.html#real-time-monitoring">Real-time Monitoring</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../monitoring.html#process-timeline">Process Timeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../monitoring.html#stage-tracking">Stage Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../monitoring.html#decision-points">Decision Points</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../monitoring.html#resource-monitoring">Resource Monitoring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../monitoring.html#resource-allocation">Resource Allocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../monitoring.html#usage-patterns">Usage Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../monitoring.html#bottleneck-detection">Bottleneck Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../monitoring.html#system-capacity">System Capacity</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../monitoring.html#visualization-integration">Visualization Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../monitoring.html#best-practices">Best Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id1">[1.0.0] - 2024-02-04</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#added">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id2">[0.9.0] - 2024-01-15</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#id3">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#changed">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id4">[0.8.0] - 2023-12-20</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#id5">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#fixed">Fixed</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../autoapi/index.html">API Reference</a><ul class="simple">
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">SEO Ninja</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">src.seoninja.core.content_generator</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for src.seoninja.core.content_generator</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Core content generation functionality.&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Set</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">langchain.prompts</span><span class="w"> </span><span class="kn">import</span> <span class="n">PromptTemplate</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">langchain.chains</span><span class="w"> </span><span class="kn">import</span> <span class="n">LLMChain</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_extraction.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">sent_tokenize</span><span class="p">,</span> <span class="n">word_tokenize</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk.corpus</span><span class="w"> </span><span class="kn">import</span> <span class="n">stopwords</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk.stem</span><span class="w"> </span><span class="kn">import</span> <span class="n">WordNetLemmatizer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">textblob</span><span class="w"> </span><span class="kn">import</span> <span class="n">TextBlob</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+
+<div class="viewcode-block" id="ContentGenerator">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/core/content_generator/index.html#src.seoninja.core.content_generator.ContentGenerator">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ContentGenerator</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Enhanced content generator with advanced NLP and AI capabilities.</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes:</span>
+<span class="sd">        llm: Language model instance</span>
+<span class="sd">        template: Base template for content generation</span>
+<span class="sd">        website_context: Dictionary storing website context from crawler</span>
+<span class="sd">        internal_links: Dictionary mapping topics to relevant internal URLs</span>
+<span class="sd">        vectorizer: TF-IDF vectorizer for topic modeling</span>
+<span class="sd">        lemmatizer: WordNet lemmatizer for text processing</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">llm</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize content generator with language model.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">llm</span> <span class="o">=</span> <span class="n">llm</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">template</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_base_template</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">website_context</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">internal_links</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cache_dir</span> <span class="o">=</span> <span class="s2">&quot;data/cache/content&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+        
+        <span class="c1"># Initialize NLP components</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span>
+            <span class="n">max_features</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+            <span class="n">stop_words</span><span class="o">=</span><span class="s1">&#39;english&#39;</span><span class="p">,</span>
+            <span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lemmatizer</span> <span class="o">=</span> <span class="n">WordNetLemmatizer</span><span class="p">()</span>
+        
+        <span class="c1"># Create necessary directories</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cache_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;data/output/blogs&quot;</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_base_template</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the enhanced base template for content generation.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;&quot;Write a comprehensive, SEO-optimized blog post about </span><span class="si">{keyword}</span><span class="s2"> in Markdown format.</span>
+
+<span class="s2">Structure:</span>
+<span class="s2"># </span><span class="si">{title}</span>
+
+<span class="s2">## Executive Summary</span>
+<span class="s2">[A compelling 150-word summary of the key points]</span>
+
+<span class="s2">## Introduction</span>
+<span class="s2">[Engaging introduction with hook, context, and value proposition]</span>
+
+<span class="si">{main_sections}</span>
+
+<span class="s2">## Expert Insights</span>
+<span class="s2">[Include expert quotes and analysis]</span>
+
+<span class="s2">## Practical Applications</span>
+<span class="s2">[Real-world examples and use cases]</span>
+
+<span class="s2">## Best Practices &amp; Tips</span>
+<span class="s2">[Actionable advice and recommendations]</span>
+
+<span class="s2">## Industry Trends</span>
+<span class="s2">[Current and future trends]</span>
+
+<span class="s2">## Common Challenges &amp; Solutions</span>
+<span class="s2">[Address pain points and provide solutions]</span>
+
+<span class="s2">## Conclusion</span>
+<span class="s2">[Summarize key points and include call to action]</span>
+
+<span class="s2">## Frequently Asked Questions</span>
+<span class="si">{faq_section}</span>
+
+<span class="s2">Requirements:</span>
+<span class="s2">- Primary keyword usage: </span><span class="si">{keyword_requirements}</span>
+<span class="s2">- Secondary keywords: </span><span class="si">{secondary_keywords}</span>
+<span class="s2">- Internal linking opportunities: </span><span class="si">{internal_linking}</span>
+<span class="s2">- Content depth: </span><span class="si">{depth_requirements}</span>
+<span class="s2">- User intent: </span><span class="si">{user_intent}</span>
+<span class="s2">- Target audience: </span><span class="si">{audience}</span>
+
+<span class="s2">Blog Post:&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_intent_template</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">intent</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get enhanced template based on search intent.&quot;&quot;&quot;</span>
+        <span class="n">intent_templates</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;informational&#39;</span><span class="p">:</span> <span class="s2">&quot;&quot;&quot;Create an in-depth educational guide about </span><span class="si">{keyword}</span><span class="s2">.</span>
+<span class="s2">            </span>
+<span class="s2">            Focus areas:</span>
+<span class="s2">            1. Comprehensive explanation of concepts</span>
+<span class="s2">            2. Step-by-step tutorials</span>
+<span class="s2">            3. Visual aids and diagrams</span>
+<span class="s2">            4. Expert insights and research</span>
+<span class="s2">            5. Common misconceptions</span>
+<span class="s2">            6. Further reading resources</span>
+<span class="s2">            </span>
+<span class="s2">            Style: Educational, thorough, well-researched&quot;&quot;&quot;</span><span class="p">,</span>
+            
+            <span class="s1">&#39;commercial&#39;</span><span class="p">:</span> <span class="s2">&quot;&quot;&quot;Create a detailed comparison and analysis of </span><span class="si">{keyword}</span><span class="s2">.</span>
+<span class="s2">            </span>
+<span class="s2">            Focus areas:</span>
+<span class="s2">            1. Feature comparison matrix</span>
+<span class="s2">            2. Pricing analysis</span>
+<span class="s2">            3. Pros and cons</span>
+<span class="s2">            4. Use case scenarios</span>
+<span class="s2">            5. ROI calculations</span>
+<span class="s2">            6. Expert recommendations</span>
+<span class="s2">            </span>
+<span class="s2">            Style: Analytical, data-driven, objective&quot;&quot;&quot;</span><span class="p">,</span>
+            
+            <span class="s1">&#39;transactional&#39;</span><span class="p">:</span> <span class="s2">&quot;&quot;&quot;Create a comprehensive buying guide for </span><span class="si">{keyword}</span><span class="s2">.</span>
+<span class="s2">            </span>
+<span class="s2">            Focus areas:</span>
+<span class="s2">            1. Product specifications</span>
+<span class="s2">            2. Pricing tiers</span>
+<span class="s2">            3. Purchase process</span>
+<span class="s2">            4. Warranty information</span>
+<span class="s2">            5. Customer support details</span>
+<span class="s2">            6. Post-purchase tips</span>
+<span class="s2">            </span>
+<span class="s2">            Style: Clear, actionable, persuasive&quot;&quot;&quot;</span><span class="p">,</span>
+            
+            <span class="s1">&#39;navigational&#39;</span><span class="p">:</span> <span class="s2">&quot;&quot;&quot;Create a detailed overview of </span><span class="si">{keyword}</span><span class="s2">.</span>
+<span class="s2">            </span>
+<span class="s2">            Focus areas:</span>
+<span class="s2">            1. Brand/Product history</span>
+<span class="s2">            2. Key features</span>
+<span class="s2">            3. Use cases</span>
+<span class="s2">            4. Customer testimonials</span>
+<span class="s2">            5. Support resources</span>
+<span class="s2">            6. Contact information</span>
+<span class="s2">            </span>
+<span class="s2">            Style: Informative, straightforward, helpful&quot;&quot;&quot;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">intent_templates</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">intent</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">template</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ContentGenerator.set_website_context">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/core/content_generator/index.html#src.seoninja.core.content_generator.ContentGenerator.set_website_context">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_website_context</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">crawler_data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set website context from crawler data.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            crawler_data: Dictionary containing crawled website data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">website_context</span> <span class="o">=</span> <span class="n">crawler_data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_build_internal_link_index</span><span class="p">()</span></div>
+
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_build_internal_link_index</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Build an index of topics to URLs for internal linking.&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">url</span><span class="p">,</span> <span class="n">page_data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">website_context</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="c1"># Extract topics from title and headers</span>
+            <span class="n">topics</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+            <span class="k">if</span> <span class="s1">&#39;title&#39;</span> <span class="ow">in</span> <span class="n">page_data</span><span class="p">:</span>
+                <span class="n">topics</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_extract_topics</span><span class="p">(</span><span class="n">page_data</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]))</span>
+            
+            <span class="k">if</span> <span class="s1">&#39;headers&#39;</span> <span class="ow">in</span> <span class="n">page_data</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">level</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;h1&#39;</span><span class="p">,</span> <span class="s1">&#39;h2&#39;</span><span class="p">,</span> <span class="s1">&#39;h3&#39;</span><span class="p">]:</span>
+                    <span class="k">for</span> <span class="n">header</span> <span class="ow">in</span> <span class="n">page_data</span><span class="p">[</span><span class="s1">&#39;headers&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="p">[]):</span>
+                        <span class="n">topics</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_extract_topics</span><span class="p">(</span><span class="n">header</span><span class="p">))</span>
+            
+            <span class="c1"># Add URL to each topic&#39;s list of relevant pages</span>
+            <span class="k">for</span> <span class="n">topic</span> <span class="ow">in</span> <span class="n">topics</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">topic</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">internal_links</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">internal_links</span><span class="p">[</span><span class="n">topic</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">internal_links</span><span class="p">[</span><span class="n">topic</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+                    <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="n">page_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
+                    <span class="s1">&#39;relevance&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_relevance</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">page_data</span><span class="p">)</span>
+                <span class="p">})</span>
+                
+    <span class="k">def</span><span class="w"> </span><span class="nf">_extract_topics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Extract main topics from text.&quot;&quot;&quot;</span>
+        <span class="c1"># Remove common stop words and special characters</span>
+        <span class="n">words</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="n">topics</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        
+        <span class="c1"># Extract single word topics</span>
+        <span class="n">topics</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+        
+        <span class="c1"># Extract multi-word topics (up to 3 words)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">topics</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span>
+                <span class="n">topics</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                
+        <span class="k">return</span> <span class="n">topics</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_calculate_relevance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">page_data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate relevance score of a page for a topic.&quot;&quot;&quot;</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="mf">0.0</span>
+        
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Check title</span>
+            <span class="n">title</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">page_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">topic</span> <span class="ow">in</span> <span class="n">title</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+                <span class="n">score</span> <span class="o">+=</span> <span class="mf">3.0</span>
+            
+            <span class="c1"># Check headers</span>
+            <span class="n">headers</span> <span class="o">=</span> <span class="n">page_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;headers&#39;</span><span class="p">,</span> <span class="p">{})</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">headers</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">level</span><span class="p">,</span> <span class="n">header_list</span> <span class="ow">in</span> <span class="n">headers</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">header_list</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                        <span class="n">weight</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">level</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="k">if</span> <span class="n">level</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="k">else</span> <span class="mi">1</span>  <span class="c1"># h1=3, h2=2, h3=1</span>
+                        <span class="k">for</span> <span class="n">header</span> <span class="ow">in</span> <span class="n">header_list</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">topic</span> <span class="ow">in</span> <span class="n">header</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+                                <span class="n">score</span> <span class="o">+=</span> <span class="n">weight</span>
+            
+            <span class="c1"># Check content</span>
+            <span class="n">content</span> <span class="o">=</span> <span class="n">page_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="n">score</span> <span class="o">+=</span> <span class="n">content</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">topic</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="s1">&#39;text&#39;</span> <span class="ow">in</span> <span class="n">content</span><span class="p">:</span>
+                <span class="n">score</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">content</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">topic</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span>
+            
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error calculating relevance for topic </span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="mf">0.0</span>
+            
+        <span class="k">return</span> <span class="n">score</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_cache_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get cache file path for a keyword.&quot;&quot;&quot;</span>
+        <span class="n">safe_keyword</span> <span class="o">=</span> <span class="n">keyword</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cache_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">safe_keyword</span><span class="si">}</span><span class="s2">.json&quot;</span><span class="p">)</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_load_from_cache</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Load content from cache if available.&quot;&quot;&quot;</span>
+        <span class="n">cache_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_cache_path</span><span class="p">(</span><span class="n">keyword</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">cache_path</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">cache_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error loading cache for </span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_save_to_cache</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Save content to cache.&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cache_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_cache_path</span><span class="p">(</span><span class="n">keyword</span><span class="p">)</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">cache_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error saving cache for </span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ContentGenerator.generate_blog_post">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/core/content_generator/index.html#src.seoninja.core.content_generator.ContentGenerator.generate_blog_post">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">generate_blog_post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword_data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Enhanced blog post generation with advanced features.&quot;&quot;&quot;</span>
+        <span class="n">keyword</span> <span class="o">=</span> <span class="n">keyword_data</span><span class="p">[</span><span class="s1">&#39;keyword&#39;</span><span class="p">]</span>
+        
+        <span class="c1"># Check cache first</span>
+        <span class="n">cached_content</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_from_cache</span><span class="p">(</span><span class="n">keyword</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">cached_content</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Using cached content&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">cached_content</span>
+            
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Generating new content with enhanced features...&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Analyze keyword and gather insights</span>
+        <span class="n">keyword_insights</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_analyze_keyword</span><span class="p">(</span><span class="n">keyword</span><span class="p">)</span>
+        <span class="n">intent</span> <span class="o">=</span> <span class="n">keyword_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;intent&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_determine_intent</span><span class="p">(</span><span class="n">keyword</span><span class="p">))</span>
+        <span class="n">audience</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_identify_target_audience</span><span class="p">(</span><span class="n">keyword</span><span class="p">)</span>
+        
+        <span class="c1"># Generate content structure</span>
+        <span class="n">content_structure</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_content_structure</span><span class="p">(</span><span class="n">keyword</span><span class="p">,</span> <span class="n">intent</span><span class="p">)</span>
+        
+        <span class="c1"># Get relevant context and competitor insights</span>
+        <span class="n">context</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_enhanced_context</span><span class="p">(</span><span class="n">keyword</span><span class="p">)</span>
+        <span class="n">competitor_insights</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_analyze_competitor_content</span><span class="p">(</span><span class="n">keyword</span><span class="p">)</span>
+        
+        <span class="c1"># Prepare template variables</span>
+        <span class="n">template_vars</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;keyword&#39;</span><span class="p">:</span> <span class="n">keyword</span><span class="p">,</span>
+            <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_seo_title</span><span class="p">(</span><span class="n">keyword</span><span class="p">,</span> <span class="n">intent</span><span class="p">),</span>
+            <span class="s1">&#39;main_sections&#39;</span><span class="p">:</span> <span class="n">content_structure</span><span class="p">,</span>
+            <span class="s1">&#39;faq_section&#39;</span><span class="p">:</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_faqs</span><span class="p">(</span><span class="n">keyword</span><span class="p">),</span>
+            <span class="s1">&#39;keyword_requirements&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_keyword_requirements</span><span class="p">(</span><span class="n">keyword_insights</span><span class="p">),</span>
+            <span class="s1">&#39;secondary_keywords&#39;</span><span class="p">:</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">keyword_insights</span><span class="p">[</span><span class="s1">&#39;secondary_keywords&#39;</span><span class="p">]),</span>
+            <span class="s1">&#39;internal_linking&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_internal_linking_opportunities</span><span class="p">(</span><span class="n">keyword</span><span class="p">),</span>
+            <span class="s1">&#39;depth_requirements&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_depth_requirements</span><span class="p">(</span><span class="n">intent</span><span class="p">),</span>
+            <span class="s1">&#39;user_intent&#39;</span><span class="p">:</span> <span class="n">intent</span><span class="p">,</span>
+            <span class="s1">&#39;audience&#39;</span><span class="p">:</span> <span class="n">audience</span>
+        <span class="p">}</span>
+        
+        <span class="c1"># Generate initial content</span>
+        <span class="n">prompt</span> <span class="o">=</span> <span class="n">PromptTemplate</span><span class="p">(</span>
+            <span class="n">input_variables</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">template_vars</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span>
+            <span class="n">template</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_intent_template</span><span class="p">(</span><span class="n">intent</span><span class="p">)</span>
+        <span class="p">)</span>
+        
+        <span class="n">chain</span> <span class="o">=</span> <span class="n">LLMChain</span><span class="p">(</span><span class="n">llm</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">llm</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="n">prompt</span><span class="p">)</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="k">await</span> <span class="n">chain</span><span class="o">.</span><span class="n">arun</span><span class="p">(</span><span class="o">**</span><span class="n">template_vars</span><span class="p">)</span>
+        
+        <span class="c1"># Enhance content</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_enhance_content</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">keyword_data</span><span class="p">,</span> <span class="n">competitor_insights</span><span class="p">)</span>
+        
+        <span class="c1"># Save to cache</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_save_to_cache</span><span class="p">(</span><span class="n">keyword</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">content</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_analyze_keyword</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform in-depth keyword analysis.&quot;&quot;&quot;</span>
+        <span class="n">analysis</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;main_topic&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_main_topic</span><span class="p">(</span><span class="n">keyword</span><span class="p">),</span>
+            <span class="s1">&#39;secondary_keywords&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_secondary_keywords</span><span class="p">(</span><span class="n">keyword</span><span class="p">),</span>
+            <span class="s1">&#39;semantic_field&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_semantic_field</span><span class="p">(</span><span class="n">keyword</span><span class="p">),</span>
+            <span class="s1">&#39;complexity_level&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_analyze_complexity</span><span class="p">(</span><span class="n">keyword</span><span class="p">),</span>
+            <span class="s1">&#39;search_volume_category&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_categorize_search_volume</span><span class="p">(</span><span class="n">keyword</span><span class="p">),</span>
+            <span class="s1">&#39;competition_level&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_analyze_competition_level</span><span class="p">(</span><span class="n">keyword</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">analysis</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_enhance_content</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">keyword_data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">competitor_insights</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Apply advanced content enhancements.&quot;&quot;&quot;</span>
+        <span class="n">enhanced</span> <span class="o">=</span> <span class="n">content</span>
+        
+        <span class="c1"># Apply semantic enhancements</span>
+        <span class="n">enhanced</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_semantic_enhancements</span><span class="p">(</span><span class="n">enhanced</span><span class="p">,</span> <span class="n">keyword_data</span><span class="p">)</span>
+        
+        <span class="c1"># Add LSI keywords</span>
+        <span class="n">enhanced</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_lsi_keywords</span><span class="p">(</span><span class="n">enhanced</span><span class="p">,</span> <span class="n">keyword_data</span><span class="p">[</span><span class="s1">&#39;keyword&#39;</span><span class="p">])</span>
+        
+        <span class="c1"># Improve readability</span>
+        <span class="n">enhanced</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_improve_readability</span><span class="p">(</span><span class="n">enhanced</span><span class="p">)</span>
+        
+        <span class="c1"># Add schema markup</span>
+        <span class="n">enhanced</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_schema_markup</span><span class="p">(</span><span class="n">enhanced</span><span class="p">,</span> <span class="n">keyword_data</span><span class="p">)</span>
+        
+        <span class="c1"># Optimize for featured snippets</span>
+        <span class="n">enhanced</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_optimize_for_featured_snippets</span><span class="p">(</span><span class="n">enhanced</span><span class="p">)</span>
+        
+        <span class="c1"># Add competitor insights</span>
+        <span class="n">enhanced</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_incorporate_competitor_insights</span><span class="p">(</span><span class="n">enhanced</span><span class="p">,</span> <span class="n">competitor_insights</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">enhanced</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_analyze_competitor_content</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Analyze competitor content for insights.&quot;&quot;&quot;</span>
+        <span class="c1"># Implementation would include actual competitor analysis logic</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;avg_word_count&#39;</span><span class="p">:</span> <span class="mi">2000</span><span class="p">,</span>
+            <span class="s1">&#39;common_headings&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Benefits&#39;</span><span class="p">,</span> <span class="s1">&#39;Features&#39;</span><span class="p">,</span> <span class="s1">&#39;How to&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;content_gaps&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Technical details&#39;</span><span class="p">,</span> <span class="s1">&#39;Case studies&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;key_topics&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;implementation&#39;</span><span class="p">,</span> <span class="s1">&#39;best practices&#39;</span><span class="p">,</span> <span class="s1">&#39;tools&#39;</span><span class="p">]</span>
+        <span class="p">}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_improve_readability</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Improve content readability.&quot;&quot;&quot;</span>
+        <span class="n">sentences</span> <span class="o">=</span> <span class="n">sent_tokenize</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+        <span class="n">improved_sentences</span> <span class="o">=</span> <span class="p">[]</span>
+        
+        <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">:</span>
+            <span class="c1"># Analyze sentence complexity</span>
+            <span class="n">blob</span> <span class="o">=</span> <span class="n">TextBlob</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">blob</span><span class="o">.</span><span class="n">sentiment</span><span class="o">.</span><span class="n">polarity</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">:</span>
+                <span class="c1"># Make negative sentences more constructive</span>
+                <span class="n">sentence</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rephrase_constructively</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">25</span><span class="p">:</span>
+                <span class="c1"># Break down long sentences</span>
+                <span class="n">sentence</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_simplify_sentence</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+            
+            <span class="n">improved_sentences</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">improved_sentences</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_add_schema_markup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">keyword_data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add schema markup for better SEO.&quot;&quot;&quot;</span>
+        <span class="c1"># Add article schema</span>
+        <span class="n">schema</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;@context&quot;</span><span class="p">:</span> <span class="s2">&quot;https://schema.org&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;@type&quot;</span><span class="p">:</span> <span class="s2">&quot;Article&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;headline&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_title</span><span class="p">(</span><span class="n">content</span><span class="p">),</span>
+            <span class="s2">&quot;keywords&quot;</span><span class="p">:</span> <span class="n">keyword_data</span><span class="p">[</span><span class="s1">&#39;keyword&#39;</span><span class="p">],</span>
+            <span class="s2">&quot;articleBody&quot;</span><span class="p">:</span> <span class="n">content</span><span class="p">,</span>
+            <span class="s2">&quot;datePublished&quot;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+        <span class="p">}</span>
+        
+        <span class="c1"># Add schema at the end of content</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">content</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">&lt;!-- Schema.org Markup --&gt;</span><span class="se">\n</span><span class="s2">&lt;script type=</span><span class="se">\&quot;</span><span class="s2">application/ld+json</span><span class="se">\&quot;</span><span class="s2">&gt;</span><span class="se">\n</span><span class="si">{</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span><span class="w"> </span><span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&lt;/script&gt;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_optimize_for_featured_snippets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Optimize content for featured snippets.&quot;&quot;&quot;</span>
+        <span class="c1"># Add definition-style paragraphs</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^[A-Z][^.!?]+ is [^.!?]+[.!?]&#39;</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">MULTILINE</span><span class="p">):</span>
+            <span class="n">title</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_title</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+            <span class="n">definition</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="s2"> is a comprehensive guide that explains everything you need to know about this topic.&quot;</span>
+            <span class="n">content</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">definition</span><span class="si">}</span><span class="se">\n\n</span><span class="si">{</span><span class="n">content</span><span class="si">}</span><span class="s2">&quot;</span>
+        
+        <span class="c1"># Add list-style content</span>
+        <span class="k">if</span> <span class="s2">&quot;## Steps&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">content</span> <span class="ow">and</span> <span class="s2">&quot;## How to&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">content</span><span class="p">:</span>
+            <span class="n">steps_section</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">## Steps to Implement</span><span class="se">\n</span><span class="s2">1. First step</span><span class="se">\n</span><span class="s2">2. Second step</span><span class="se">\n</span><span class="s2">3. Third step</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">content</span> <span class="o">+=</span> <span class="n">steps_section</span>
+        
+        <span class="k">return</span> <span class="n">content</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_extract_title</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Extract title from content.&quot;&quot;&quot;</span>
+        <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^# (.+)$&#39;</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">MULTILINE</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">match</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_simplify_sentence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sentence</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Break down complex sentences.&quot;&quot;&quot;</span>
+        <span class="c1"># Implementation would include sentence simplification logic</span>
+        <span class="k">return</span> <span class="n">sentence</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_rephrase_constructively</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sentence</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Rephrase negative sentences constructively.&quot;&quot;&quot;</span>
+        <span class="c1"># Implementation would include rephrasing logic</span>
+        <span class="k">return</span> <span class="n">sentence</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_semantic_field</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get semantic field for a keyword.&quot;&quot;&quot;</span>
+        <span class="c1"># Implementation would include semantic field analysis</span>
+        <span class="k">return</span> <span class="nb">set</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_analyze_complexity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Analyze keyword complexity.&quot;&quot;&quot;</span>
+        <span class="n">words</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">keyword</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;high&#39;</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span> <span class="k">else</span> <span class="s1">&#39;medium&#39;</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s1">&#39;low&#39;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_categorize_search_volume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Categorize search volume.&quot;&quot;&quot;</span>
+        <span class="c1"># Implementation would include actual search volume analysis</span>
+        <span class="k">return</span> <span class="s1">&#39;medium&#39;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_analyze_competition_level</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Analyze competition level.&quot;&quot;&quot;</span>
+        <span class="c1"># Implementation would include actual competition analysis</span>
+        <span class="k">return</span> <span class="s1">&#39;medium&#39;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_depth_requirements</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">intent</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get content depth requirements based on intent.&quot;&quot;&quot;</span>
+        <span class="n">depth_map</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;informational&#39;</span><span class="p">:</span> <span class="s1">&#39;Comprehensive coverage with 2000+ words&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;commercial&#39;</span><span class="p">:</span> <span class="s1">&#39;Detailed analysis with 1500+ words&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;transactional&#39;</span><span class="p">:</span> <span class="s1">&#39;Clear and concise with 1000+ words&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;navigational&#39;</span><span class="p">:</span> <span class="s1">&#39;Essential information with 800+ words&#39;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">depth_map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">intent</span><span class="p">,</span> <span class="s1">&#39;Standard depth with 1200+ words&#39;</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_generate_faqs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate relevant FAQs using AI.&quot;&quot;&quot;</span>
+        <span class="c1"># Implementation would include FAQ generation logic</span>
+        <span class="k">return</span> <span class="s2">&quot;1. What is </span><span class="si">{keyword}</span><span class="s2">?</span><span class="se">\n</span><span class="s2">2. How does </span><span class="si">{keyword}</span><span class="s2"> work?</span><span class="se">\n</span><span class="s2">3. Why is </span><span class="si">{keyword}</span><span class="s2"> important?&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_generate_seo_title</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">intent</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate SEO-optimized title.&quot;&quot;&quot;</span>
+        <span class="n">templates</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;informational&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;The Complete Guide to </span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2">: Everything You Need to Know&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;commercial&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2"> Review: Features, Pricing, and Alternatives&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;transactional&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;How to Buy </span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2">: Prices, Options &amp; Best Deals&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;navigational&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2">: Official Guide &amp; Documentation&quot;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">templates</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">intent</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2">: A Comprehensive Guide&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_related_terms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get related terms for a keyword using topic extraction.&quot;&quot;&quot;</span>
+        <span class="n">related_terms</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        
+        <span class="c1"># Add the original keyword</span>
+        <span class="n">related_terms</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">keyword</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+        
+        <span class="c1"># Extract topics from the keyword itself</span>
+        <span class="n">topics</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_topics</span><span class="p">(</span><span class="n">keyword</span><span class="p">)</span>
+        <span class="n">related_terms</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">topics</span><span class="p">)</span>
+        
+        <span class="c1"># Get related terms from internal links if available</span>
+        <span class="k">for</span> <span class="n">topic</span> <span class="ow">in</span> <span class="n">topics</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">topic</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">internal_links</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">internal_links</span><span class="p">[</span><span class="n">topic</span><span class="p">]:</span>
+                    <span class="k">if</span> <span class="s1">&#39;title&#39;</span> <span class="ow">in</span> <span class="n">link</span><span class="p">:</span>
+                        <span class="n">related_terms</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_extract_topics</span><span class="p">(</span><span class="n">link</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]))</span>
+        
+        <span class="c1"># Remove single character terms and the original keyword</span>
+        <span class="n">related_terms</span> <span class="o">=</span> <span class="p">{</span><span class="n">term</span> <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">related_terms</span> 
+                        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">term</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">term</span> <span class="o">!=</span> <span class="n">keyword</span><span class="o">.</span><span class="n">lower</span><span class="p">()}</span>
+        
+        <span class="k">return</span> <span class="n">related_terms</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_optimize_keyword_usage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">keyword_data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Optimize keyword usage in content.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+            
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">keyword</span> <span class="o">=</span> <span class="n">keyword_data</span><span class="p">[</span><span class="s1">&#39;keyword&#39;</span><span class="p">]</span>
+            <span class="c1"># Get related terms safely</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">related_terms</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_related_terms</span><span class="p">(</span><span class="n">keyword</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not get related terms: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">related_terms</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+            
+            <span class="c1"># Ensure keyword appears in important sections</span>
+            <span class="n">paragraphs</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">)</span>
+            
+            <span class="c1"># Optimize title</span>
+            <span class="k">if</span> <span class="n">paragraphs</span> <span class="ow">and</span> <span class="n">paragraphs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">keyword</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">paragraphs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+                    <span class="n">paragraphs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">paragraphs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2">&quot;</span>
+            
+            <span class="c1"># Optimize first paragraph (introduction)</span>
+            <span class="n">intro_idx</span> <span class="o">=</span> <span class="nb">next</span><span class="p">((</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">paragraphs</span><span class="p">)</span> 
+                            <span class="k">if</span> <span class="ow">not</span> <span class="n">p</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">intro_idx</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">paragraphs</span><span class="p">):</span>
+                <span class="n">intro</span> <span class="o">=</span> <span class="n">paragraphs</span><span class="p">[</span><span class="n">intro_idx</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">keyword</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">intro</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+                    <span class="n">paragraphs</span><span class="p">[</span><span class="n">intro_idx</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">intro</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2">.&quot;</span>
+            
+            <span class="c1"># Add related terms throughout the content</span>
+            <span class="k">if</span> <span class="n">related_terms</span><span class="p">:</span>
+                <span class="n">content_words</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">content</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+                <span class="n">missing_terms</span> <span class="o">=</span> <span class="n">related_terms</span> <span class="o">-</span> <span class="n">content_words</span>
+                
+                <span class="k">if</span> <span class="n">missing_terms</span><span class="p">:</span>
+                    <span class="c1"># Find suitable paragraphs to add terms</span>
+                    <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">missing_terms</span><span class="p">:</span>
+                        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">para</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">paragraphs</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">2</span><span class="p">):</span>
+                            <span class="k">if</span> <span class="ow">not</span> <span class="n">para</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">para</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+                                <span class="n">paragraphs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">para</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">term</span><span class="si">}</span><span class="s2">.&quot;</span>
+                                <span class="k">break</span>
+            
+            <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">paragraphs</span><span class="p">)</span>
+            
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error optimizing keyword usage: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">content</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_add_intent_sections</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">intent</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add intent-specific sections to content.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">intent</span> <span class="o">==</span> <span class="s1">&#39;commercial&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;## Conclusion&#39;</span> <span class="ow">in</span> <span class="n">content</span><span class="p">:</span>
+                <span class="n">content</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
+                    <span class="s1">&#39;## Conclusion&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;## Comparison Table</span><span class="se">\n\n</span><span class="s1">|Feature|Details|</span><span class="se">\n</span><span class="s1">|---|---|</span><span class="se">\n\n</span><span class="s1">## Conclusion&#39;</span>
+                <span class="p">)</span>
+        <span class="k">elif</span> <span class="n">intent</span> <span class="o">==</span> <span class="s1">&#39;transactional&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;## Conclusion&#39;</span> <span class="ow">in</span> <span class="n">content</span><span class="p">:</span>
+                <span class="n">content</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
+                    <span class="s1">&#39;## Conclusion&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;## Where to Buy</span><span class="se">\n\n</span><span class="s1">## Pricing</span><span class="se">\n\n</span><span class="s1">## Conclusion&#39;</span>
+                <span class="p">)</span>
+        <span class="k">return</span> <span class="n">content</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_optimize_keyword_density</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Optimize keyword density without over-optimization.&quot;&quot;&quot;</span>
+        <span class="n">word_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">content</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+        <span class="n">keyword_count</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">keyword</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+        <span class="n">density</span> <span class="o">=</span> <span class="p">(</span><span class="n">keyword_count</span> <span class="o">/</span> <span class="n">word_count</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+        
+        <span class="k">if</span> <span class="n">density</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">sections</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">section</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sections</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">section</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;## &#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">keyword</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">section</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+                    <span class="n">sections</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">section</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="n">content</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sections</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">content</span>
+
+<div class="viewcode-block" id="ContentGenerator.save_as_markdown">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/core/content_generator/index.html#src.seoninja.core.content_generator.ContentGenerator.save_as_markdown">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">save_as_markdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;data/output/blogs&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Save content with versioning and metadata.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            content: Blog post content</span>
+<span class="sd">            keyword: Target keyword</span>
+<span class="sd">            output_dir: Output directory for blog posts</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Path to saved file</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        
+        <span class="c1"># Create keyword-specific directory</span>
+        <span class="n">keyword_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">keyword</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">))</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">keyword_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        
+        <span class="c1"># Get version number</span>
+        <span class="n">existing_versions</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">keyword_dir</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.md&#39;</span><span class="p">)]</span>
+        <span class="n">version</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">existing_versions</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+        
+        <span class="c1"># Generate filename</span>
+        <span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">_%H%M%S&quot;</span><span class="p">)</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">keyword_dir</span><span class="si">}</span><span class="s2">/v</span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">timestamp</span><span class="si">}</span><span class="s2">.md&quot;</span>
+        
+        <span class="c1"># Add metadata</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;keyword&#39;</span><span class="p">:</span> <span class="n">keyword</span><span class="p">,</span>
+            <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="n">version</span><span class="p">,</span>
+            <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="n">timestamp</span><span class="p">,</span>
+            <span class="s1">&#39;word_count&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">content</span><span class="o">.</span><span class="n">split</span><span class="p">()),</span>
+        <span class="p">}</span>
+        
+        <span class="n">content_with_metadata</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;---</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> 
+            <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">metadata</span><span class="o">.</span><span class="n">items</span><span class="p">())</span> <span class="o">+</span>
+            <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">---</span><span class="se">\n\n</span><span class="s2">&quot;</span> <span class="o">+</span>
+            <span class="n">content</span>
+        <span class="p">)</span>
+        
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content_with_metadata</span><span class="p">)</span>
+            
+        <span class="k">return</span> <span class="n">filename</span> </div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_add_semantic_enhancements</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">keyword_data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add semantic enhancements to content.&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Extract main sections</span>
+            <span class="n">sections</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\n##? &#39;</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
+            <span class="n">enhanced_sections</span> <span class="o">=</span> <span class="p">[]</span>
+            
+            <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">sections</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">section</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+                    <span class="k">continue</span>
+                    
+                <span class="c1"># Analyze section sentiment and complexity</span>
+                <span class="n">blob</span> <span class="o">=</span> <span class="n">TextBlob</span><span class="p">(</span><span class="n">section</span><span class="p">)</span>
+                
+                <span class="c1"># Enhance sections with negative sentiment</span>
+                <span class="k">if</span> <span class="n">blob</span><span class="o">.</span><span class="n">sentiment</span><span class="o">.</span><span class="n">polarity</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">section</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_enhance_negative_section</span><span class="p">(</span><span class="n">section</span><span class="p">)</span>
+                
+                <span class="c1"># Add semantic context to complex sections</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">section</span><span class="o">.</span><span class="n">split</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+                    <span class="n">section</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_semantic_context</span><span class="p">(</span><span class="n">section</span><span class="p">,</span> <span class="n">keyword_data</span><span class="p">)</span>
+                
+                <span class="n">enhanced_sections</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">section</span><span class="p">)</span>
+            
+            <span class="k">return</span> <span class="s1">&#39;## &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">enhanced_sections</span><span class="p">)</span>
+            
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error adding semantic enhancements: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">content</span>
+            
+    <span class="k">def</span><span class="w"> </span><span class="nf">_enhance_negative_section</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">section</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Enhance sections with negative sentiment.&quot;&quot;&quot;</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">section</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">enhanced_lines</span> <span class="o">=</span> <span class="p">[]</span>
+        
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+                <span class="n">blob</span> <span class="o">=</span> <span class="n">TextBlob</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">blob</span><span class="o">.</span><span class="n">sentiment</span><span class="o">.</span><span class="n">polarity</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">:</span>
+                    <span class="c1"># Add constructive alternatives</span>
+                    <span class="n">enhanced_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+                    <span class="n">enhanced_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">However, there are several solutions available:&quot;</span><span class="p">)</span>
+                    <span class="n">enhanced_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;1. Consider implementing best practices&quot;</span><span class="p">)</span>
+                    <span class="n">enhanced_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;2. Follow industry standards&quot;</span><span class="p">)</span>
+                    <span class="n">enhanced_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;3. Adopt proven methodologies</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">enhanced_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+                    
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">enhanced_lines</span><span class="p">)</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_add_semantic_context</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">section</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">keyword_data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add semantic context to complex sections.&quot;&quot;&quot;</span>
+        <span class="c1"># Add relevant examples</span>
+        <span class="k">if</span> <span class="s1">&#39;examples&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">section</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+            <span class="n">section</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">For example:</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">section</span> <span class="o">+=</span> <span class="s2">&quot;- Use case 1</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">section</span> <span class="o">+=</span> <span class="s2">&quot;- Use case 2</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">section</span> <span class="o">+=</span> <span class="s2">&quot;- Use case 3</span><span class="se">\n</span><span class="s2">&quot;</span>
+        
+        <span class="c1"># Add practical tips</span>
+        <span class="k">if</span> <span class="s1">&#39;tip&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">section</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">and</span> <span class="s1">&#39;hint&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">section</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+            <span class="n">section</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">💡 Pro Tip: &quot;</span>
+            <span class="n">section</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;When implementing </span><span class="si">{</span><span class="n">keyword_data</span><span class="p">[</span><span class="s1">&#39;keyword&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, &quot;</span>
+            <span class="n">section</span> <span class="o">+=</span> <span class="s2">&quot;focus on practical applications and measurable results.&quot;</span>
+        
+        <span class="k">return</span> <span class="n">section</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_add_lsi_keywords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add LSI (Latent Semantic Indexing) keywords to content.&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Generate LSI keywords</span>
+            <span class="n">lsi_keywords</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_lsi_keywords</span><span class="p">(</span><span class="n">keyword</span><span class="p">)</span>
+            
+            <span class="c1"># Find suitable places to add LSI keywords</span>
+            <span class="n">paragraphs</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">enhanced_paragraphs</span> <span class="o">=</span> <span class="p">[]</span>
+            
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">para</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">paragraphs</span><span class="p">):</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">para</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">or</span> <span class="n">para</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">):</span>
+                    <span class="n">enhanced_paragraphs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">para</span><span class="p">)</span>
+                    <span class="k">continue</span>
+                
+                <span class="c1"># Add LSI keywords naturally</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">para</span><span class="o">.</span><span class="n">split</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">50</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">lsi_keywords</span><span class="p">):</span>
+                    <span class="n">enhanced_para</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_incorporate_lsi_keyword</span><span class="p">(</span>
+                        <span class="n">para</span><span class="p">,</span> <span class="n">lsi_keywords</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                    <span class="p">)</span>
+                    <span class="n">enhanced_paragraphs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">enhanced_para</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">enhanced_paragraphs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">para</span><span class="p">)</span>
+            
+            <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">enhanced_paragraphs</span><span class="p">)</span>
+            
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error adding LSI keywords: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">content</span>
+            
+    <span class="k">def</span><span class="w"> </span><span class="nf">_generate_lsi_keywords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate LSI keywords for the main keyword.&quot;&quot;&quot;</span>
+        <span class="n">lsi_keywords</span> <span class="o">=</span> <span class="p">[]</span>
+        
+        <span class="c1"># Add common word combinations</span>
+        <span class="n">words</span> <span class="o">=</span> <span class="n">keyword</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">lsi_keywords</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span>
+                <span class="sa">f</span><span class="s2">&quot;best </span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">&quot;top </span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2"> guide&quot;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2"> tutorial&quot;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2"> examples&quot;</span>
+            <span class="p">])</span>
+        
+        <span class="c1"># Add industry-specific variations</span>
+        <span class="n">lsi_keywords</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2"> solutions&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2"> tools&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2"> strategies&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2"> best practices&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2"> tips&quot;</span>
+        <span class="p">])</span>
+        
+        <span class="k">return</span> <span class="n">lsi_keywords</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_incorporate_lsi_keyword</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">paragraph</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">lsi_keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Incorporate LSI keyword naturally into a paragraph.&quot;&quot;&quot;</span>
+        <span class="n">sentences</span> <span class="o">=</span> <span class="n">sent_tokenize</span><span class="p">(</span><span class="n">paragraph</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentences</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">paragraph</span><span class="si">}</span><span class="s2"> This is particularly important when considering </span><span class="si">{</span><span class="n">lsi_keyword</span><span class="si">}</span><span class="s2">.&quot;</span>
+            
+        <span class="c1"># Insert keyword in the middle of the paragraph</span>
+        <span class="n">mid_point</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentences</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="n">connector_phrases</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="sa">f</span><span class="s2">&quot;When it comes to </span><span class="si">{</span><span class="n">lsi_keyword</span><span class="si">}</span><span class="s2">,&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;In terms of </span><span class="si">{</span><span class="n">lsi_keyword</span><span class="si">}</span><span class="s2">,&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;Considering </span><span class="si">{</span><span class="n">lsi_keyword</span><span class="si">}</span><span class="s2">,&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;Speaking of </span><span class="si">{</span><span class="n">lsi_keyword</span><span class="si">}</span><span class="s2">,&quot;</span>
+        <span class="p">]</span>
+        
+        <span class="n">sentences</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span>
+            <span class="n">mid_point</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">connector_phrases</span><span class="p">)</span><span class="si">}</span><span class="s2"> this becomes even more relevant.&quot;</span>
+        <span class="p">)</span>
+        
+        <span class="k">return</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sentences</span><span class="p">)</span>
+        
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_generate_content_structure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">intent</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate content structure based on keyword and intent.&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Base structure</span>
+            <span class="n">structure_templates</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;informational&#39;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;## Understanding </span><span class="si">{keyword}</span><span class="s2">&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;## Key Components&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;## How It Works&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;## Benefits and Advantages&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;## Common Challenges&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;## Implementation Guide&quot;</span>
+                <span class="p">],</span>
+                <span class="s1">&#39;commercial&#39;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;## Product Overview&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;## Features and Specifications&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;## Pricing Plans&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;## Comparison with Alternatives&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;## Customer Reviews&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;## Purchase Guide&quot;</span>
+                <span class="p">],</span>
+                <span class="s1">&#39;transactional&#39;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;## Product Details&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;## Available Options&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;## Pricing Information&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;## How to Order&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;## Shipping and Delivery&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;## Return Policy&quot;</span>
+                <span class="p">],</span>
+                <span class="s1">&#39;navigational&#39;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;## Quick Overview&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;## Main Features&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;## Getting Started&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;## Support Resources&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;## Contact Information&quot;</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+            
+            <span class="c1"># Get base structure</span>
+            <span class="n">base_sections</span> <span class="o">=</span> <span class="n">structure_templates</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="n">intent</span><span class="p">,</span>
+                <span class="n">structure_templates</span><span class="p">[</span><span class="s1">&#39;informational&#39;</span><span class="p">]</span>
+            <span class="p">)</span>
+            
+            <span class="c1"># Customize sections for the keyword</span>
+            <span class="n">sections</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">base_sections</span><span class="p">:</span>
+                <span class="n">sections</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">section</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">keyword</span><span class="o">=</span><span class="n">keyword</span><span class="p">))</span>
+            
+            <span class="c1"># Add subsections based on complexity</span>
+            <span class="n">enhanced_sections</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">sections</span><span class="p">:</span>
+                <span class="n">enhanced_sections</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">section</span><span class="p">)</span>
+                
+                <span class="c1"># Add relevant subsections</span>
+                <span class="n">subsections</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_subsections</span><span class="p">(</span><span class="n">section</span><span class="p">,</span> <span class="n">keyword</span><span class="p">)</span>
+                <span class="n">enhanced_sections</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">subsections</span><span class="p">)</span>
+            
+            <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">enhanced_sections</span><span class="p">)</span>
+            
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error generating content structure: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
+                <span class="s2">&quot;## Introduction&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;## Main Content&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;## Conclusion&quot;</span>
+            <span class="p">])</span>
+            
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_generate_subsections</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">section</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate relevant subsections for a main section.&quot;&quot;&quot;</span>
+        <span class="c1"># Extract section type</span>
+        <span class="n">section_type</span> <span class="o">=</span> <span class="n">section</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        
+        <span class="k">if</span> <span class="s1">&#39;overview&#39;</span> <span class="ow">in</span> <span class="n">section_type</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span>
+                <span class="s2">&quot;### What is </span><span class="si">{keyword}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;### Why </span><span class="si">{keyword}</span><span class="s2"> Matters&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;### Key Benefits&quot;</span>
+            <span class="p">]</span>
+        <span class="k">elif</span> <span class="s1">&#39;features&#39;</span> <span class="ow">in</span> <span class="n">section_type</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span>
+                <span class="s2">&quot;### Core Features&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;### Advanced Capabilities&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;### Technical Specifications&quot;</span>
+            <span class="p">]</span>
+        <span class="k">elif</span> <span class="s1">&#39;guide&#39;</span> <span class="ow">in</span> <span class="n">section_type</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span>
+                <span class="s2">&quot;### Step-by-Step Instructions&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;### Best Practices&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;### Common Pitfalls to Avoid&quot;</span>
+            <span class="p">]</span>
+        <span class="k">elif</span> <span class="s1">&#39;comparison&#39;</span> <span class="ow">in</span> <span class="n">section_type</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span>
+                <span class="s2">&quot;### Feature Comparison&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;### Price Comparison&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;### Pros and Cons&quot;</span>
+            <span class="p">]</span>
+        
+        <span class="k">return</span> <span class="p">[]</span>  <span class="c1"># No subsections for other section types</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_extract_main_topic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Extract the main topic from a keyword phrase.&quot;&quot;&quot;</span>
+        <span class="c1"># Remove common modifiers</span>
+        <span class="n">modifiers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;guide&#39;</span><span class="p">,</span> <span class="s1">&#39;tutorial&#39;</span><span class="p">,</span> <span class="s1">&#39;how to&#39;</span><span class="p">,</span> <span class="s1">&#39;what is&#39;</span><span class="p">]</span>
+        <span class="n">main_topic</span> <span class="o">=</span> <span class="n">keyword</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        
+        <span class="k">for</span> <span class="n">modifier</span> <span class="ow">in</span> <span class="n">modifiers</span><span class="p">:</span>
+            <span class="n">main_topic</span> <span class="o">=</span> <span class="n">main_topic</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">modifier</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        
+        <span class="c1"># Get the most significant words</span>
+        <span class="n">words</span> <span class="o">=</span> <span class="n">main_topic</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">main_topic</span>
+            
+        <span class="c1"># Use noun phrases for longer keywords</span>
+        <span class="n">doc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nlp</span><span class="p">(</span><span class="n">main_topic</span><span class="p">)</span>
+        <span class="n">noun_phrases</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">noun_chunks</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">noun_phrases</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">if</span> <span class="n">noun_phrases</span> <span class="k">else</span> <span class="n">main_topic</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_generate_secondary_keywords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate secondary keywords based on the main keyword.&quot;&quot;&quot;</span>
+        <span class="n">main_topic</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_main_topic</span><span class="p">(</span><span class="n">keyword</span><span class="p">)</span>
+        <span class="n">secondary_keywords</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        
+        <span class="c1"># Add common variations</span>
+        <span class="n">variations</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="sa">f</span><span class="s2">&quot;best </span><span class="si">{</span><span class="n">main_topic</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">main_topic</span><span class="si">}</span><span class="s2"> tutorial&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">main_topic</span><span class="si">}</span><span class="s2"> guide&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;how to use </span><span class="si">{</span><span class="n">main_topic</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">main_topic</span><span class="si">}</span><span class="s2"> examples&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">main_topic</span><span class="si">}</span><span class="s2"> tips&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">main_topic</span><span class="si">}</span><span class="s2"> benefits&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">main_topic</span><span class="si">}</span><span class="s2"> features&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">main_topic</span><span class="si">}</span><span class="s2"> alternatives&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">main_topic</span><span class="si">}</span><span class="s2"> comparison&quot;</span>
+        <span class="p">]</span>
+        <span class="n">secondary_keywords</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">variations</span><span class="p">)</span>
+        
+        <span class="c1"># Add semantic variations using NLP</span>
+        <span class="n">doc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nlp</span><span class="p">(</span><span class="n">keyword</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">token</span><span class="o">.</span><span class="n">has_vector</span><span class="p">:</span>
+                <span class="c1"># Find similar words using word vectors</span>
+                <span class="n">similar_words</span> <span class="o">=</span> <span class="n">token</span><span class="o">.</span><span class="n">vocab</span><span class="o">.</span><span class="n">vectors</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span>
+                    <span class="n">token</span><span class="o">.</span><span class="n">vector</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+                    <span class="n">n</span><span class="o">=</span><span class="mi">3</span>
+                <span class="p">)</span>
+                <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">similar_words</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">word</span> <span class="o">!=</span> <span class="n">token</span><span class="o">.</span><span class="n">text</span><span class="p">:</span>
+                        <span class="n">secondary_keywords</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+                            <span class="n">keyword</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">token</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">word</span><span class="p">)</span>
+                        <span class="p">)</span>
+        
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">secondary_keywords</span><span class="p">)</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_internal_linking_opportunities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get internal linking opportunities for the keyword.&quot;&quot;&quot;</span>
+        <span class="n">opportunities</span> <span class="o">=</span> <span class="p">[]</span>
+        
+        <span class="c1"># Check existing content</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">website_context</span><span class="p">:</span>
+            <span class="n">related_pages</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">topics</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_topics</span><span class="p">(</span><span class="n">keyword</span><span class="p">)</span>
+            
+            <span class="c1"># Find relevant pages</span>
+            <span class="k">for</span> <span class="n">topic</span> <span class="ow">in</span> <span class="n">topics</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">topic</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">internal_links</span><span class="p">:</span>
+                    <span class="n">related_pages</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">internal_links</span><span class="p">[</span><span class="n">topic</span><span class="p">])</span>
+            
+            <span class="c1"># Sort by relevance and get top 5</span>
+            <span class="n">related_pages</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;relevance&#39;</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">related_pages</span><span class="p">[:</span><span class="mi">5</span><span class="p">]:</span>
+                <span class="n">opportunities</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;- Link to: </span><span class="si">{</span><span class="n">page</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">page</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span>
+                <span class="p">)</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">opportunities</span><span class="p">:</span>
+            <span class="n">opportunities</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="s2">&quot;- No existing content found for internal linking&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;- Consider creating supporting content for:&quot;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">&quot;  - </span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2"> tutorial&quot;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">&quot;  - </span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2"> examples&quot;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">&quot;  - </span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2"> best practices&quot;</span>
+            <span class="p">]</span>
+        
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">opportunities</span><span class="p">)</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_determine_intent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Determine search intent from keyword.&quot;&quot;&quot;</span>
+        <span class="n">keyword_lower</span> <span class="o">=</span> <span class="n">keyword</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        
+        <span class="c1"># Check for informational intent</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">word</span> <span class="ow">in</span> <span class="n">keyword_lower</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;how&#39;</span><span class="p">,</span> <span class="s1">&#39;what&#39;</span><span class="p">,</span> <span class="s1">&#39;why&#39;</span><span class="p">,</span> <span class="s1">&#39;guide&#39;</span><span class="p">,</span> <span class="s1">&#39;tutorial&#39;</span><span class="p">]):</span>
+            <span class="k">return</span> <span class="s1">&#39;informational&#39;</span>
+            
+        <span class="c1"># Check for commercial intent</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">word</span> <span class="ow">in</span> <span class="n">keyword_lower</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;review&#39;</span><span class="p">,</span> <span class="s1">&#39;vs&#39;</span><span class="p">,</span> <span class="s1">&#39;compare&#39;</span><span class="p">]):</span>
+            <span class="k">return</span> <span class="s1">&#39;commercial&#39;</span>
+            
+        <span class="c1"># Check for transactional intent</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">word</span> <span class="ow">in</span> <span class="n">keyword_lower</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;buy&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;cost&#39;</span><span class="p">,</span> <span class="s1">&#39;shop&#39;</span><span class="p">,</span> <span class="s1">&#39;purchase&#39;</span><span class="p">]):</span>
+            <span class="k">return</span> <span class="s1">&#39;transactional&#39;</span>
+            
+        <span class="c1"># Check for navigational intent</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">word</span> <span class="ow">in</span> <span class="n">keyword_lower</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="s1">&#39;sign in&#39;</span><span class="p">,</span> <span class="s1">&#39;download&#39;</span><span class="p">,</span> <span class="s1">&#39;website&#39;</span><span class="p">]):</span>
+            <span class="k">return</span> <span class="s1">&#39;navigational&#39;</span>
+            
+        <span class="c1"># Default to informational</span>
+        <span class="k">return</span> <span class="s1">&#39;informational&#39;</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_identify_target_audience</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Identify target audience from keyword.&quot;&quot;&quot;</span>
+        <span class="n">keyword_lower</span> <span class="o">=</span> <span class="n">keyword</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        
+        <span class="c1"># Check for technical audience</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">term</span> <span class="ow">in</span> <span class="n">keyword_lower</span> <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;api&#39;</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="s1">&#39;developer&#39;</span><span class="p">,</span> <span class="s1">&#39;programming&#39;</span><span class="p">]):</span>
+            <span class="k">return</span> <span class="s1">&#39;Technical professionals and developers&#39;</span>
+            
+        <span class="c1"># Check for business audience</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">term</span> <span class="ow">in</span> <span class="n">keyword_lower</span> <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;business&#39;</span><span class="p">,</span> <span class="s1">&#39;enterprise&#39;</span><span class="p">,</span> <span class="s1">&#39;company&#39;</span><span class="p">,</span> <span class="s1">&#39;professional&#39;</span><span class="p">]):</span>
+            <span class="k">return</span> <span class="s1">&#39;Business professionals and decision makers&#39;</span>
+            
+        <span class="c1"># Check for beginners</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">term</span> <span class="ow">in</span> <span class="n">keyword_lower</span> <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;beginner&#39;</span><span class="p">,</span> <span class="s1">&#39;basic&#39;</span><span class="p">,</span> <span class="s1">&#39;introduction&#39;</span><span class="p">,</span> <span class="s1">&#39;start&#39;</span><span class="p">]):</span>
+            <span class="k">return</span> <span class="s1">&#39;Beginners and newcomers&#39;</span>
+            
+        <span class="c1"># Check for advanced users</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">term</span> <span class="ow">in</span> <span class="n">keyword_lower</span> <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;advanced&#39;</span><span class="p">,</span> <span class="s1">&#39;expert&#39;</span><span class="p">,</span> <span class="s1">&#39;professional&#39;</span><span class="p">]):</span>
+            <span class="k">return</span> <span class="s1">&#39;Advanced users and experts&#39;</span>
+            
+        <span class="c1"># Default to general audience</span>
+        <span class="k">return</span> <span class="s1">&#39;General audience interested in </span><span class="si">{keyword}</span><span class="s1">&#39;</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_keyword_requirements</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyword_insights</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get keyword usage requirements based on insights.&quot;&quot;&quot;</span>
+        <span class="n">requirements</span> <span class="o">=</span> <span class="p">[]</span>
+        
+        <span class="c1"># Add basic requirements</span>
+        <span class="n">requirements</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span>
+            <span class="sa">f</span><span class="s2">&quot;Primary keyword: </span><span class="si">{</span><span class="n">keyword_insights</span><span class="p">[</span><span class="s1">&#39;main_topic&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;- Use in title, meta description, and first paragraph&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;- Include in at least one H2 heading&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;- Maintain natural keyword density (1-2%)&quot;</span>
+        <span class="p">])</span>
+        
+        <span class="c1"># Add complexity-based requirements</span>
+        <span class="k">if</span> <span class="n">keyword_insights</span><span class="p">[</span><span class="s1">&#39;complexity_level&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span>
+            <span class="n">requirements</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span>
+                <span class="s2">&quot;- Break down complex concepts&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;- Include technical definitions&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;- Add explanatory examples&quot;</span>
+            <span class="p">])</span>
+        
+        <span class="c1"># Add competition-based requirements</span>
+        <span class="k">if</span> <span class="n">keyword_insights</span><span class="p">[</span><span class="s1">&#39;competition_level&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span>
+            <span class="n">requirements</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span>
+                <span class="s2">&quot;- Include comprehensive coverage&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;- Add expert insights&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;- Provide unique value propositions&quot;</span>
+            <span class="p">])</span>
+        
+        <span class="c1"># Add volume-based requirements</span>
+        <span class="k">if</span> <span class="n">keyword_insights</span><span class="p">[</span><span class="s1">&#39;search_volume_category&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span>
+            <span class="n">requirements</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span>
+                <span class="s2">&quot;- Address common user questions&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;- Include FAQ section&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;- Optimize for featured snippets&quot;</span>
+            <span class="p">])</span>
+        
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">requirements</span><span class="p">)</span> </div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Your Name.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+:py:mod:`src.seoninja.utils.storage`
+====================================
+
+.. py:module:: src.seoninja.utils.storage
+
+.. autoapi-nested-parse::
+
+   Persistent storage system for agent memory and state.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   src.seoninja.utils.storage.PersistentStorage
+
+
+
+
+.. py:class:: PersistentStorage(base_dir: str = 'data/storage')
+
+
+   Manages persistent storage for agent memory and state.
+
+   Initialize storage system.
+
+   .. py:method:: save(key: str, data: Any) -> None
+      :async:
+
+      Save data to storage.
+
+
+   .. py:method:: load(key: str) -> Optional[Any]
+      :async:
+
+      Load data from storage.
+
+
+   .. py:method:: save_memory(agent_name: str, memory_type: str, content: Dict[str, Any]) -> None
+
+      Save agent memory to persistent storage.
+
+
+   .. py:method:: get_memories(agent_name: str, memory_type: Optional[str] = None) -> List[Dict[str, Any]]
+
+      Retrieve agent memories from storage.
+
+
+   .. py:method:: save_state(key: str, state: Dict[str, Any]) -> None
+      :async:
+
+      Save state asynchronously.
+
+
+   .. py:method:: get_state(key: str) -> Optional[Dict[str, Any]]
+
+      Get state synchronously.
+
+
+   .. py:method:: save_metric(agent: str, metric: str, value: Any) -> None
+
+      Save a metric value.
+
+
+   .. py:method:: get_metrics(agent: str, metric: Optional[str] = None) -> List[Dict[str, Any]]
+
+      Get metrics for an agent.
+
+
+

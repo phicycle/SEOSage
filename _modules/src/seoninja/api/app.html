@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.seoninja.api.app &mdash; SEO Ninja 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=eafc0fe6" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            SEO Ninja
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#what-is-seo-ninja">What is SEO Ninja?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#key-features">Key Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#system-architecture">System Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#core-components">Core Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#communication-flow">Communication Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#task-management">Task Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#state-management">State Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#error-handling">Error Handling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#technology-stack">Technology Stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#getting-started">Getting Started</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#required-api-keys">Required API Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#installation-steps">Installation Steps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#clone-the-repository">1. Clone the Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#create-virtual-environment">2. Create Virtual Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#install-dependencies">3. Install Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#configure-environment-variables">4. Configure Environment Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#set-up-google-search-console-authentication">5. Set Up Google Search Console Authentication</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#running-the-application">Running the Application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#start-the-api-server">1. Start the API Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#access-the-api-documentation">2. Access the API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#development-setup">Development Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#install-development-dependencies">1. Install Development Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#set-up-pre-commit-hooks">2. Set Up Pre-commit Hooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#run-tests">3. Run Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#build-documentation">4. Build Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#common-issues">Common Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#getting-help">Getting Help</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../architecture.html">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../architecture.html#system-overview">System Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../architecture.html#core-components">Core Components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#orchestrator-agent">Orchestrator Agent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#specialized-agents">Specialized Agents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../architecture.html#communication-model">Communication Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#inter-agent-communication">Inter-agent Communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#message-types">Message Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../architecture.html#task-processing">Task Processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#task-lifecycle">Task Lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#parallel-processing">Parallel Processing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../architecture.html#resource-management">Resource Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#resource-types">Resource Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#monitoring-system">Monitoring System</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../architecture.html#security-architecture">Security Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#authentication">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#data-protection">Data Protection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../architecture.html#error-handling">Error Handling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#recovery-mechanisms">Recovery Mechanisms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#error-propagation">Error Propagation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../architecture.html#deployment-architecture">Deployment Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#components">Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#scaling-strategy">Scaling Strategy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../architecture.html#future-considerations">Future Considerations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../architecture.html#planned-enhancements">Planned Enhancements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html">API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/index.html#task-management">Task Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/index.html#agent-communication">Agent Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/index.html#process-timeline">Process Timeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/index.html#resource-monitoring">Resource Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/index.html#system-status">System Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/index.html#error-responses">Error Responses</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../monitoring.html">Monitoring and Analytics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../monitoring.html#agent-communication-visualization">Agent Communication Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../monitoring.html#flow-analysis">Flow Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../monitoring.html#real-time-monitoring">Real-time Monitoring</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../monitoring.html#process-timeline">Process Timeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../monitoring.html#stage-tracking">Stage Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../monitoring.html#decision-points">Decision Points</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../monitoring.html#resource-monitoring">Resource Monitoring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../monitoring.html#resource-allocation">Resource Allocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../monitoring.html#usage-patterns">Usage Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../monitoring.html#bottleneck-detection">Bottleneck Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../monitoring.html#system-capacity">System Capacity</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../monitoring.html#visualization-integration">Visualization Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../monitoring.html#best-practices">Best Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id1">[1.0.0] - 2024-02-04</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#added">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id2">[0.9.0] - 2024-01-15</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#id3">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#changed">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id4">[0.8.0] - 2023-12-20</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#id5">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#fixed">Fixed</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../autoapi/index.html">API Reference</a><ul class="simple">
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">SEO Ninja</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">src.seoninja.api.app</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for src.seoninja.api.app</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Flask API for SEO Ninja.&quot;&quot;&quot;</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">Response</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">flask_cors</span><span class="w"> </span><span class="kn">import</span> <span class="n">CORS</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..agents.orchestrator.orchestrator</span><span class="w"> </span><span class="kn">import</span> <span class="n">SEOOrchestrator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.storage</span><span class="w"> </span><span class="kn">import</span> <span class="n">PersistentStorage</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.gsc_auth</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_gsc_credentials</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dotenv</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dotenv</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">wraps</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">flask_apispec</span><span class="w"> </span><span class="kn">import</span> <span class="n">use_kwargs</span><span class="p">,</span> <span class="n">marshal_with</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">flask_apispec.views</span><span class="w"> </span><span class="kn">import</span> <span class="n">MethodResource</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">marshmallow</span><span class="w"> </span><span class="kn">import</span> <span class="n">Schema</span><span class="p">,</span> <span class="n">fields</span>
+
+<div class="viewcode-block" id="app">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.app">[docs]</a>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span></div>
+
+<span class="n">CORS</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>  <span class="c1"># Enable CORS for all routes</span>
+
+<span class="c1"># Initialize orchestrator</span>
+<div class="viewcode-block" id="init_orchestrator">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.init_orchestrator">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">init_orchestrator</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Initialize orchestrator asynchronously.&quot;&quot;&quot;</span>
+    <span class="n">load_dotenv</span><span class="p">()</span>
+    
+    <span class="n">gsc_credentials</span> <span class="o">=</span> <span class="n">get_gsc_credentials</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;GSC_CLIENT_SECRETS_PATH&#39;</span><span class="p">,</span> <span class="s1">&#39;client_secrets.json&#39;</span><span class="p">))</span>
+    <span class="n">moz_token</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;MOZ_API_TOKEN&#39;</span><span class="p">)</span>
+    <span class="n">domain</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;TARGET_DOMAIN&#39;</span><span class="p">)</span>
+    <span class="n">openai_api_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;OPENAI_API_KEY&#39;</span><span class="p">)</span>
+    
+    <span class="n">storage</span> <span class="o">=</span> <span class="n">PersistentStorage</span><span class="p">()</span>
+    <span class="n">orchestrator</span> <span class="o">=</span> <span class="n">SEOOrchestrator</span><span class="p">(</span>
+        <span class="n">storage</span><span class="o">=</span><span class="n">storage</span><span class="p">,</span>
+        <span class="n">gsc_credentials</span><span class="o">=</span><span class="n">gsc_credentials</span><span class="p">,</span>
+        <span class="n">moz_token</span><span class="o">=</span><span class="n">moz_token</span><span class="p">,</span>
+        <span class="n">target_domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span>
+        <span class="n">openai_api_key</span><span class="o">=</span><span class="n">openai_api_key</span>
+    <span class="p">)</span>
+    
+    <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">orchestrator</span></div>
+
+
+<span class="c1"># Create event loop and initialize orchestrator</span>
+<div class="viewcode-block" id="loop">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.loop">[docs]</a>
+<span class="n">loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">new_event_loop</span><span class="p">()</span></div>
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">set_event_loop</span><span class="p">(</span><span class="n">loop</span><span class="p">)</span>
+<div class="viewcode-block" id="orchestrator">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.orchestrator">[docs]</a>
+<span class="n">orchestrator</span> <span class="o">=</span> <span class="n">loop</span><span class="o">.</span><span class="n">run_until_complete</span><span class="p">(</span><span class="n">init_orchestrator</span><span class="p">())</span></div>
+
+
+<div class="viewcode-block" id="async_route">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.async_route">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">async_route</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Decorator to handle async routes.&quot;&quot;&quot;</span>
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">decorated_function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">decorated_function</span></div>
+
+
+<span class="c1"># Schema definitions for request/response serialization</span>
+<div class="viewcode-block" id="TaskCreateSchema">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.TaskCreateSchema">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">TaskCreateSchema</span><span class="p">(</span><span class="n">Schema</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Schema for task creation request.&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="TaskCreateSchema.type">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.TaskCreateSchema.type">[docs]</a>
+    <span class="nb">type</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Type of task to create&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TaskCreateSchema.parameters">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.TaskCreateSchema.parameters">[docs]</a>
+    <span class="n">parameters</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Dict</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Task parameters&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TaskCreateSchema.priority">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.TaskCreateSchema.priority">[docs]</a>
+    <span class="n">priority</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Task priority level&quot;</span><span class="p">)</span></div>
+</div>
+
+
+<div class="viewcode-block" id="TaskResponseSchema">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.TaskResponseSchema">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">TaskResponseSchema</span><span class="p">(</span><span class="n">Schema</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Schema for task creation response.&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="TaskResponseSchema.success">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.TaskResponseSchema.success">[docs]</a>
+    <span class="n">success</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Bool</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="TaskResponseSchema.task_id">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.TaskResponseSchema.task_id">[docs]</a>
+    <span class="n">task_id</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="TaskResponseSchema.status">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.TaskResponseSchema.status">[docs]</a>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">()</span></div>
+</div>
+
+
+<div class="viewcode-block" id="TaskStatusSchema">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.TaskStatusSchema">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">TaskStatusSchema</span><span class="p">(</span><span class="n">Schema</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Schema for task status response.&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="TaskStatusSchema.task_id">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.TaskStatusSchema.task_id">[docs]</a>
+    <span class="n">task_id</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TaskStatusSchema.status">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.TaskStatusSchema.status">[docs]</a>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="TaskStatusSchema.progress">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.TaskStatusSchema.progress">[docs]</a>
+    <span class="n">progress</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Float</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="TaskStatusSchema.timestamp">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.TaskStatusSchema.timestamp">[docs]</a>
+    <span class="n">timestamp</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">DateTime</span><span class="p">()</span></div>
+</div>
+
+
+<div class="viewcode-block" id="AgentHealthSchema">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.AgentHealthSchema">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">AgentHealthSchema</span><span class="p">(</span><span class="n">Schema</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Schema for agent health status.&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="AgentHealthSchema.status">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.AgentHealthSchema.status">[docs]</a>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="AgentHealthSchema.last_check">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.AgentHealthSchema.last_check">[docs]</a>
+    <span class="n">last_check</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">DateTime</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="AgentHealthSchema.metrics">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.AgentHealthSchema.metrics">[docs]</a>
+    <span class="n">metrics</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Dict</span><span class="p">()</span></div>
+</div>
+
+
+<div class="viewcode-block" id="LogQuerySchema">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.LogQuerySchema">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">LogQuerySchema</span><span class="p">(</span><span class="n">Schema</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Schema for log query parameters.&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="LogQuerySchema.level">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.LogQuerySchema.level">[docs]</a>
+    <span class="n">level</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">(</span><span class="n">missing</span><span class="o">=</span><span class="s2">&quot;INFO&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="LogQuerySchema.start_time">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.LogQuerySchema.start_time">[docs]</a>
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="LogQuerySchema.end_time">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.LogQuerySchema.end_time">[docs]</a>
+    <span class="n">end_time</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="LogQuerySchema.limit">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.LogQuerySchema.limit">[docs]</a>
+    <span class="n">limit</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="n">missing</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span></div>
+</div>
+
+
+<div class="viewcode-block" id="CommunicationFlowSchema">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.CommunicationFlowSchema">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">CommunicationFlowSchema</span><span class="p">(</span><span class="n">Schema</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Schema for communication flow data.&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="CommunicationFlowSchema.source">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.CommunicationFlowSchema.source">[docs]</a>
+    <span class="n">source</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="CommunicationFlowSchema.target">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.CommunicationFlowSchema.target">[docs]</a>
+    <span class="n">target</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="CommunicationFlowSchema.message_type">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.CommunicationFlowSchema.message_type">[docs]</a>
+    <span class="n">message_type</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="CommunicationFlowSchema.timestamp">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.CommunicationFlowSchema.timestamp">[docs]</a>
+    <span class="n">timestamp</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">DateTime</span><span class="p">()</span></div>
+</div>
+
+
+<div class="viewcode-block" id="ProcessTimelineSchema">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.ProcessTimelineSchema">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ProcessTimelineSchema</span><span class="p">(</span><span class="n">Schema</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Schema for process timeline data.&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="ProcessTimelineSchema.process_id">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.ProcessTimelineSchema.process_id">[docs]</a>
+    <span class="n">process_id</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ProcessTimelineSchema.stages">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.ProcessTimelineSchema.stages">[docs]</a>
+    <span class="n">stages</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">List</span><span class="p">(</span><span class="n">fields</span><span class="o">.</span><span class="n">Dict</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="ProcessTimelineSchema.current_stage">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.ProcessTimelineSchema.current_stage">[docs]</a>
+    <span class="n">current_stage</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ProcessTimelineSchema.duration">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.ProcessTimelineSchema.duration">[docs]</a>
+    <span class="n">duration</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Float</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ProcessTimelineSchema.status">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.ProcessTimelineSchema.status">[docs]</a>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">()</span></div>
+</div>
+
+
+<div class="viewcode-block" id="ResourceMetricsSchema">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.ResourceMetricsSchema">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ResourceMetricsSchema</span><span class="p">(</span><span class="n">Schema</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Schema for resource metrics data.&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="ResourceMetricsSchema.resource_type">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.ResourceMetricsSchema.resource_type">[docs]</a>
+    <span class="n">resource_type</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ResourceMetricsSchema.utilization">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.ResourceMetricsSchema.utilization">[docs]</a>
+    <span class="n">utilization</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Float</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ResourceMetricsSchema.timestamp">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.ResourceMetricsSchema.timestamp">[docs]</a>
+    <span class="n">timestamp</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">DateTime</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ResourceMetricsSchema.metrics">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.ResourceMetricsSchema.metrics">[docs]</a>
+    <span class="n">metrics</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Dict</span><span class="p">()</span></div>
+</div>
+
+
+<div class="viewcode-block" id="ResourceAllocationSchema">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.ResourceAllocationSchema">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ResourceAllocationSchema</span><span class="p">(</span><span class="n">Schema</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Schema for resource allocation data.&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="ResourceAllocationSchema.resource_type">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.ResourceAllocationSchema.resource_type">[docs]</a>
+    <span class="n">resource_type</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ResourceAllocationSchema.timeframe">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.ResourceAllocationSchema.timeframe">[docs]</a>
+    <span class="n">timeframe</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ResourceAllocationSchema.allocations">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.ResourceAllocationSchema.allocations">[docs]</a>
+    <span class="n">allocations</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">List</span><span class="p">(</span><span class="n">fields</span><span class="o">.</span><span class="n">Dict</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="ResourceAllocationSchema.metrics">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.ResourceAllocationSchema.metrics">[docs]</a>
+    <span class="n">metrics</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Dict</span><span class="p">()</span></div>
+</div>
+
+
+<div class="viewcode-block" id="ResourceUsageSchema">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.ResourceUsageSchema">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ResourceUsageSchema</span><span class="p">(</span><span class="n">Schema</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Schema for resource usage patterns.&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="ResourceUsageSchema.patterns">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.ResourceUsageSchema.patterns">[docs]</a>
+    <span class="n">patterns</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Dict</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ResourceUsageSchema.trends">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.ResourceUsageSchema.trends">[docs]</a>
+    <span class="n">trends</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Dict</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ResourceUsageSchema.predictions">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.ResourceUsageSchema.predictions">[docs]</a>
+    <span class="n">predictions</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Dict</span><span class="p">()</span></div>
+</div>
+
+
+<div class="viewcode-block" id="ResourceBottleneckSchema">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.ResourceBottleneckSchema">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ResourceBottleneckSchema</span><span class="p">(</span><span class="n">Schema</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Schema for resource bottleneck data.&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="ResourceBottleneckSchema.bottlenecks">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.ResourceBottleneckSchema.bottlenecks">[docs]</a>
+    <span class="n">bottlenecks</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">List</span><span class="p">(</span><span class="n">fields</span><span class="o">.</span><span class="n">Dict</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="ResourceBottleneckSchema.impact_analysis">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.ResourceBottleneckSchema.impact_analysis">[docs]</a>
+    <span class="n">impact_analysis</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Dict</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ResourceBottleneckSchema.recommendations">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.ResourceBottleneckSchema.recommendations">[docs]</a>
+    <span class="n">recommendations</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Dict</span><span class="p">()</span></div>
+</div>
+
+
+<div class="viewcode-block" id="SystemCapacitySchema">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.SystemCapacitySchema">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">SystemCapacitySchema</span><span class="p">(</span><span class="n">Schema</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Schema for system capacity metrics.&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="SystemCapacitySchema.current_capacity">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.SystemCapacitySchema.current_capacity">[docs]</a>
+    <span class="n">current_capacity</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Dict</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="SystemCapacitySchema.utilization">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.SystemCapacitySchema.utilization">[docs]</a>
+    <span class="n">utilization</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Dict</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="SystemCapacitySchema.headroom">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.SystemCapacitySchema.headroom">[docs]</a>
+    <span class="n">headroom</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Dict</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="SystemCapacitySchema.limits">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.SystemCapacitySchema.limits">[docs]</a>
+    <span class="n">limits</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Dict</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="SystemCapacitySchema.predictions">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.SystemCapacitySchema.predictions">[docs]</a>
+    <span class="n">predictions</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Dict</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
+</div>
+
+
+<span class="c1"># Task Management Endpoints</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/tasks&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@use_kwargs</span><span class="p">(</span><span class="n">TaskCreateSchema</span><span class="p">)</span>
+<span class="nd">@marshal_with</span><span class="p">(</span><span class="n">TaskResponseSchema</span><span class="p">)</span>
+<div class="viewcode-block" id="create_task">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.create_task">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">create_task</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a new task for the agent system.</span>
+<span class="sd">    </span>
+<span class="sd">    This endpoint creates a new task in the system. The task will be queued and processed</span>
+<span class="sd">    by the appropriate agents based on its type and parameters.</span>
+<span class="sd">    </span>
+<span class="sd">    ---</span>
+<span class="sd">    post:</span>
+<span class="sd">      description: Create a new task</span>
+<span class="sd">      parameters:</span>
+<span class="sd">        - in: body</span>
+<span class="sd">          name: body</span>
+<span class="sd">          schema:</span>
+<span class="sd">            type: object</span>
+<span class="sd">            required:</span>
+<span class="sd">              - type</span>
+<span class="sd">            properties:</span>
+<span class="sd">              type:</span>
+<span class="sd">                type: string</span>
+<span class="sd">                description: Type of task to create</span>
+<span class="sd">              parameters:</span>
+<span class="sd">                type: object</span>
+<span class="sd">                description: Task parameters</span>
+<span class="sd">              priority:</span>
+<span class="sd">                type: string</span>
+<span class="sd">                description: Task priority level</span>
+<span class="sd">      responses:</span>
+<span class="sd">        200:</span>
+<span class="sd">          description: Task created successfully</span>
+<span class="sd">          schema:</span>
+<span class="sd">            type: object</span>
+<span class="sd">            properties:</span>
+<span class="sd">              success:</span>
+<span class="sd">                type: boolean</span>
+<span class="sd">              task_id:</span>
+<span class="sd">                type: string</span>
+<span class="sd">              status:</span>
+<span class="sd">                type: string</span>
+<span class="sd">        400:</span>
+<span class="sd">          description: Invalid parameters</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span>
+    <span class="n">task</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;parameters&#39;</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;parameters&#39;</span><span class="p">,</span> <span class="p">{}),</span>
+        <span class="s1">&#39;priority&#39;</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;priority&#39;</span><span class="p">,</span> <span class="s1">&#39;normal&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+    <span class="p">}</span>
+    
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/tasks/&lt;task_id&gt;&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="nd">@async_route</span>
+<div class="viewcode-block" id="get_task_status">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.get_task_status">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_task_status</span><span class="p">(</span><span class="n">task_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get status of a specific task.&quot;&quot;&quot;</span>
+    <span class="n">task_status</span> <span class="o">=</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;tasks&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">task_id</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">task_status</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="s1">&#39;Task not found&#39;</span><span class="p">}),</span> <span class="mi">404</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">task_status</span><span class="p">)</span></div>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/tasks&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="nd">@async_route</span>
+<div class="viewcode-block" id="list_tasks">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.list_tasks">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">list_tasks</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;List all tasks with their status.&quot;&quot;&quot;</span>
+    <span class="n">tasks</span> <span class="o">=</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;tasks&#39;</span><span class="p">,</span> <span class="p">[])</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">tasks</span><span class="p">)</span></div>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/tasks/&lt;task_id&gt;&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;DELETE&#39;</span><span class="p">])</span>
+<span class="nd">@async_route</span>
+<div class="viewcode-block" id="cancel_task">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.cancel_task">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">cancel_task</span><span class="p">(</span><span class="n">task_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Cancel a running task.&quot;&quot;&quot;</span>
+    <span class="n">success</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">cancel_task</span><span class="p">(</span><span class="n">task_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="s1">&#39;Task not found or cannot be cancelled&#39;</span><span class="p">}),</span> <span class="mi">404</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;cancelled&#39;</span><span class="p">})</span></div>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/tasks/&lt;task_id&gt;/priority&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;PATCH&#39;</span><span class="p">])</span>
+<span class="nd">@async_route</span>
+<div class="viewcode-block" id="update_task_priority">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.update_task_priority">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">update_task_priority</span><span class="p">(</span><span class="n">task_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Update task priority.&quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span>
+    <span class="n">new_priority</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;priority&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">new_priority</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="s1">&#39;Priority not specified&#39;</span><span class="p">}),</span> <span class="mi">400</span>
+    
+    <span class="n">success</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">update_task_priority</span><span class="p">(</span><span class="n">task_id</span><span class="p">,</span> <span class="n">new_priority</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="s1">&#39;Task not found&#39;</span><span class="p">}),</span> <span class="mi">404</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;updated&#39;</span><span class="p">})</span></div>
+
+
+<span class="c1"># Agent Management Endpoints</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/agents&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="nd">@async_route</span>
+<div class="viewcode-block" id="list_agents">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.list_agents">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">list_agents</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;List all available agents and their status.&quot;&quot;&quot;</span>
+    <span class="n">agents</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">agent</span> <span class="ow">in</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">agents</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">agent_info</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="k">await</span> <span class="n">agent</span><span class="o">.</span><span class="n">get_health</span><span class="p">(),</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">agent</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+        <span class="p">}</span>
+        
+        <span class="c1"># Safely get capabilities</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">agent</span><span class="p">,</span> <span class="s1">&#39;_tools&#39;</span><span class="p">):</span>
+            <span class="n">agent_info</span><span class="p">[</span><span class="s1">&#39;capabilities&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">tool</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">tool</span> <span class="ow">in</span> <span class="n">agent</span><span class="o">.</span><span class="n">_tools</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">agent</span><span class="p">,</span> <span class="s1">&#39;_setup_tools&#39;</span><span class="p">):</span>
+            <span class="c1"># For agents that set up tools differently</span>
+            <span class="n">tools</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">_setup_tools</span><span class="p">()</span>
+            <span class="n">agent_info</span><span class="p">[</span><span class="s1">&#39;capabilities&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">tool</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">tool</span> <span class="ow">in</span> <span class="n">tools</span><span class="p">]</span> <span class="k">if</span> <span class="n">tools</span> <span class="k">else</span> <span class="p">[]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">agent_info</span><span class="p">[</span><span class="s1">&#39;capabilities&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+            
+        <span class="n">agents</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">agent_info</span>
+    
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">agents</span><span class="p">)</span></div>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/agents/&lt;agent_name&gt;/health&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="nd">@async_route</span>
+<div class="viewcode-block" id="get_agent_health">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.get_agent_health">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_agent_health</span><span class="p">(</span><span class="n">agent_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get health status of a specific agent.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">agent_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">agents</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="s1">&#39;Agent not found&#39;</span><span class="p">}),</span> <span class="mi">404</span>
+    
+    <span class="n">health</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">agents</span><span class="p">[</span><span class="n">agent_name</span><span class="p">]</span><span class="o">.</span><span class="n">get_health</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">health</span><span class="p">)</span></div>
+
+
+<span class="c1"># Real-time Updates Endpoint</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/updates/stream&#39;</span><span class="p">)</span>
+<div class="viewcode-block" id="stream_updates">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.stream_updates">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">stream_updates</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Stream real-time updates from the agent system.&quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">():</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="c1"># Get latest updates from shared results</span>
+            <span class="n">updates</span> <span class="o">=</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">shared_results</span>
+            <span class="k">if</span> <span class="n">updates</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="sa">f</span><span class="s2">&quot;data: </span><span class="si">{</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">updates</span><span class="p">)</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+            <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">generate</span><span class="p">(),</span> <span class="n">mimetype</span><span class="o">=</span><span class="s1">&#39;text/event-stream&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1"># Content Generation Endpoints</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/content/generate&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@async_route</span>
+<div class="viewcode-block" id="generate_content">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.generate_content">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">generate_content</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate content endpoint.&quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span>
+    <span class="n">task</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;content_generation&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;keyword&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;keyword&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;intent&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;intent&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;website_url&#39;</span><span class="p">)</span>
+    <span class="p">}</span>
+    
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/content/batch&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@async_route</span>
+<div class="viewcode-block" id="batch_content_generation">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.batch_content_generation">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">batch_content_generation</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Batch content generation endpoint.&quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">for</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;keywords&#39;</span><span class="p">]:</span>
+        <span class="n">task</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;content_generation&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;keyword&#39;</span><span class="p">:</span> <span class="n">keyword</span><span class="p">,</span>
+            <span class="s1">&#39;intent&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;intent&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;website_url&#39;</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">results</span><span class="p">)</span></div>
+
+
+<span class="c1"># SEO Analysis Endpoints</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/seo/audit&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@async_route</span>
+<div class="viewcode-block" id="run_seo_audit">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.run_seo_audit">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run_seo_audit</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Run SEO audit endpoint.&quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span>
+    <span class="n">task</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;website_analysis&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]</span>
+    <span class="p">}</span>
+    
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/seo/technical&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@async_route</span>
+<div class="viewcode-block" id="analyze_technical_seo">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.analyze_technical_seo">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">analyze_technical_seo</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Analyze technical SEO aspects.&quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span>
+    <span class="n">task</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;technical_seo&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]</span>
+    <span class="p">}</span>
+    
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/seo/recommendations&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@async_route</span>
+<div class="viewcode-block" id="get_seo_recommendations">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.get_seo_recommendations">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_seo_recommendations</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get SEO recommendations.&quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span>
+    <span class="n">task</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;recommendations&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]</span>
+    <span class="p">}</span>
+    
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
+
+
+<span class="c1"># Keyword Research Endpoints</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/keywords/research&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@async_route</span>
+<div class="viewcode-block" id="research_keywords">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.research_keywords">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">research_keywords</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Perform keyword research.&quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span>
+    <span class="n">task</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;keyword_research&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;keyword&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;keyword&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;parameters&#39;</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;parameters&#39;</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="p">}</span>
+    
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/keywords/analyze&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@async_route</span>
+<div class="viewcode-block" id="analyze_keywords">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.analyze_keywords">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">analyze_keywords</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Analyze keywords for a given content.&quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span>
+    <span class="n">task</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;keyword_analysis&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;content&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;content&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;keywords&#39;</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;keywords&#39;</span><span class="p">,</span> <span class="p">[])</span>
+    <span class="p">}</span>
+    
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
+
+
+<span class="c1"># System Status and Management</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/system/status&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="nd">@async_route</span>
+<div class="viewcode-block" id="get_system_status">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.get_system_status">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_system_status</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get overall system status.&quot;&quot;&quot;</span>
+    <span class="c1"># Get agent health statuses concurrently</span>
+    <span class="n">agent_healths</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">agent</span> <span class="ow">in</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">agents</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">agent_healths</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="n">agent</span><span class="o">.</span><span class="n">get_health</span><span class="p">()</span>
+    
+    <span class="n">status</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;agents&#39;</span><span class="p">:</span> <span class="n">agent_healths</span><span class="p">,</span>
+        <span class="s1">&#39;tasks&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">orchestrator</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;tasks&#39;</span><span class="p">,</span> <span class="p">{})),</span>
+        <span class="s1">&#39;active_tasks&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">([</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;tasks&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;running&#39;</span><span class="p">]),</span>
+        <span class="s1">&#39;system_health&#39;</span><span class="p">:</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">get_health</span><span class="p">(),</span>
+        <span class="s1">&#39;last_update&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">status</span><span class="p">)</span></div>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/system/metrics&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="nd">@async_route</span>
+<div class="viewcode-block" id="get_system_metrics">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.get_system_metrics">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_system_metrics</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get system performance metrics.&quot;&quot;&quot;</span>
+    <span class="n">metrics</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;task_completion_rate&#39;</span><span class="p">:</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">get_task_completion_rate</span><span class="p">(),</span>
+        <span class="s1">&#39;average_response_time&#39;</span><span class="p">:</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">get_average_response_time</span><span class="p">(),</span>
+        <span class="s1">&#39;error_rate&#39;</span><span class="p">:</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">get_error_rate</span><span class="p">(),</span>
+        <span class="s1">&#39;agent_performance&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">name</span><span class="p">:</span> <span class="n">agent</span><span class="o">.</span><span class="n">get_performance_metrics</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">agent</span> <span class="ow">in</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">agents</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span></div>
+
+
+<span class="c1"># Historical Data and Analytics</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/analytics/performance&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="nd">@async_route</span>
+<div class="viewcode-block" id="get_performance_history">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.get_performance_history">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_performance_history</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get historical performance data.&quot;&quot;&quot;</span>
+    <span class="n">start_date</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;start_date&#39;</span><span class="p">)</span>
+    <span class="n">end_date</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;end_date&#39;</span><span class="p">)</span>
+    <span class="n">metrics</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">get_historical_metrics</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span></div>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/analytics/tasks&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="nd">@async_route</span>
+<div class="viewcode-block" id="get_task_history">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.get_task_history">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_task_history</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get historical task data.&quot;&quot;&quot;</span>
+    <span class="n">start_date</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;start_date&#39;</span><span class="p">)</span>
+    <span class="n">end_date</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;end_date&#39;</span><span class="p">)</span>
+    <span class="n">task_type</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span>
+    <span class="n">history</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">get_task_history</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">task_type</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">history</span><span class="p">)</span></div>
+
+
+<span class="c1"># Configuration Management</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/config&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="nd">@async_route</span>
+<div class="viewcode-block" id="get_configuration">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.get_configuration">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_configuration</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get current system configuration.&quot;&quot;&quot;</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">get_configuration</span><span class="p">()</span>
+    <span class="c1"># Mask sensitive data</span>
+    <span class="k">if</span> <span class="s1">&#39;api_keys&#39;</span> <span class="ow">in</span> <span class="n">config</span><span class="p">:</span>
+        <span class="n">config</span><span class="p">[</span><span class="s1">&#39;api_keys&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="s1">&#39;***&#39;</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;api_keys&#39;</span><span class="p">]}</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">config</span><span class="p">)</span></div>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/config&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;PATCH&#39;</span><span class="p">])</span>
+<span class="nd">@async_route</span>
+<div class="viewcode-block" id="update_configuration">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.update_configuration">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">update_configuration</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Update system configuration.&quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span>
+    <span class="n">success</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">update_configuration</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;updated&#39;</span> <span class="k">if</span> <span class="n">success</span> <span class="k">else</span> <span class="s1">&#39;failed&#39;</span><span class="p">})</span></div>
+
+
+<span class="c1"># Agent Control</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/agents/&lt;agent_name&gt;/pause&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@async_route</span>
+<div class="viewcode-block" id="pause_agent">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.pause_agent">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">pause_agent</span><span class="p">(</span><span class="n">agent_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Pause a specific agent.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">agent_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">agents</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="s1">&#39;Agent not found&#39;</span><span class="p">}),</span> <span class="mi">404</span>
+    <span class="n">success</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">pause_agent</span><span class="p">(</span><span class="n">agent_name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;paused&#39;</span> <span class="k">if</span> <span class="n">success</span> <span class="k">else</span> <span class="s1">&#39;failed&#39;</span><span class="p">})</span></div>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/agents/&lt;agent_name&gt;/resume&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@async_route</span>
+<div class="viewcode-block" id="resume_agent">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.resume_agent">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">resume_agent</span><span class="p">(</span><span class="n">agent_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Resume a paused agent.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">agent_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">agents</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="s1">&#39;Agent not found&#39;</span><span class="p">}),</span> <span class="mi">404</span>
+    <span class="n">success</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">resume_agent</span><span class="p">(</span><span class="n">agent_name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;resumed&#39;</span> <span class="k">if</span> <span class="n">success</span> <span class="k">else</span> <span class="s1">&#39;failed&#39;</span><span class="p">})</span></div>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/agents/&lt;agent_name&gt;/reset&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@async_route</span>
+<div class="viewcode-block" id="reset_agent">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.reset_agent">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">reset_agent</span><span class="p">(</span><span class="n">agent_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Reset a specific agent to its initial state.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">agent_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">agents</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="s1">&#39;Agent not found&#39;</span><span class="p">}),</span> <span class="mi">404</span>
+    <span class="n">success</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">reset_agent</span><span class="p">(</span><span class="n">agent_name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;reset&#39;</span> <span class="k">if</span> <span class="n">success</span> <span class="k">else</span> <span class="s1">&#39;failed&#39;</span><span class="p">})</span></div>
+
+
+<span class="c1"># Error Logging and Debugging</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/logs&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="nd">@async_route</span>
+<div class="viewcode-block" id="get_system_logs">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.get_system_logs">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_system_logs</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get system logs.&quot;&quot;&quot;</span>
+    <span class="n">log_level</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;level&#39;</span><span class="p">,</span> <span class="s1">&#39;INFO&#39;</span><span class="p">)</span>
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;start_time&#39;</span><span class="p">)</span>
+    <span class="n">end_time</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;end_time&#39;</span><span class="p">)</span>
+    <span class="n">limit</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;limit&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    
+    <span class="n">logs</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">get_logs</span><span class="p">(</span><span class="n">log_level</span><span class="p">,</span> <span class="n">start_time</span><span class="p">,</span> <span class="n">end_time</span><span class="p">,</span> <span class="n">limit</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">logs</span><span class="p">)</span></div>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/logs/errors&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="nd">@async_route</span>
+<div class="viewcode-block" id="get_error_logs">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.get_error_logs">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_error_logs</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get error logs specifically.&quot;&quot;&quot;</span>
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;start_time&#39;</span><span class="p">)</span>
+    <span class="n">end_time</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;end_time&#39;</span><span class="p">)</span>
+    <span class="n">limit</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;limit&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+    
+    <span class="n">errors</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">get_error_logs</span><span class="p">(</span><span class="n">start_time</span><span class="p">,</span> <span class="n">end_time</span><span class="p">,</span> <span class="n">limit</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span></div>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/debug/state&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="nd">@async_route</span>
+<div class="viewcode-block" id="get_debug_state">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.get_debug_state">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_debug_state</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get detailed system state for debugging.&quot;&quot;&quot;</span>
+    <span class="n">include_sensitive</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;include_sensitive&#39;</span><span class="p">,</span> <span class="s1">&#39;false&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;true&#39;</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">get_debug_state</span><span class="p">(</span><span class="n">include_sensitive</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">state</span><span class="p">)</span></div>
+
+
+<span class="c1"># Agent Communication Visualization Endpoints</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/communication/flows&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="nd">@use_kwargs</span><span class="p">({</span>
+    <span class="s1">&#39;start_time&#39;</span><span class="p">:</span> <span class="n">fields</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+    <span class="s1">&#39;end_time&#39;</span><span class="p">:</span> <span class="n">fields</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="p">},</span> <span class="n">location</span><span class="o">=</span><span class="s1">&#39;query&#39;</span><span class="p">)</span>
+<span class="nd">@marshal_with</span><span class="p">(</span><span class="n">CommunicationFlowSchema</span><span class="p">(</span><span class="n">many</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<div class="viewcode-block" id="get_communication_flows">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.get_communication_flows">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_communication_flows</span><span class="p">(</span><span class="n">start_time</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">end_time</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get inter-agent communication flows.</span>
+<span class="sd">    ---</span>
+<span class="sd">    get:</span>
+<span class="sd">      description: Get communication flows between agents</span>
+<span class="sd">      parameters:</span>
+<span class="sd">        - in: query</span>
+<span class="sd">          name: start_time</span>
+<span class="sd">          type: string</span>
+<span class="sd">          format: date-time</span>
+<span class="sd">          description: Start time for filtering flows</span>
+<span class="sd">        - in: query</span>
+<span class="sd">          name: end_time</span>
+<span class="sd">          type: string</span>
+<span class="sd">          format: date-time</span>
+<span class="sd">          description: End time for filtering flows</span>
+<span class="sd">      responses:</span>
+<span class="sd">        200:</span>
+<span class="sd">          description: Communication flows retrieved successfully</span>
+<span class="sd">          schema:</span>
+<span class="sd">            type: array</span>
+<span class="sd">            items:</span>
+<span class="sd">              $ref: &#39;#/definitions/CommunicationFlowSchema&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">flows</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">get_communication_flows</span><span class="p">(</span><span class="n">start_time</span><span class="p">,</span> <span class="n">end_time</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">flows</span><span class="p">)</span></div>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/communication/realtime&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<div class="viewcode-block" id="stream_communication_data">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.stream_communication_data">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">stream_communication_data</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Stream real-time agent interaction data.&quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">():</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">comm_data</span> <span class="o">=</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">get_realtime_communication</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">comm_data</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="sa">f</span><span class="s2">&quot;data: </span><span class="si">{</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">comm_data</span><span class="p">)</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+            <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">generate</span><span class="p">(),</span> <span class="n">mimetype</span><span class="o">=</span><span class="s1">&#39;text/event-stream&#39;</span><span class="p">)</span></div>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/communication/analytics&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="nd">@use_kwargs</span><span class="p">({</span><span class="s1">&#39;timeframe&#39;</span><span class="p">:</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">(</span><span class="n">missing</span><span class="o">=</span><span class="s1">&#39;24h&#39;</span><span class="p">)},</span> <span class="n">location</span><span class="o">=</span><span class="s1">&#39;query&#39;</span><span class="p">)</span>
+<div class="viewcode-block" id="get_communication_analytics">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.get_communication_analytics">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_communication_analytics</span><span class="p">(</span><span class="n">timeframe</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;24h&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get communication patterns analytics.</span>
+<span class="sd">    ---</span>
+<span class="sd">    get:</span>
+<span class="sd">      description: Get analytics about communication patterns between agents</span>
+<span class="sd">      parameters:</span>
+<span class="sd">        - in: query</span>
+<span class="sd">          name: timeframe</span>
+<span class="sd">          type: string</span>
+<span class="sd">          default: 24h</span>
+<span class="sd">          description: Time frame for analysis (e.g., &#39;24h&#39;, &#39;7d&#39;)</span>
+<span class="sd">      responses:</span>
+<span class="sd">        200:</span>
+<span class="sd">          description: Communication analytics retrieved successfully</span>
+<span class="sd">          schema:</span>
+<span class="sd">            type: object</span>
+<span class="sd">            properties:</span>
+<span class="sd">              patterns:</span>
+<span class="sd">                type: object</span>
+<span class="sd">              metrics:</span>
+<span class="sd">                type: object</span>
+<span class="sd">              insights:</span>
+<span class="sd">                type: object</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">metrics</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">get_communication_analytics</span><span class="p">(</span><span class="n">timeframe</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span></div>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/communication/metrics&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="nd">@async_route</span>
+<div class="viewcode-block" id="get_data_flow_metrics">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.get_data_flow_metrics">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_data_flow_metrics</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get data flow metrics between agents.&quot;&quot;&quot;</span>
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;start_time&#39;</span><span class="p">)</span>
+    <span class="n">end_time</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;end_time&#39;</span><span class="p">)</span>
+    
+    <span class="n">metrics</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">get_data_flow_metrics</span><span class="p">(</span><span class="n">start_time</span><span class="p">,</span> <span class="n">end_time</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span></div>
+
+
+<span class="c1"># Process Timeline Endpoints</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/timeline/process&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="nd">@use_kwargs</span><span class="p">({</span>
+    <span class="s1">&#39;process_id&#39;</span><span class="p">:</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+    <span class="s1">&#39;include_details&#39;</span><span class="p">:</span> <span class="n">fields</span><span class="o">.</span><span class="n">Bool</span><span class="p">(</span><span class="n">missing</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="p">},</span> <span class="n">location</span><span class="o">=</span><span class="s1">&#39;query&#39;</span><span class="p">)</span>
+<span class="nd">@marshal_with</span><span class="p">(</span><span class="n">ProcessTimelineSchema</span><span class="p">)</span>
+<div class="viewcode-block" id="get_process_timeline">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.get_process_timeline">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_process_timeline</span><span class="p">(</span><span class="n">process_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">include_details</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get detailed process stage tracking data.</span>
+<span class="sd">    ---</span>
+<span class="sd">    get:</span>
+<span class="sd">      description: Get timeline and stages of a specific process</span>
+<span class="sd">      parameters:</span>
+<span class="sd">        - in: query</span>
+<span class="sd">          name: process_id</span>
+<span class="sd">          type: string</span>
+<span class="sd">          required: true</span>
+<span class="sd">          description: ID of the process to track</span>
+<span class="sd">        - in: query</span>
+<span class="sd">          name: include_details</span>
+<span class="sd">          type: boolean</span>
+<span class="sd">          default: false</span>
+<span class="sd">          description: Whether to include additional stage details</span>
+<span class="sd">      responses:</span>
+<span class="sd">        200:</span>
+<span class="sd">          description: Process timeline retrieved successfully</span>
+<span class="sd">          schema:</span>
+<span class="sd">            $ref: &#39;#/definitions/ProcessTimelineSchema&#39;</span>
+<span class="sd">        404:</span>
+<span class="sd">          description: Process not found</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">timeline</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">get_process_timeline</span><span class="p">(</span><span class="n">process_id</span><span class="p">,</span> <span class="n">include_details</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">timeline</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="s1">&#39;Process not found&#39;</span><span class="p">}),</span> <span class="mi">404</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">timeline</span><span class="p">)</span></div>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/timeline/decisions&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="nd">@use_kwargs</span><span class="p">({</span>
+    <span class="s1">&#39;process_id&#39;</span><span class="p">:</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+    <span class="s1">&#39;start_time&#39;</span><span class="p">:</span> <span class="n">fields</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+    <span class="s1">&#39;end_time&#39;</span><span class="p">:</span> <span class="n">fields</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="p">},</span> <span class="n">location</span><span class="o">=</span><span class="s1">&#39;query&#39;</span><span class="p">)</span>
+<div class="viewcode-block" id="get_decision_points">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.get_decision_points">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_decision_points</span><span class="p">(</span><span class="n">process_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">start_time</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">end_time</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get decision point logging data.</span>
+<span class="sd">    ---</span>
+<span class="sd">    get:</span>
+<span class="sd">      description: Get decision points and their outcomes for a process</span>
+<span class="sd">      parameters:</span>
+<span class="sd">        - in: query</span>
+<span class="sd">          name: process_id</span>
+<span class="sd">          type: string</span>
+<span class="sd">          required: true</span>
+<span class="sd">          description: ID of the process</span>
+<span class="sd">        - in: query</span>
+<span class="sd">          name: start_time</span>
+<span class="sd">          type: string</span>
+<span class="sd">          format: date-time</span>
+<span class="sd">          description: Start time for filtering decisions</span>
+<span class="sd">        - in: query</span>
+<span class="sd">          name: end_time</span>
+<span class="sd">          type: string</span>
+<span class="sd">          format: date-time</span>
+<span class="sd">          description: End time for filtering decisions</span>
+<span class="sd">      responses:</span>
+<span class="sd">        200:</span>
+<span class="sd">          description: Decision points retrieved successfully</span>
+<span class="sd">          schema:</span>
+<span class="sd">            type: object</span>
+<span class="sd">            properties:</span>
+<span class="sd">              decisions:</span>
+<span class="sd">                type: array</span>
+<span class="sd">                items:</span>
+<span class="sd">                  type: object</span>
+<span class="sd">              metrics:</span>
+<span class="sd">                type: object</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">decisions</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">get_decision_points</span><span class="p">(</span><span class="n">process_id</span><span class="p">,</span> <span class="n">start_time</span><span class="p">,</span> <span class="n">end_time</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">decisions</span><span class="p">)</span></div>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/timeline/transitions&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="nd">@use_kwargs</span><span class="p">({</span><span class="s1">&#39;process_id&#39;</span><span class="p">:</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)},</span> <span class="n">location</span><span class="o">=</span><span class="s1">&#39;query&#39;</span><span class="p">)</span>
+<div class="viewcode-block" id="get_stage_transitions">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.get_stage_transitions">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_stage_transitions</span><span class="p">(</span><span class="n">process_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get stage transition data.</span>
+<span class="sd">    ---</span>
+<span class="sd">    get:</span>
+<span class="sd">      description: Get stage transitions for a process</span>
+<span class="sd">      parameters:</span>
+<span class="sd">        - in: query</span>
+<span class="sd">          name: process_id</span>
+<span class="sd">          type: string</span>
+<span class="sd">          required: true</span>
+<span class="sd">          description: ID of the process</span>
+<span class="sd">      responses:</span>
+<span class="sd">        200:</span>
+<span class="sd">          description: Stage transitions retrieved successfully</span>
+<span class="sd">          schema:</span>
+<span class="sd">            type: object</span>
+<span class="sd">            properties:</span>
+<span class="sd">              transitions:</span>
+<span class="sd">                type: array</span>
+<span class="sd">                items:</span>
+<span class="sd">                  type: object</span>
+<span class="sd">              metrics:</span>
+<span class="sd">                type: object</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">transitions</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">get_stage_transitions</span><span class="p">(</span><span class="n">process_id</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">transitions</span><span class="p">)</span></div>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/timeline/analysis&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="nd">@use_kwargs</span><span class="p">({</span>
+    <span class="s1">&#39;timeframe&#39;</span><span class="p">:</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">(</span><span class="n">missing</span><span class="o">=</span><span class="s1">&#39;24h&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;process_type&#39;</span><span class="p">:</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="p">},</span> <span class="n">location</span><span class="o">=</span><span class="s1">&#39;query&#39;</span><span class="p">)</span>
+<div class="viewcode-block" id="get_time_analysis">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.get_time_analysis">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_time_analysis</span><span class="p">(</span><span class="n">timeframe</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;24h&#39;</span><span class="p">,</span> <span class="n">process_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get time-based process analysis.</span>
+<span class="sd">    ---</span>
+<span class="sd">    get:</span>
+<span class="sd">      description: Get time-based analysis of processes</span>
+<span class="sd">      parameters:</span>
+<span class="sd">        - in: query</span>
+<span class="sd">          name: timeframe</span>
+<span class="sd">          type: string</span>
+<span class="sd">          default: 24h</span>
+<span class="sd">          description: Time frame for analysis (e.g., &#39;24h&#39;, &#39;7d&#39;)</span>
+<span class="sd">        - in: query</span>
+<span class="sd">          name: process_type</span>
+<span class="sd">          type: string</span>
+<span class="sd">          description: Type of process to analyze</span>
+<span class="sd">      responses:</span>
+<span class="sd">        200:</span>
+<span class="sd">          description: Time analysis retrieved successfully</span>
+<span class="sd">          schema:</span>
+<span class="sd">            type: object</span>
+<span class="sd">            properties:</span>
+<span class="sd">              metrics:</span>
+<span class="sd">                type: object</span>
+<span class="sd">              trends:</span>
+<span class="sd">                type: object</span>
+<span class="sd">              optimization_suggestions:</span>
+<span class="sd">                type: object</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">analysis</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">get_time_analysis</span><span class="p">(</span><span class="n">timeframe</span><span class="p">,</span> <span class="n">process_type</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">analysis</span><span class="p">)</span></div>
+
+
+<span class="c1"># Resource Monitoring Endpoints</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/resources/allocation&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="nd">@use_kwargs</span><span class="p">({</span><span class="s1">&#39;resource_type&#39;</span><span class="p">:</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">(),</span> <span class="s1">&#39;timeframe&#39;</span><span class="p">:</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">(</span><span class="n">missing</span><span class="o">=</span><span class="s1">&#39;1h&#39;</span><span class="p">)},</span> <span class="n">location</span><span class="o">=</span><span class="s1">&#39;query&#39;</span><span class="p">)</span>
+<span class="nd">@marshal_with</span><span class="p">(</span><span class="n">ResourceAllocationSchema</span><span class="p">)</span>
+<div class="viewcode-block" id="get_resource_allocation">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.get_resource_allocation">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_resource_allocation</span><span class="p">(</span><span class="n">resource_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">timeframe</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;1h&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get detailed resource allocation tracking.</span>
+<span class="sd">    ---</span>
+<span class="sd">    get:</span>
+<span class="sd">      description: Get resource allocation metrics</span>
+<span class="sd">      parameters:</span>
+<span class="sd">        - in: query</span>
+<span class="sd">          name: resource_type</span>
+<span class="sd">          type: string</span>
+<span class="sd">          description: Type of resource to monitor</span>
+<span class="sd">        - in: query</span>
+<span class="sd">          name: timeframe</span>
+<span class="sd">          type: string</span>
+<span class="sd">          default: 1h</span>
+<span class="sd">          description: Time frame for analysis (e.g., &#39;1h&#39;, &#39;24h&#39;)</span>
+<span class="sd">      responses:</span>
+<span class="sd">        200:</span>
+<span class="sd">          description: Resource allocation metrics retrieved successfully</span>
+<span class="sd">          schema:</span>
+<span class="sd">            $ref: &#39;#/definitions/ResourceAllocationSchema&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">allocation</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">get_resource_allocation</span><span class="p">(</span><span class="n">resource_type</span><span class="p">,</span> <span class="n">timeframe</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">allocation</span><span class="p">)</span></div>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/resources/usage-patterns&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="nd">@use_kwargs</span><span class="p">({</span>
+    <span class="s1">&#39;resource_type&#39;</span><span class="p">:</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">(),</span>
+    <span class="s1">&#39;start_time&#39;</span><span class="p">:</span> <span class="n">fields</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+    <span class="s1">&#39;end_time&#39;</span><span class="p">:</span> <span class="n">fields</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="p">},</span> <span class="n">location</span><span class="o">=</span><span class="s1">&#39;query&#39;</span><span class="p">)</span>
+<span class="nd">@marshal_with</span><span class="p">(</span><span class="n">ResourceUsageSchema</span><span class="p">)</span>
+<div class="viewcode-block" id="get_usage_patterns">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.get_usage_patterns">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_usage_patterns</span><span class="p">(</span><span class="n">resource_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">start_time</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">end_time</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get resource usage patterns.</span>
+<span class="sd">    ---</span>
+<span class="sd">    get:</span>
+<span class="sd">      description: Get resource usage patterns and trends</span>
+<span class="sd">      parameters:</span>
+<span class="sd">        - in: query</span>
+<span class="sd">          name: resource_type</span>
+<span class="sd">          type: string</span>
+<span class="sd">          description: Type of resource to analyze</span>
+<span class="sd">        - in: query</span>
+<span class="sd">          name: start_time</span>
+<span class="sd">          type: string</span>
+<span class="sd">          format: date-time</span>
+<span class="sd">          description: Start time for analysis</span>
+<span class="sd">        - in: query</span>
+<span class="sd">          name: end_time</span>
+<span class="sd">          type: string</span>
+<span class="sd">          format: date-time</span>
+<span class="sd">          description: End time for analysis</span>
+<span class="sd">      responses:</span>
+<span class="sd">        200:</span>
+<span class="sd">          description: Resource usage patterns retrieved successfully</span>
+<span class="sd">          schema:</span>
+<span class="sd">            $ref: &#39;#/definitions/ResourceUsageSchema&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">patterns</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">get_usage_patterns</span><span class="p">(</span><span class="n">resource_type</span><span class="p">,</span> <span class="n">start_time</span><span class="p">,</span> <span class="n">end_time</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">patterns</span><span class="p">)</span></div>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/resources/bottlenecks&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="nd">@use_kwargs</span><span class="p">({</span>
+    <span class="s1">&#39;analysis_period&#39;</span><span class="p">:</span> <span class="n">fields</span><span class="o">.</span><span class="n">Str</span><span class="p">(</span><span class="n">missing</span><span class="o">=</span><span class="s1">&#39;24h&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;threshold&#39;</span><span class="p">:</span> <span class="n">fields</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="n">missing</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="p">},</span> <span class="n">location</span><span class="o">=</span><span class="s1">&#39;query&#39;</span><span class="p">)</span>
+<span class="nd">@marshal_with</span><span class="p">(</span><span class="n">ResourceBottleneckSchema</span><span class="p">)</span>
+<div class="viewcode-block" id="get_resource_bottlenecks">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.get_resource_bottlenecks">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_resource_bottlenecks</span><span class="p">(</span><span class="n">analysis_period</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;24h&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get resource bottleneck identification.</span>
+<span class="sd">    ---</span>
+<span class="sd">    get:</span>
+<span class="sd">      description: Identify resource bottlenecks and get recommendations</span>
+<span class="sd">      parameters:</span>
+<span class="sd">        - in: query</span>
+<span class="sd">          name: analysis_period</span>
+<span class="sd">          type: string</span>
+<span class="sd">          default: 24h</span>
+<span class="sd">          description: Period for analysis (e.g., &#39;24h&#39;, &#39;7d&#39;)</span>
+<span class="sd">        - in: query</span>
+<span class="sd">          name: threshold</span>
+<span class="sd">          type: number</span>
+<span class="sd">          default: 0.8</span>
+<span class="sd">          description: Utilization threshold for bottleneck detection (0.0-1.0)</span>
+<span class="sd">      responses:</span>
+<span class="sd">        200:</span>
+<span class="sd">          description: Resource bottlenecks identified successfully</span>
+<span class="sd">          schema:</span>
+<span class="sd">            $ref: &#39;#/definitions/ResourceBottleneckSchema&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">bottlenecks</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">get_resource_bottlenecks</span><span class="p">(</span><span class="n">analysis_period</span><span class="p">,</span> <span class="n">threshold</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">bottlenecks</span><span class="p">)</span></div>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/resources/capacity&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="nd">@use_kwargs</span><span class="p">({</span><span class="s1">&#39;include_predictions&#39;</span><span class="p">:</span> <span class="n">fields</span><span class="o">.</span><span class="n">Bool</span><span class="p">(</span><span class="n">missing</span><span class="o">=</span><span class="kc">False</span><span class="p">)},</span> <span class="n">location</span><span class="o">=</span><span class="s1">&#39;query&#39;</span><span class="p">)</span>
+<span class="nd">@marshal_with</span><span class="p">(</span><span class="n">SystemCapacitySchema</span><span class="p">)</span>
+<div class="viewcode-block" id="get_system_capacity">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.get_system_capacity">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_system_capacity</span><span class="p">(</span><span class="n">include_predictions</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get system capacity metrics.</span>
+<span class="sd">    ---</span>
+<span class="sd">    get:</span>
+<span class="sd">      description: Get current system capacity and optional future predictions</span>
+<span class="sd">      parameters:</span>
+<span class="sd">        - in: query</span>
+<span class="sd">          name: include_predictions</span>
+<span class="sd">          type: boolean</span>
+<span class="sd">          default: false</span>
+<span class="sd">          description: Whether to include capacity predictions</span>
+<span class="sd">      responses:</span>
+<span class="sd">        200:</span>
+<span class="sd">          description: System capacity metrics retrieved successfully</span>
+<span class="sd">          schema:</span>
+<span class="sd">            $ref: &#39;#/definitions/SystemCapacitySchema&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">capacity</span> <span class="o">=</span> <span class="k">await</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">get_system_capacity</span><span class="p">(</span><span class="n">include_predictions</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">capacity</span><span class="p">)</span></div>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/resources/realtime&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<div class="viewcode-block" id="stream_resource_metrics">
+<a class="viewcode-back" href="../../../../autoapi/src/seoninja/api/app/index.html#src.seoninja.api.app.stream_resource_metrics">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">stream_resource_metrics</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Stream real-time resource metrics.</span>
+<span class="sd">    ---</span>
+<span class="sd">    get:</span>
+<span class="sd">      description: Get real-time resource metrics as Server-Sent Events</span>
+<span class="sd">      responses:</span>
+<span class="sd">        200:</span>
+<span class="sd">          description: SSE stream started</span>
+<span class="sd">          content:</span>
+<span class="sd">            text/event-stream:</span>
+<span class="sd">              schema:</span>
+<span class="sd">                type: object</span>
+<span class="sd">                properties:</span>
+<span class="sd">                  timestamp:</span>
+<span class="sd">                    type: string</span>
+<span class="sd">                    format: date-time</span>
+<span class="sd">                  cpu_usage:</span>
+<span class="sd">                    type: object</span>
+<span class="sd">                  memory_usage:</span>
+<span class="sd">                    type: object</span>
+<span class="sd">                  network_usage:</span>
+<span class="sd">                    type: object</span>
+<span class="sd">                  agent_resources:</span>
+<span class="sd">                    type: object</span>
+<span class="sd">                  queue_metrics:</span>
+<span class="sd">                    type: object</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">():</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">metrics</span> <span class="o">=</span> <span class="n">orchestrator</span><span class="o">.</span><span class="n">get_realtime_resource_metrics</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">metrics</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="sa">f</span><span class="s2">&quot;data: </span><span class="si">{</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+            <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">generate</span><span class="p">(),</span> <span class="n">mimetype</span><span class="o">=</span><span class="s1">&#39;text/event-stream&#39;</span><span class="p">)</span></div>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Your Name.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

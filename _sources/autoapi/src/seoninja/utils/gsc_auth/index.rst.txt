@@ -1,0 +1,52 @@
+:py:mod:`src.seoninja.utils.gsc_auth`
+=====================================
+
+.. py:module:: src.seoninja.utils.gsc_auth
+
+.. autoapi-nested-parse::
+
+   Google Search Console authentication utilities.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   src.seoninja.utils.gsc_auth.get_gsc_credentials
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   src.seoninja.utils.gsc_auth.SCOPES
+   src.seoninja.utils.gsc_auth.REDIRECT_URI
+
+
+.. py:data:: SCOPES
+   :value: ['https://www.googleapis.com/auth/webmasters.readonly']
+
+   
+
+.. py:data:: REDIRECT_URI
+   :value: 'http://localhost:8080'
+
+   
+
+.. py:function:: get_gsc_credentials(client_secrets_file: str = 'client_secrets.json') -> Dict[str, Any]
+
+   Get Google Search Console credentials.
+
+   :param client_secrets_file: Path to client secrets file from Google Cloud Console
+
+   :returns: Dict containing credentials info that can be passed to KeywordResearch
+
+

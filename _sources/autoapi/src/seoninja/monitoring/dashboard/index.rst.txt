@@ -1,0 +1,37 @@
+:py:mod:`src.seoninja.monitoring.dashboard`
+===========================================
+
+.. py:module:: src.seoninja.monitoring.dashboard
+
+.. autoapi-nested-parse::
+
+   Monitoring dashboard for agent activities.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   src.seoninja.monitoring.dashboard.Dashboard
+
+
+
+
+.. py:class:: Dashboard(storage: Optional[src.seoninja.utils.storage.PersistentStorage] = None)
+
+
+   Dashboard for monitoring agent activities.
+
+   Initialize dashboard with optional storage.
+
+   .. py:method:: run(host: str = 'localhost', port: int = 8050, debug: bool = False)
+
+      Run the dashboard server.
+
+
+

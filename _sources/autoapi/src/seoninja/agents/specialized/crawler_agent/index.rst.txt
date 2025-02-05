@@ -1,0 +1,40 @@
+:py:mod:`src.seoninja.agents.specialized.crawler_agent`
+=======================================================
+
+.. py:module:: src.seoninja.agents.specialized.crawler_agent
+
+.. autoapi-nested-parse::
+
+   Web Crawler Agent implementation.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   src.seoninja.agents.specialized.crawler_agent.CrawlerAgent
+
+
+
+
+.. py:class:: CrawlerAgent(config: Dict[str, Any] = None)
+
+
+   Bases: :py:obj:`src.seoninja.agents.base.agent.BaseAgent`
+
+   Agent specialized in web crawling and site analysis.
+
+   Initialize Crawler agent with its specific tools.
+
+   .. py:method:: execute(task: Dict[str, Any]) -> Dict[str, Any]
+      :async:
+
+      Execute a crawling task with enhanced context awareness.
+
+
+

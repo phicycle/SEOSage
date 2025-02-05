@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation Guide &mdash; SEO Ninja 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=eafc0fe6" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Architecture" href="architecture.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            SEO Ninja
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#what-is-seo-ninja">What is SEO Ninja?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#key-features">Key Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#system-architecture">System Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#core-components">Core Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#communication-flow">Communication Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#task-management">Task Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#state-management">State Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#error-handling">Error Handling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#technology-stack">Technology Stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#getting-started">Getting Started</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#required-api-keys">Required API Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-steps">Installation Steps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#clone-the-repository">1. Clone the Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-virtual-environment">2. Create Virtual Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-dependencies">3. Install Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configure-environment-variables">4. Configure Environment Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-up-google-search-console-authentication">5. Set Up Google Search Console Authentication</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#running-the-application">Running the Application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#start-the-api-server">1. Start the API Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#access-the-api-documentation">2. Access the API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#development-setup">Development Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-development-dependencies">1. Install Development Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-up-pre-commit-hooks">2. Set Up Pre-commit Hooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-tests">3. Run Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-documentation">4. Build Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#common-issues">Common Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-help">Getting Help</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#system-overview">System Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#core-components">Core Components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#orchestrator-agent">Orchestrator Agent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#specialized-agents">Specialized Agents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#communication-model">Communication Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#inter-agent-communication">Inter-agent Communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#message-types">Message Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#task-processing">Task Processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#task-lifecycle">Task Lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#parallel-processing">Parallel Processing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#resource-management">Resource Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#resource-types">Resource Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#monitoring-system">Monitoring System</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#security-architecture">Security Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#authentication">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#data-protection">Data Protection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#error-handling">Error Handling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#recovery-mechanisms">Recovery Mechanisms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#error-propagation">Error Propagation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#deployment-architecture">Deployment Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#components">Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#scaling-strategy">Scaling Strategy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#future-considerations">Future Considerations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#planned-enhancements">Planned Enhancements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#task-management">Task Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#agent-communication">Agent Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#process-timeline">Process Timeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#resource-monitoring">Resource Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#system-status">System Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#error-responses">Error Responses</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="monitoring.html">Monitoring and Analytics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="monitoring.html#agent-communication-visualization">Agent Communication Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="monitoring.html#flow-analysis">Flow Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="monitoring.html#real-time-monitoring">Real-time Monitoring</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="monitoring.html#process-timeline">Process Timeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="monitoring.html#stage-tracking">Stage Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="monitoring.html#decision-points">Decision Points</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="monitoring.html#resource-monitoring">Resource Monitoring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="monitoring.html#resource-allocation">Resource Allocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="monitoring.html#usage-patterns">Usage Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="monitoring.html#bottleneck-detection">Bottleneck Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="monitoring.html#system-capacity">System Capacity</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="monitoring.html#visualization-integration">Visualization Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="monitoring.html#best-practices">Best Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id1">[1.0.0] - 2024-02-04</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#added">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">[0.9.0] - 2024-01-15</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#id3">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#changed">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id4">[0.8.0] - 2023-12-20</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#id5">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#fixed">Fixed</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a><ul class="simple">
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SEO Ninja</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Installation Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/installation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="architecture.html" class="btn btn-neutral float-right" title="Architecture" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installation-guide">
+<h1>Installation Guide<a class="headerlink" href="#installation-guide" title="Link to this heading"></a></h1>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
+<p>Before installing SEO Ninja, ensure you have the following prerequisites:</p>
+<ul class="simple">
+<li><p>Python 3.8 or higher</p></li>
+<li><p>pip (Python package installer)</p></li>
+<li><p>Virtual environment (recommended)</p></li>
+<li><p>Git (for cloning the repository)</p></li>
+</ul>
+</section>
+<section id="required-api-keys">
+<h2>Required API Keys<a class="headerlink" href="#required-api-keys" title="Link to this heading"></a></h2>
+<p>SEO Ninja requires several API keys for full functionality:</p>
+<ul class="simple">
+<li><p><strong>OpenAI API Key</strong>: For content generation and analysis</p></li>
+<li><p><strong>Google Search Console Credentials</strong>: For SEO data access</p></li>
+<li><p><strong>Moz API Token</strong>: For SEO metrics and analysis</p></li>
+</ul>
+</section>
+<section id="installation-steps">
+<h2>Installation Steps<a class="headerlink" href="#installation-steps" title="Link to this heading"></a></h2>
+<section id="clone-the-repository">
+<h3>1. Clone the Repository<a class="headerlink" href="#clone-the-repository" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/yourusername/seoninja.git
+<span class="nb">cd</span><span class="w"> </span>seoninja
+</pre></div>
+</div>
+</section>
+<section id="create-virtual-environment">
+<h3>2. Create Virtual Environment<a class="headerlink" href="#create-virtual-environment" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w">  </span><span class="c1"># On Unix/macOS</span>
+<span class="c1"># or</span>
+.venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate<span class="w">  </span><span class="c1"># On Windows</span>
+</pre></div>
+</div>
+</section>
+<section id="install-dependencies">
+<h3>3. Install Dependencies<a class="headerlink" href="#install-dependencies" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+</section>
+<section id="configure-environment-variables">
+<h3>4. Configure Environment Variables<a class="headerlink" href="#configure-environment-variables" title="Link to this heading"></a></h3>
+<p>Create a <cite>.env</cite> file in the project root:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">GSC_CLIENT_SECRETS_PATH</span><span class="o">=</span>client_secrets.json
+<span class="nv">MOZ_API_TOKEN</span><span class="o">=</span>your_moz_token
+<span class="nv">TARGET_DOMAIN</span><span class="o">=</span>your_domain
+<span class="nv">OPENAI_API_KEY</span><span class="o">=</span>your_openai_key
+</pre></div>
+</div>
+</section>
+<section id="set-up-google-search-console-authentication">
+<h3>5. Set Up Google Search Console Authentication<a class="headerlink" href="#set-up-google-search-console-authentication" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Go to Google Cloud Console</p></li>
+<li><p>Create a new project</p></li>
+<li><p>Enable Google Search Console API</p></li>
+<li><p>Create credentials (OAuth 2.0 Client ID)</p></li>
+<li><p>Download the client secrets file</p></li>
+<li><p>Rename it to <cite>client_secrets.json</cite> and place it in the project root</p></li>
+</ol>
+</section>
+</section>
+<section id="running-the-application">
+<h2>Running the Application<a class="headerlink" href="#running-the-application" title="Link to this heading"></a></h2>
+<section id="start-the-api-server">
+<h3>1. Start the API Server<a class="headerlink" href="#start-the-api-server" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>src.seoninja.api.app
+</pre></div>
+</div>
+</section>
+<section id="access-the-api-documentation">
+<h3>2. Access the API Documentation<a class="headerlink" href="#access-the-api-documentation" title="Link to this heading"></a></h3>
+<p>Open your browser and navigate to:</p>
+<ul class="simple">
+<li><p>API Documentation: <cite>http://localhost:5000/swagger/</cite></p></li>
+<li><p>ReDoc Interface: <cite>http://localhost:5000/redoc/</cite></p></li>
+</ul>
+</section>
+</section>
+<section id="development-setup">
+<h2>Development Setup<a class="headerlink" href="#development-setup" title="Link to this heading"></a></h2>
+<p>For development, additional steps are recommended:</p>
+<section id="install-development-dependencies">
+<h3>1. Install Development Dependencies<a class="headerlink" href="#install-development-dependencies" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements-dev.txt
+</pre></div>
+</div>
+</section>
+<section id="set-up-pre-commit-hooks">
+<h3>2. Set Up Pre-commit Hooks<a class="headerlink" href="#set-up-pre-commit-hooks" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pre-commit<span class="w"> </span>install
+</pre></div>
+</div>
+</section>
+<section id="run-tests">
+<h3>3. Run Tests<a class="headerlink" href="#run-tests" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest
+</pre></div>
+</div>
+</section>
+<section id="build-documentation">
+<h3>4. Build Documentation<a class="headerlink" href="#build-documentation" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>docs
+make<span class="w"> </span>html
+</pre></div>
+</div>
+</section>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<section id="common-issues">
+<h3>Common Issues<a class="headerlink" href="#common-issues" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Authentication Errors</strong></p>
+<ul class="simple">
+<li><p>Ensure all API keys are correctly set in <cite>.env</cite></p></li>
+<li><p>Verify Google Search Console credentials</p></li>
+<li><p>Check file permissions for credential files</p></li>
+</ul>
+</li>
+<li><p><strong>Import Errors</strong></p>
+<ul class="simple">
+<li><p>Verify virtual environment is activated</p></li>
+<li><p>Confirm all dependencies are installed</p></li>
+<li><p>Check Python version compatibility</p></li>
+</ul>
+</li>
+<li><p><strong>Runtime Errors</strong></p>
+<ul class="simple">
+<li><p>Check log files in <cite>logs/</cite> directory</p></li>
+<li><p>Verify system resources availability</p></li>
+<li><p>Ensure all required services are running</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="getting-help">
+<h2>Getting Help<a class="headerlink" href="#getting-help" title="Link to this heading"></a></h2>
+<p>If you encounter any issues:</p>
+<ol class="arabic simple">
+<li><p>Check the <span class="xref std std-doc">troubleshooting</span> guide</p></li>
+<li><p>Search existing GitHub issues</p></li>
+<li><p>Create a new issue with:
+* Error message
+* Steps to reproduce
+* System information
+* Relevant logs</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="architecture.html" class="btn btn-neutral float-right" title="Architecture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Your Name.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

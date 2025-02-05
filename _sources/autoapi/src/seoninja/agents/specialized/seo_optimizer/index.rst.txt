@@ -1,0 +1,40 @@
+:py:mod:`src.seoninja.agents.specialized.seo_optimizer`
+=======================================================
+
+.. py:module:: src.seoninja.agents.specialized.seo_optimizer
+
+.. autoapi-nested-parse::
+
+   SEO Optimizer Agent implementation.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   src.seoninja.agents.specialized.seo_optimizer.SEOOptimizerAgent
+
+
+
+
+.. py:class:: SEOOptimizerAgent(config: Dict[str, Any] = None)
+
+
+   Bases: :py:obj:`src.seoninja.agents.base.agent.BaseAgent`
+
+   Agent specialized in SEO optimization and technical analysis.
+
+   Initialize SEO Optimizer agent with its specific tools.
+
+   .. py:method:: execute(task: Dict[str, Any]) -> Dict[str, Any]
+      :async:
+
+      Execute an SEO optimization task with enhanced context awareness.
+
+
+
