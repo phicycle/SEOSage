@@ -81,6 +81,29 @@ async def list_tasks():
     tasks = orchestrator.state.get('tasks', {})
     return jsonify(tasks)
 
+@app.route('/api/tasks/<task_id>', methods=['DELETE'])
+@async_route
+async def cancel_task(task_id: str):
+    """Cancel a running task."""
+    success = await orchestrator.cancel_task(task_id)
+    if not success:
+        return jsonify({'error': 'Task not found or cannot be cancelled'}), 404
+    return jsonify({'status': 'cancelled'})
+
+@app.route('/api/tasks/<task_id>/priority', methods=['PATCH'])
+@async_route
+async def update_task_priority(task_id: str):
+    """Update task priority."""
+    data = request.json
+    new_priority = data.get('priority')
+    if not new_priority:
+        return jsonify({'error': 'Priority not specified'}), 400
+    
+    success = await orchestrator.update_task_priority(task_id, new_priority)
+    if not success:
+        return jsonify({'error': 'Task not found'}), 404
+    return jsonify({'status': 'updated'})
+
 # Agent Management Endpoints
 @app.route('/api/agents', methods=['GET'])
 @async_route
@@ -252,6 +275,105 @@ async def get_system_metrics():
         }
     }
     return jsonify(metrics)
+
+# Historical Data and Analytics
+@app.route('/api/analytics/performance', methods=['GET'])
+@async_route
+async def get_performance_history():
+    """Get historical performance data."""
+    start_date = request.args.get('start_date')
+    end_date = request.args.get('end_date')
+    metrics = await orchestrator.get_historical_metrics(start_date, end_date)
+    return jsonify(metrics)
+
+@app.route('/api/analytics/tasks', methods=['GET'])
+@async_route
+async def get_task_history():
+    """Get historical task data."""
+    start_date = request.args.get('start_date')
+    end_date = request.args.get('end_date')
+    task_type = request.args.get('type')
+    history = await orchestrator.get_task_history(start_date, end_date, task_type)
+    return jsonify(history)
+
+# Configuration Management
+@app.route('/api/config', methods=['GET'])
+@async_route
+async def get_configuration():
+    """Get current system configuration."""
+    config = await orchestrator.get_configuration()
+    # Mask sensitive data
+    if 'api_keys' in config:
+        config['api_keys'] = {k: '***' for k in config['api_keys']}
+    return jsonify(config)
+
+@app.route('/api/config', methods=['PATCH'])
+@async_route
+async def update_configuration():
+    """Update system configuration."""
+    data = request.json
+    success = await orchestrator.update_configuration(data)
+    return jsonify({'status': 'updated' if success else 'failed'})
+
+# Agent Control
+@app.route('/api/agents/<agent_name>/pause', methods=['POST'])
+@async_route
+async def pause_agent(agent_name: str):
+    """Pause a specific agent."""
+    if agent_name not in orchestrator.agents:
+        return jsonify({'error': 'Agent not found'}), 404
+    success = await orchestrator.pause_agent(agent_name)
+    return jsonify({'status': 'paused' if success else 'failed'})
+
+@app.route('/api/agents/<agent_name>/resume', methods=['POST'])
+@async_route
+async def resume_agent(agent_name: str):
+    """Resume a paused agent."""
+    if agent_name not in orchestrator.agents:
+        return jsonify({'error': 'Agent not found'}), 404
+    success = await orchestrator.resume_agent(agent_name)
+    return jsonify({'status': 'resumed' if success else 'failed'})
+
+@app.route('/api/agents/<agent_name>/reset', methods=['POST'])
+@async_route
+async def reset_agent(agent_name: str):
+    """Reset a specific agent to its initial state."""
+    if agent_name not in orchestrator.agents:
+        return jsonify({'error': 'Agent not found'}), 404
+    success = await orchestrator.reset_agent(agent_name)
+    return jsonify({'status': 'reset' if success else 'failed'})
+
+# Error Logging and Debugging
+@app.route('/api/logs', methods=['GET'])
+@async_route
+async def get_system_logs():
+    """Get system logs."""
+    log_level = request.args.get('level', 'INFO')
+    start_time = request.args.get('start_time')
+    end_time = request.args.get('end_time')
+    limit = request.args.get('limit', 100)
+    
+    logs = await orchestrator.get_logs(log_level, start_time, end_time, limit)
+    return jsonify(logs)
+
+@app.route('/api/logs/errors', methods=['GET'])
+@async_route
+async def get_error_logs():
+    """Get error logs specifically."""
+    start_time = request.args.get('start_time')
+    end_time = request.args.get('end_time')
+    limit = request.args.get('limit', 50)
+    
+    errors = await orchestrator.get_error_logs(start_time, end_time, limit)
+    return jsonify(errors)
+
+@app.route('/api/debug/state', methods=['GET'])
+@async_route
+async def get_debug_state():
+    """Get detailed system state for debugging."""
+    include_sensitive = request.args.get('include_sensitive', 'false').lower() == 'true'
+    state = await orchestrator.get_debug_state(include_sensitive)
+    return jsonify(state)
 
 if __name__ == '__main__':
     app.run(debug=True) 

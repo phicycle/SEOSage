@@ -241,6 +241,21 @@ GET /api/tasks/{task_id}
 GET /api/tasks
 ```
 
+#### Cancel Task
+```http
+DELETE /api/tasks/{task_id}
+```
+
+#### Update Task Priority
+```http
+PATCH /api/tasks/{task_id}/priority
+Content-Type: application/json
+
+{
+    "priority": "high"
+}
+```
+
 ### Agent Management
 
 #### List Agents
@@ -252,6 +267,85 @@ GET /api/agents
 ```http
 GET /api/agents/{agent_name}/health
 ```
+
+#### Pause Agent
+```http
+POST /api/agents/{agent_name}/pause
+```
+
+#### Resume Agent
+```http
+POST /api/agents/{agent_name}/resume
+```
+
+#### Reset Agent
+```http
+POST /api/agents/{agent_name}/reset
+```
+
+### Analytics and Monitoring
+
+#### Get Performance History
+```http
+GET /api/analytics/performance?start_date=2024-01-01&end_date=2024-01-31
+```
+
+#### Get Task History
+```http
+GET /api/analytics/tasks?start_date=2024-01-01&end_date=2024-01-31&type=content_generation
+```
+
+#### Get System Metrics
+```http
+GET /api/system/metrics
+```
+
+#### Get System Status
+```http
+GET /api/system/status
+```
+
+### Configuration Management
+
+#### Get Configuration
+```http
+GET /api/config
+```
+
+#### Update Configuration
+```http
+PATCH /api/config
+Content-Type: application/json
+
+{
+    "setting_name": "setting_value"
+}
+```
+
+### Logging and Debugging
+
+#### Get System Logs
+```http
+GET /api/logs?level=INFO&start_time=2024-01-01T00:00:00&end_time=2024-01-31T23:59:59&limit=100
+```
+
+#### Get Error Logs
+```http
+GET /api/logs/errors?start_time=2024-01-01T00:00:00&end_time=2024-01-31T23:59:59&limit=50
+```
+
+#### Get Debug State
+```http
+GET /api/debug/state?include_sensitive=false
+```
+
+### Real-time Updates
+
+#### Stream Updates
+```http
+GET /api/updates/stream
+```
+Response: Server-Sent Events (SSE) stream
 
 ### Content Generation
 
@@ -274,7 +368,7 @@ Content-Type: application/json
 
 {
     "keywords": ["keyword1", "keyword2"],
-    "intent": "commercial",
+    "intent": "informational",
     "website_url": "https://example.com"
 }
 ```
@@ -291,7 +385,7 @@ Content-Type: application/json
 }
 ```
 
-#### Technical SEO Analysis
+#### Analyze Technical SEO
 ```http
 POST /api/seo/technical
 Content-Type: application/json
@@ -321,8 +415,8 @@ Content-Type: application/json
 {
     "keyword": "seed keyword",
     "parameters": {
-        "country": "US",
-        "language": "en"
+        "locale": "en-US",
+        "volume_threshold": 1000
     }
 }
 ```
@@ -336,25 +430,6 @@ Content-Type: application/json
     "content": "Your content here",
     "keywords": ["keyword1", "keyword2"]
 }
-```
-
-### System Status
-
-#### Get System Status
-```http
-GET /api/system/status
-```
-
-#### Get System Metrics
-```http
-GET /api/system/metrics
-```
-
-### Real-time Updates
-
-#### Stream Updates
-```http
-GET /api/updates/stream
 ```
 
 ## 🔄 Real-time Updates Integration
