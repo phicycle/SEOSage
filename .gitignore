@@ -66,3 +66,6 @@ ENV/
 blogs/
 generated_content/
 analysis_cache/
+
+client_secrets.json
+*.pickle
