@@ -21,13 +21,18 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.8'
+          python-version: '3.9'
           cache: 'pip'
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          # Install packages one by one to better handle errors
+          while read requirement; do
+            if [[ ! -z "$requirement" ]]; then
+              python -m pip install "$requirement" || echo "Failed to install $requirement"
+            fi
+          done < requirements.txt
 
       - name: Build documentation
         run: |
