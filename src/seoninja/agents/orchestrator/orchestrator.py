@@ -1,7 +1,7 @@
 """Orchestrator agent for coordinating specialized agents."""
 from typing import Dict, Any, List, Optional, Tuple
 import asyncio
-from datetime import datetime
+from datetime import datetime, timedelta
 import time
 from ...agents.base.agent import BaseAgent
 from ...agents.specialized.content_agent import ContentAgent
@@ -12,6 +12,7 @@ from ...utils.storage import PersistentStorage
 from ...utils.security import APIKeyManager, RateLimiter, InputValidator
 from ...utils.parallel import run_parallel_tasks
 from ...config.settings import get_settings
+import psutil
 
 class TaskDecomposer:
     """Decomposes complex tasks into subtasks with enhanced context sharing."""
@@ -853,4 +854,658 @@ class SEOOrchestrator(BaseAgent):
                 }]
             
         except Exception as e:
-            self.logger.error(f"Error notifying task failure: {str(e)}") 
+            self.logger.error(f"Error notifying task failure: {str(e)}")
+
+    async def get_communication_flows(self, start_time: Optional[str] = None, end_time: Optional[str] = None) -> Dict[str, Any]:
+        """Get inter-agent communication flows."""
+        try:
+            flows = []
+            for agent_name, agent in self.agents.items():
+                agent_flows = agent.get_communication_history()
+                filtered_flows = self._filter_by_timerange(agent_flows, start_time, end_time)
+                flows.extend(filtered_flows)
+
+            return {
+                'flows': flows,
+                'metrics': {
+                    'total_messages': len(flows),
+                    'messages_per_agent': self._count_messages_per_agent(flows),
+                    'communication_patterns': self._analyze_communication_patterns(flows)
+                }
+            }
+        except Exception as e:
+            self.logger.error(f"Error getting communication flows: {str(e)}")
+            return {'error': str(e)}
+
+    def get_realtime_communication(self) -> Dict[str, Any]:
+        """Get real-time agent interaction data."""
+        try:
+            current_interactions = {
+                agent_name: {
+                    'active_communications': agent.get_active_communications(),
+                    'pending_messages': agent.get_pending_messages(),
+                    'last_interaction': agent.get_last_interaction()
+                }
+                for agent_name, agent in self.agents.items()
+            }
+
+            return {
+                'timestamp': datetime.now().isoformat(),
+                'interactions': current_interactions,
+                'active_channels': self._get_active_channels()
+            }
+        except Exception as e:
+            self.logger.error(f"Error getting realtime communication: {str(e)}")
+            return {'error': str(e)}
+
+    async def get_communication_analytics(self, timeframe: str = '24h') -> Dict[str, Any]:
+        """Get communication patterns analytics."""
+        try:
+            # Convert timeframe to timedelta
+            time_range = self._parse_timeframe(timeframe)
+            start_time = datetime.now() - time_range
+
+            # Get communication data
+            flows = await self.get_communication_flows(start_time.isoformat())
+            
+            return {
+                'patterns': self._analyze_communication_patterns(flows.get('flows', [])),
+                'metrics': {
+                    'message_frequency': self._calculate_message_frequency(flows.get('flows', [])),
+                    'response_times': self._calculate_response_times(flows.get('flows', [])),
+                    'channel_usage': self._analyze_channel_usage(flows.get('flows', []))
+                },
+                'insights': self._generate_communication_insights(flows.get('flows', []))
+            }
+        except Exception as e:
+            self.logger.error(f"Error getting communication analytics: {str(e)}")
+            return {'error': str(e)}
+
+    async def get_data_flow_metrics(self, start_time: Optional[str] = None, end_time: Optional[str] = None) -> Dict[str, Any]:
+        """Get data flow metrics between agents."""
+        try:
+            flows = await self.get_communication_flows(start_time, end_time)
+            
+            return {
+                'data_volume': self._calculate_data_volume(flows.get('flows', [])),
+                'flow_patterns': self._analyze_flow_patterns(flows.get('flows', [])),
+                'bottlenecks': self._identify_flow_bottlenecks(flows.get('flows', [])),
+                'optimization_suggestions': self._generate_flow_optimization_suggestions(flows.get('flows', []))
+            }
+        except Exception as e:
+            self.logger.error(f"Error getting data flow metrics: {str(e)}")
+            return {'error': str(e)}
+
+    # Process Timeline Methods
+    async def get_process_timeline(self, process_id: str, include_details: bool = False) -> Dict[str, Any]:
+        """Get detailed process stage tracking data."""
+        try:
+            process = self.state.get('processes', {}).get(process_id)
+            if not process:
+                return {'error': 'Process not found'}
+
+            timeline = {
+                'process_id': process_id,
+                'stages': self._get_process_stages(process_id),
+                'current_stage': self._get_current_stage(process_id),
+                'duration': self._calculate_process_duration(process_id),
+                'status': self._get_process_status(process_id)
+            }
+
+            if include_details:
+                timeline.update({
+                    'stage_details': self._get_stage_details(process_id),
+                    'dependencies': self._get_process_dependencies(process_id),
+                    'resources': self._get_process_resources(process_id)
+                })
+
+            return timeline
+        except Exception as e:
+            self.logger.error(f"Error getting process timeline: {str(e)}")
+            return {'error': str(e)}
+
+    async def get_decision_points(self, process_id: str, start_time: Optional[str] = None, end_time: Optional[str] = None) -> Dict[str, Any]:
+        """Get decision point logging data."""
+        try:
+            decisions = self._get_process_decisions(process_id)
+            filtered_decisions = self._filter_by_timerange(decisions, start_time, end_time)
+
+            return {
+                'process_id': process_id,
+                'decisions': filtered_decisions,
+                'metrics': {
+                    'total_decisions': len(filtered_decisions),
+                    'decision_types': self._analyze_decision_types(filtered_decisions),
+                    'average_decision_time': self._calculate_average_decision_time(filtered_decisions)
+                }
+            }
+        except Exception as e:
+            self.logger.error(f"Error getting decision points: {str(e)}")
+            return {'error': str(e)}
+
+    async def get_stage_transitions(self, process_id: str) -> Dict[str, Any]:
+        """Get stage transition data."""
+        try:
+            transitions = self._get_stage_transitions(process_id)
+            return {
+                'process_id': process_id,
+                'transitions': transitions,
+                'metrics': {
+                    'total_transitions': len(transitions),
+                    'average_stage_duration': self._calculate_average_stage_duration(transitions),
+                    'bottleneck_stages': self._identify_bottleneck_stages(transitions)
+                }
+            }
+        except Exception as e:
+            self.logger.error(f"Error getting stage transitions: {str(e)}")
+            return {'error': str(e)}
+
+    async def get_time_analysis(self, timeframe: str, process_type: Optional[str] = None) -> Dict[str, Any]:
+        """Get time-based process analysis."""
+        try:
+            time_range = self._parse_timeframe(timeframe)
+            processes = self._get_processes_in_timeframe(time_range, process_type)
+
+            return {
+                'timeframe': timeframe,
+                'process_type': process_type,
+                'metrics': {
+                    'average_duration': self._calculate_average_process_duration(processes),
+                    'completion_rate': self._calculate_completion_rate(processes),
+                    'stage_distribution': self._analyze_stage_distribution(processes)
+                },
+                'trends': self._analyze_time_trends(processes),
+                'optimization_suggestions': self._generate_time_optimization_suggestions(processes)
+            }
+        except Exception as e:
+            self.logger.error(f"Error getting time analysis: {str(e)}")
+            return {'error': str(e)}
+
+    # Resource Monitoring Methods
+    async def get_resource_allocation(self, resource_type: Optional[str] = None, timeframe: str = '1h') -> Dict[str, Any]:
+        """Get detailed resource allocation tracking."""
+        try:
+            time_range = self._parse_timeframe(timeframe)
+            allocations = self._get_resource_allocations(time_range, resource_type)
+
+            return {
+                'resource_type': resource_type,
+                'timeframe': timeframe,
+                'allocations': allocations,
+                'metrics': {
+                    'utilization': self._calculate_resource_utilization(allocations),
+                    'efficiency': self._calculate_resource_efficiency(allocations),
+                    'availability': self._calculate_resource_availability(allocations)
+                }
+            }
+        except Exception as e:
+            self.logger.error(f"Error getting resource allocation: {str(e)}")
+            return {'error': str(e)}
+
+    async def get_usage_patterns(self, resource_type: Optional[str], start_time: Optional[str], end_time: Optional[str]) -> Dict[str, Any]:
+        """Get resource usage patterns."""
+        try:
+            usage_data = self._get_resource_usage(resource_type, start_time, end_time)
+            
+            return {
+                'resource_type': resource_type,
+                'patterns': self._analyze_usage_patterns(usage_data),
+                'trends': self._analyze_usage_trends(usage_data),
+                'predictions': self._predict_future_usage(usage_data)
+            }
+        except Exception as e:
+            self.logger.error(f"Error getting usage patterns: {str(e)}")
+            return {'error': str(e)}
+
+    async def get_resource_bottlenecks(self, analysis_period: str = '24h', threshold: float = 0.8) -> Dict[str, Any]:
+        """Get resource bottleneck identification."""
+        try:
+            time_range = self._parse_timeframe(analysis_period)
+            usage_data = self._get_resource_usage(None, (datetime.now() - time_range).isoformat())
+            
+            bottlenecks = self._identify_bottlenecks(usage_data, threshold)
+            return {
+                'bottlenecks': bottlenecks,
+                'impact_analysis': self._analyze_bottleneck_impact(bottlenecks),
+                'recommendations': self._generate_bottleneck_recommendations(bottlenecks)
+            }
+        except Exception as e:
+            self.logger.error(f"Error getting resource bottlenecks: {str(e)}")
+            return {'error': str(e)}
+
+    async def get_system_capacity(self, include_predictions: bool = False) -> Dict[str, Any]:
+        """Get system capacity metrics."""
+        try:
+            current_capacity = self._get_current_capacity()
+            metrics = {
+                'current_capacity': current_capacity,
+                'utilization': self._calculate_system_utilization(),
+                'headroom': self._calculate_system_headroom(),
+                'limits': self._get_system_limits()
+            }
+
+            if include_predictions:
+                metrics['predictions'] = {
+                    'future_capacity': self._predict_future_capacity(),
+                    'growth_trends': self._analyze_capacity_trends(),
+                    'scaling_recommendations': self._generate_scaling_recommendations()
+                }
+
+            return metrics
+        except Exception as e:
+            self.logger.error(f"Error getting system capacity: {str(e)}")
+            return {'error': str(e)}
+
+    def get_realtime_resource_metrics(self) -> Dict[str, Any]:
+        """Get real-time resource metrics."""
+        try:
+            return {
+                'timestamp': datetime.now().isoformat(),
+                'cpu_usage': self._get_cpu_usage(),
+                'memory_usage': self._get_memory_usage(),
+                'network_usage': self._get_network_usage(),
+                'agent_resources': self._get_agent_resource_usage(),
+                'queue_metrics': self._get_queue_metrics()
+            }
+        except Exception as e:
+            self.logger.error(f"Error getting realtime resource metrics: {str(e)}")
+            return {'error': str(e)}
+
+    # Helper Methods
+    def _filter_by_timerange(self, data: List[Dict[str, Any]], start_time: Optional[str], end_time: Optional[str]) -> List[Dict[str, Any]]:
+        """Filter data by time range."""
+        if not start_time and not end_time:
+            return data
+
+        filtered_data = data
+        if start_time:
+            start_dt = datetime.fromisoformat(start_time)
+            filtered_data = [d for d in filtered_data if datetime.fromisoformat(d['timestamp']) >= start_dt]
+        if end_time:
+            end_dt = datetime.fromisoformat(end_time)
+            filtered_data = [d for d in filtered_data if datetime.fromisoformat(d['timestamp']) <= end_dt]
+
+        return filtered_data
+
+    def _parse_timeframe(self, timeframe: str) -> timedelta:
+        """Parse timeframe string into timedelta."""
+        unit = timeframe[-1]
+        value = int(timeframe[:-1])
+        
+        if unit == 'h':
+            return timedelta(hours=value)
+        elif unit == 'd':
+            return timedelta(days=value)
+        elif unit == 'w':
+            return timedelta(weeks=value)
+        else:
+            raise ValueError(f"Invalid timeframe format: {timeframe}")
+
+    # Private Helper Methods for Communication Analysis
+    def _count_messages_per_agent(self, flows: List[Dict[str, Any]]) -> Dict[str, int]:
+        """Count messages per agent."""
+        counts = {}
+        for flow in flows:
+            counts[flow['source']] = counts.get(flow['source'], 0) + 1
+            counts[flow['target']] = counts.get(flow['target'], 0) + 1
+        return counts
+
+    def _analyze_communication_patterns(self, flows: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """Analyze communication patterns between agents."""
+        patterns = {
+            'common_paths': self._identify_common_paths(flows),
+            'frequency_matrix': self._create_frequency_matrix(flows),
+            'peak_times': self._identify_peak_times(flows)
+        }
+        return patterns
+
+    def _identify_common_paths(self, flows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Identify common communication paths."""
+        path_counts = {}
+        for flow in flows:
+            path = f"{flow['source']}->{flow['target']}"
+            path_counts[path] = path_counts.get(path, 0) + 1
+        return [{'path': k, 'count': v} for k, v in sorted(path_counts.items(), key=lambda x: x[1], reverse=True)]
+
+    def _create_frequency_matrix(self, flows: List[Dict[str, Any]]) -> Dict[str, Dict[str, int]]:
+        """Create communication frequency matrix."""
+        matrix = {}
+        for flow in flows:
+            source = flow['source']
+            target = flow['target']
+            if source not in matrix:
+                matrix[source] = {}
+            matrix[source][target] = matrix[source].get(target, 0) + 1
+        return matrix
+
+    def _identify_peak_times(self, flows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Identify peak communication times."""
+        hour_counts = {}
+        for flow in flows:
+            hour = datetime.fromisoformat(flow['timestamp']).hour
+            hour_counts[hour] = hour_counts.get(hour, 0) + 1
+        return [{'hour': k, 'count': v} for k, v in sorted(hour_counts.items(), key=lambda x: x[1], reverse=True)]
+
+    # Private Helper Methods for Process Timeline
+    def _get_process_stages(self, process_id: str) -> List[Dict[str, Any]]:
+        """Get all stages of a process."""
+        process = self.state.get('processes', {}).get(process_id, {})
+        return process.get('stages', [])
+
+    def _calculate_stage_duration(self, stage: Dict[str, Any]) -> float:
+        """Calculate duration of a single stage."""
+        start_time = datetime.fromisoformat(stage.get('start_time', datetime.now().isoformat()))
+        end_time = datetime.fromisoformat(stage.get('end_time', datetime.now().isoformat()))
+        return (end_time - start_time).total_seconds()
+
+    def _get_process_decisions(self, process_id: str) -> List[Dict[str, Any]]:
+        """Get decision points for a process."""
+        process = self.state.get('processes', {}).get(process_id, {})
+        return process.get('decisions', [])
+
+    def _analyze_decision_types(self, decisions: List[Dict[str, Any]]) -> Dict[str, int]:
+        """Analyze types of decisions made."""
+        type_counts = {}
+        for decision in decisions:
+            decision_type = decision.get('type', 'unknown')
+            type_counts[decision_type] = type_counts.get(decision_type, 0) + 1
+        return type_counts
+
+    def _calculate_average_decision_time(self, decisions: List[Dict[str, Any]]) -> float:
+        """Calculate average time taken for decisions."""
+        if not decisions:
+            return 0.0
+        times = []
+        for decision in decisions:
+            start_time = datetime.fromisoformat(decision.get('start_time', ''))
+            end_time = datetime.fromisoformat(decision.get('end_time', ''))
+            times.append((end_time - start_time).total_seconds())
+        return sum(times) / len(times) if times else 0.0
+
+    # Private Helper Methods for Resource Monitoring
+    def _get_resource_usage(self, resource_type: Optional[str], start_time: Optional[str], end_time: Optional[str] = None) -> List[Dict[str, Any]]:
+        """Get resource usage data."""
+        usage_data = self.state.get('resource_usage', [])
+        filtered = self._filter_by_timerange(usage_data, start_time, end_time)
+        if resource_type:
+            filtered = [u for u in filtered if u['type'] == resource_type]
+        return filtered
+
+    def _analyze_usage_patterns(self, usage_data: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """Analyze resource usage patterns."""
+        return {
+            'peak_usage_times': self._identify_peak_usage_times(usage_data),
+            'usage_distribution': self._calculate_usage_distribution(usage_data),
+            'correlation_analysis': self._analyze_usage_correlation(usage_data)
+        }
+
+    def _identify_peak_usage_times(self, usage_data: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Identify times of peak resource usage."""
+        hour_usage = {}
+        for data in usage_data:
+            hour = datetime.fromisoformat(data['timestamp']).hour
+            usage = data.get('utilization', 0)
+            if hour not in hour_usage:
+                hour_usage[hour] = []
+            hour_usage[hour].append(usage)
+        
+        return [{
+            'hour': hour,
+            'average_usage': sum(usages) / len(usages),
+            'peak_usage': max(usages)
+        } for hour, usages in hour_usage.items()]
+
+    def _calculate_usage_distribution(self, usage_data: List[Dict[str, Any]]) -> Dict[str, float]:
+        """Calculate distribution of resource usage."""
+        if not usage_data:
+            return {}
+        
+        usages = [data.get('utilization', 0) for data in usage_data]
+        return {
+            'min': min(usages),
+            'max': max(usages),
+            'average': sum(usages) / len(usages),
+            'median': sorted(usages)[len(usages) // 2]
+        }
+
+    def _analyze_usage_correlation(self, usage_data: List[Dict[str, Any]]) -> Dict[str, float]:
+        """Analyze correlation between different resource metrics."""
+        metrics = {}
+        for data in usage_data:
+            for metric, value in data.items():
+                if isinstance(value, (int, float)) and metric != 'timestamp':
+                    if metric not in metrics:
+                        metrics[metric] = []
+                    metrics[metric].append(value)
+        
+        correlations = {}
+        for m1 in metrics:
+            for m2 in metrics:
+                if m1 < m2:  # Avoid duplicate correlations
+                    correlation = self._calculate_correlation(metrics[m1], metrics[m2])
+                    correlations[f"{m1}-{m2}"] = correlation
+        
+        return correlations
+
+    def _calculate_correlation(self, x: List[float], y: List[float]) -> float:
+        """Calculate correlation coefficient between two metrics."""
+        if len(x) != len(y) or len(x) < 2:
+            return 0.0
+        
+        mean_x = sum(x) / len(x)
+        mean_y = sum(y) / len(y)
+        
+        numerator = sum((xi - mean_x) * (yi - mean_y) for xi, yi in zip(x, y))
+        denominator = (sum((xi - mean_x) ** 2 for xi in x) * sum((yi - mean_y) ** 2 for yi in y)) ** 0.5
+        
+        return numerator / denominator if denominator != 0 else 0.0
+
+    # System Metrics Collection Methods
+    def _get_cpu_usage(self) -> Dict[str, float]:
+        """Get CPU usage metrics."""
+        try:
+            cpu_times = psutil.cpu_times_percent()
+            return {
+                'utilization': psutil.cpu_percent() / 100,
+                'user': cpu_times.user,
+                'system': cpu_times.system,
+                'idle': cpu_times.idle
+            }
+        except Exception as e:
+            self.logger.error(f"Error getting CPU usage: {str(e)}")
+            return {'error': str(e)}
+
+    def _get_memory_usage(self) -> Dict[str, float]:
+        """Get memory usage metrics."""
+        try:
+            memory = psutil.virtual_memory()
+            return {
+                'utilization': memory.percent / 100,
+                'available': memory.available,
+                'used': memory.used,
+                'total': memory.total
+            }
+        except Exception as e:
+            self.logger.error(f"Error getting memory usage: {str(e)}")
+            return {'error': str(e)}
+
+    def _get_network_usage(self) -> Dict[str, float]:
+        """Get network usage metrics."""
+        try:
+            network = psutil.net_io_counters()
+            return {
+                'bytes_sent': network.bytes_sent,
+                'bytes_recv': network.bytes_recv,
+                'packets_sent': network.packets_sent,
+                'packets_recv': network.packets_recv
+            }
+        except Exception as e:
+            self.logger.error(f"Error getting network usage: {str(e)}")
+            return {'error': str(e)}
+
+    def _get_storage_usage(self) -> Dict[str, float]:
+        """Get storage usage metrics."""
+        try:
+            disk = psutil.disk_usage('/')
+            return {
+                'utilization': disk.percent / 100,
+                'total': disk.total,
+                'used': disk.used,
+                'free': disk.free
+            }
+        except Exception as e:
+            self.logger.error(f"Error getting storage usage: {str(e)}")
+            return {'error': str(e)}
+
+    def _get_agent_resource_usage(self) -> Dict[str, Dict[str, float]]:
+        """Get resource usage per agent."""
+        usage = {}
+        for agent_name, agent in self.agents.items():
+            try:
+                if hasattr(agent, 'get_resource_usage'):
+                    usage[agent_name] = agent.get_resource_usage()
+            except Exception as e:
+                self.logger.error(f"Error getting resource usage for agent {agent_name}: {str(e)}")
+        return usage
+
+    def _get_queue_metrics(self) -> Dict[str, int]:
+        """Get task queue metrics."""
+        try:
+            return {
+                'queue_size': self.task_queue.qsize(),
+                'active_tasks': len([t for t in self.state.get('tasks', {}).values() 
+                                   if t.get('status') == 'running']),
+                'pending_tasks': len([t for t in self.state.get('tasks', {}).values() 
+                                    if t.get('status') == 'pending'])
+            }
+        except Exception as e:
+            self.logger.error(f"Error getting queue metrics: {str(e)}")
+            return {'error': str(e)}
+
+    def _get_cpu_max_frequency(self) -> float:
+        """Get CPU maximum frequency."""
+        try:
+            return psutil.cpu_freq().max
+        except Exception as e:
+            self.logger.error(f"Error getting CPU max frequency: {str(e)}")
+            return 0.0
+
+    def _get_network_limits(self) -> Dict[str, Any]:
+        """Get network interface limits."""
+        try:
+            interfaces = psutil.net_if_stats()
+            return {
+                name: {
+                    'speed': interface.speed,
+                    'mtu': interface.mtu,
+                    'is_up': interface.isup
+                }
+                for name, interface in interfaces.items()
+            }
+        except Exception as e:
+            self.logger.error(f"Error getting network limits: {str(e)}")
+            return {'error': str(e)}
+
+    def _predict_future_capacity(self) -> Dict[str, Any]:
+        """Predict future system capacity needs."""
+        try:
+            current_usage = self._get_current_capacity()
+            historical_data = self.state.get('historical_usage', [])
+            
+            predictions = {
+                'cpu': self._predict_resource_usage(historical_data, 'cpu'),
+                'memory': self._predict_resource_usage(historical_data, 'memory'),
+                'storage': self._predict_resource_usage(historical_data, 'storage'),
+                'network': self._predict_resource_usage(historical_data, 'network')
+            }
+            
+            return {
+                'current_usage': current_usage,
+                'predictions': predictions,
+                'recommendation': self._generate_capacity_recommendation(current_usage, predictions)
+            }
+        except Exception as e:
+            self.logger.error(f"Error predicting future capacity: {str(e)}")
+            return {'error': str(e)}
+
+    def _predict_resource_usage(self, historical_data: List[Dict[str, Any]], resource_type: str) -> Dict[str, float]:
+        """Predict future usage for a specific resource."""
+        try:
+            if not historical_data:
+                return {}
+            
+            # Get usage trends
+            usage_values = [data.get(resource_type, {}).get('utilization', 0) 
+                          for data in historical_data]
+            
+            if not usage_values:
+                return {}
+            
+            # Simple linear regression for prediction
+            x = list(range(len(usage_values)))
+            slope = self._calculate_slope(x, usage_values)
+            
+            # Predict next 24 hours
+            current = usage_values[-1]
+            predictions = {
+                '1h': current + slope,
+                '6h': current + slope * 6,
+                '24h': current + slope * 24
+            }
+            
+            return predictions
+        except Exception as e:
+            self.logger.error(f"Error predicting resource usage: {str(e)}")
+            return {'error': str(e)}
+
+    def _calculate_slope(self, x: List[float], y: List[float]) -> float:
+        """Calculate slope for linear regression."""
+        if len(x) != len(y) or len(x) < 2:
+            return 0.0
+        
+        mean_x = sum(x) / len(x)
+        mean_y = sum(y) / len(y)
+        
+        numerator = sum((xi - mean_x) * (yi - mean_y) for xi, yi in zip(x, y))
+        denominator = sum((xi - mean_x) ** 2 for xi in x)
+        
+        return numerator / denominator if denominator != 0 else 0.0
+
+    def _generate_capacity_recommendation(self, current_usage: Dict[str, Any], predictions: Dict[str, Any]) -> Dict[str, Any]:
+        """Generate capacity scaling recommendations."""
+        try:
+            recommendations = {}
+            
+            for resource in ['cpu', 'memory', 'storage', 'network']:
+                current = current_usage.get(resource, {}).get('utilization', 0)
+                predicted = predictions.get(resource, {}).get('24h', 0)
+                
+                if predicted > 0.8:  # 80% threshold
+                    recommendations[resource] = {
+                        'action': 'scale_up',
+                        'urgency': 'high' if predicted > 0.9 else 'medium',
+                        'reason': f"Predicted utilization of {predicted:.1%} exceeds threshold"
+                    }
+                elif predicted < 0.2:  # 20% threshold
+                    recommendations[resource] = {
+                        'action': 'scale_down',
+                        'urgency': 'low',
+                        'reason': f"Predicted utilization of {predicted:.1%} is below optimal"
+                    }
+                else:
+                    recommendations[resource] = {
+                        'action': 'maintain',
+                        'urgency': 'none',
+                        'reason': f"Predicted utilization of {predicted:.1%} is optimal"
+                    }
+            
+            return recommendations
+        except Exception as e:
+            self.logger.error(f"Error generating capacity recommendations: {str(e)}")
+            return {'error': str(e)}
+
+    def cleanup(self) -> None:
+        """Clean up resources."""
+        super().cleanup()
+        for agent in self.agents.values():
+            agent.cleanup() 

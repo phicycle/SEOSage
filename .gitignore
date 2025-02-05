@@ -69,3 +69,6 @@ analysis_cache/
 
 client_secrets.json
 *.pickle
+
+# Sphinx
+_build/

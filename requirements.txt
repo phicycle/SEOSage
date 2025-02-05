@@ -25,3 +25,15 @@ google-auth-oauthlib>=1.2.0
 google-api-python-client>=2.120.0
 flask>=2.0.0
 flask-cors>=4.0.0
+psutil>=6.0.0
+sphinx==7.2.6
+sphinx-rtd-theme==2.0.0
+sphinxcontrib-httpdomain==1.8.1
+sphinx-autoapi==3.0.0
+myst-parser==2.0.0
+flask-sphinx-themes==1.0.2
+sphinxcontrib-openapi==0.8.3
+flask-autodoc==0.1.2
+flask-apispec==0.11.4
+apispec==6.3.0
+marshmallow==3.20.1

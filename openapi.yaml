@@ -1,0 +1,7 @@
+
+openapi: 3.0.2
+info:
+  title: SEO Ninja API
+  version: v1
+paths: {}
+        

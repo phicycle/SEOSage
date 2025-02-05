@@ -2,6 +2,14 @@
 
 SEO Ninja is a sophisticated multi-agent system designed for comprehensive SEO analysis, content generation, and optimization. The system utilizes multiple specialized agents orchestrated by a central coordinator to perform complex SEO tasks efficiently.
 
+## Features
+
+- Multi-agent SEO optimization
+- Real-time monitoring and analytics
+- Resource-aware task management
+- Intelligent content generation
+- Advanced SEO analysis
+
 ## 🚀 System Architecture
 
 ### Core Components
@@ -430,6 +438,70 @@ Content-Type: application/json
     "content": "Your content here",
     "keywords": ["keyword1", "keyword2"]
 }
+```
+
+### Agent Communication Visualization
+
+```
+GET /api/communication/flows
+    - Get inter-agent communication flows
+    - Query params: start_time, end_time
+
+GET /api/communication/realtime
+    - Stream real-time agent interaction data
+    - Server-sent events endpoint
+
+GET /api/communication/analytics
+    - Get communication patterns analytics
+    - Query params: timeframe (e.g., '24h')
+
+GET /api/communication/metrics
+    - Get data flow metrics between agents
+    - Query params: start_time, end_time
+```
+
+### Process Timeline
+
+```
+GET /api/timeline/process
+    - Get detailed process stage tracking
+    - Query params: process_id, include_details
+
+GET /api/timeline/decisions
+    - Get decision point logging
+    - Query params: process_id, start_time, end_time
+
+GET /api/timeline/transitions
+    - Get stage transition data
+    - Query params: process_id
+
+GET /api/timeline/analysis
+    - Get time-based process analysis
+    - Query params: timeframe, process_type
+```
+
+### Resource Monitoring
+
+```
+GET /api/resources/allocation
+    - Get detailed resource allocation tracking
+    - Query params: resource_type, timeframe
+
+GET /api/resources/usage-patterns
+    - Get resource usage patterns
+    - Query params: resource_type, start_time, end_time
+
+GET /api/resources/bottlenecks
+    - Get resource bottleneck identification
+    - Query params: analysis_period, threshold
+
+GET /api/resources/capacity
+    - Get system capacity metrics
+    - Query params: include_predictions
+
+GET /api/resources/realtime
+    - Stream real-time resource metrics
+    - Server-sent events endpoint
 ```
 
 ## 🔄 Real-time Updates Integration
